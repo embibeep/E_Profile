@@ -5,6 +5,7 @@ import Home from '../../components/Home/Home';
 import Company from '../../components/Company/Company';
 import User from '../../components/User/User';
 import Working from '../../components/Working/Working';
+import Login from '../../components/Login/Login';
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,12 +18,11 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Nav />
-          <img src={logo} className="App-logo" alt="logo" />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/news" element={<Working />} />
             <Route path="/company" element={<Company />} />
-            <Route path="/user" element={<User />} />
+            <Route path="/user" element={<Login />} />
             <Route path="/working" element={<Working />} />
           </Routes>
         </header>
