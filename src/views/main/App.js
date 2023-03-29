@@ -5,7 +5,8 @@ import Home from '../../components/Home/Home';
 import Company from '../../components/Company/Company';
 import User from '../../components/User/User';
 import Working from '../../components/Working/Working';
-import Login from '../../components/Login/Login';
+import Login from '../../components/Auth/Login';
+import path from '../../utils/constant.js';
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,11 +20,11 @@ function App() {
         <header className="App-header">
           <Nav />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/news" element={<Working />} />
-            <Route path="/company" element={<Company />} />
-            <Route path="/user" element={<Login />} />
-            <Route path="/working" element={<Working />} />
+            <Route path={path.HOME} element={<Home />} />
+            <Route path={path.WORKING} element={<Working />} />
+            <Route path={path.COMPANY} element={<Company />} />
+            <Route path={path.LOGIN} element={<Login />} />
+            <Route path={path.WORKING} element={<Working />} />
           </Routes>
         </header>
       </div>
