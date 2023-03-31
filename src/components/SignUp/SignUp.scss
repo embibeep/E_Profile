@@ -1,15 +1,5 @@
 
-
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-@font-face{
-    src: url(../../assets/fonts/ProductSansRegular.ttf);
-    font-family: product;
-}
-.container{
+.container-Signup{
     width: 30%;
     height: 50%;
     border: 1px solid #f1f2f3;
@@ -17,15 +7,15 @@
     border-radius: 10px;
 	text-align: center;
 	margin: auto;
-	margin-top: 10%;
+    margin-top: 3%;
 	color: white;
     font-family: product;
     color:grey;
     background-color: white;
 
-    .top_form{
+    .top-form{
         
-        .LHU_Logo{
+        .LHU-Logo{
             height: 80%;
             width: 50%;
             float: right;
@@ -33,9 +23,9 @@
           }
     }
 
-    .middle_form{
+    .middle-form{
         clear: right;
-        .text_login{
+        .text-login{
             font-size: 25px;
             padding-top: 10px;
             font-weight: 600;
@@ -47,7 +37,7 @@
         display: none;
       }
 
-        .textBox{
+        .text-Box{
             height: 54px; 
             width: 100%; 
             margin: 5px 0;
@@ -58,14 +48,25 @@
             
         }
         
-        .checkBox-Password{
+        .checkBox-Password-Signup{
             text-align: left;
-            .text-label{
+            .text-label-Signup{
                 font-size: 15px;
             }
         }
 
-        .btnSubmit{
+        .text-Signup-notice{
+            font-size: 15px;
+            text-align: left;
+            margin-top: 5px;
+            a{
+                color: orange;
+                text-decoration: none;
+
+            }
+        }
+
+        .btn-Submit{
             margin-top: 25px;
             height: 50px; 
             width: 200px;
@@ -79,9 +80,9 @@
         }     
     }
 
-    .bottom_form{
-        .bottom_form_bar{
-            margin-top: 40px;
+    .bottom-form{
+        .bottom-form-bar{
+            margin-top: 20px;
             list-style:none; 
             overflow: hidden;
 
@@ -90,19 +91,11 @@
                 list-style: none;
                 margin-right: 20px;
                 font-size: 15px;
+                float: left;
                 
                 a{
                     color: orange;
                     text-decoration: none;
-                }
-    
-                .btnSignUp{
-                    float: left;
-
-                }
-    
-                .btnForgotPassword{
-                    float: right;
                 }
             }
         }

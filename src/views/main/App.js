@@ -11,6 +11,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import SignUp from '../../components/SignUp/SignUp';
+import ResetPassword from '../../components/ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path={path.COMPANY} element={<Company />} />
             <Route path={path.LOGIN} element={<Login />} />
             <Route path={path.WORKING} element={<Working />} />
+            <Route path={path.SignUp} element={<SignUp />} />
+            <Route path={path.RESETPASS} element={<ResetPassword />} />
           </Routes>
         </header>
       </div>

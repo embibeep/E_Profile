@@ -1,6 +1,8 @@
 import React from "react";
 import "./Login.scss"
 import LHU_logo from "../../assets/images/Logo_LHU_Vi.png";
+import { redirect } from "react-router-dom";
+import path from "../../utils/constant";
 class Login extends React.Component {
 
     constructor(props) {
@@ -42,6 +44,7 @@ class Login extends React.Component {
         })
     }
 
+
     render() {
 
         return (
@@ -57,7 +60,7 @@ class Login extends React.Component {
                     <br />
                     <div className="checkBox-Password" >
                         <input type="checkbox" onClick={(event) => { this.handleShowPassword(event) }} />
-                        <label htmlFor="checkBox-Password"> Hiện Thị Mật Khẩu</label><br />
+                        <label htmlFor="checkBox-Password" className="text-label"> Hiện Thị Mật Khẩu</label><br />
                     </div>
                     <button className="btnSubmit" onClick={(event) => this.handleSubmit(event)}
                         type="submit">Đăng Nhập</button>
@@ -65,8 +68,8 @@ class Login extends React.Component {
                 <div className="bottom_form">
 
                     <div className="bottom_form_bar">
-                        <span className="btnSignUp">Bạn chưa có tài khoản?<a href="#">Đăng Ký Ngay</a> </span>
-                        <span className="btnForgotPassword"><a href="#">Quên Mật Khẩu?</a></span>
+                        <span className="btnSignUp">Bạn chưa có tài khoản?<a href={path.SignUp}>Đăng Ký Ngay</a> </span>
+                        <span className="btnForgotPassword"><a href={path.RESETPASS}>Quên Mật Khẩu?</a></span>
                     </div>
                 </div>
             </form>

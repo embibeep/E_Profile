@@ -4,7 +4,9 @@ const path = {
     NEWS: `/news`,
     COMPANY: `/company`,
     LOGIN: `/user`,
-    WORKING: `/working`
+    WORKING: `/working`,
+    SignUp: `/signUp`,
+    RESETPASS: `/reset-password`
 };
 
 export default path;
