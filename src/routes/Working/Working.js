@@ -1,10 +1,11 @@
 import React from "react";
-import SelectBasicExample from "./ControlBox";
-
+import SearchBar from "../../components/SearchBar/SearchBar.js";
 class Working extends React.Component {
     render() {
         return (
-            <SelectBasicExample />
+            <>
+                <SearchBar />
+            </>
         )
     }
 }

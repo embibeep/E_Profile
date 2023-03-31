@@ -1,0 +1,22 @@
+.search-container{
+    border: 1px solid red;
+    height: 30vh;
+    width: auto;
+    background-color: #1747fc;
+    .search-label{
+        margin-top: 20px;
+    }
+
+    .wrapper{
+        margin-top: 20px;
+        .search-wrapper{
+            .search-input{
+                width: 40%;
+                height: 40px;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding-left: 10px;
+            }
+        }
+    }
+}

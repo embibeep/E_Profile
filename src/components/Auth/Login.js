@@ -33,6 +33,7 @@ class Login extends React.Component {
             return;
         }
         alert('Nhập thành công!')
+        console.log(`username: `, this.state.username, `, password: `, this.state.password)
     }
 
     handleShowPassword = (event) => {
@@ -46,7 +47,7 @@ class Login extends React.Component {
         return (
             <form className="container">
                 <div className="top_form">
-                    <img className="LHU_Logo" src={LHU_logo} />
+                    <img className="LHU_Logo" src={LHU_logo} alt="" />
                 </div>
                 <div className="middle_form">
                     <div className="text_login" >Lac Hong University E-Profile</div>

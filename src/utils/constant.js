@@ -1,7 +1,7 @@
 
 const path = {
     HOME: "/",
-    NEWS: `news`,
+    NEWS: `/news`,
     COMPANY: `/company`,
     LOGIN: `/user`,
     WORKING: `/working`
