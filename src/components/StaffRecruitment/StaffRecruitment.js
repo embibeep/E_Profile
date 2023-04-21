@@ -1,50 +1,82 @@
 import React from "react";
-import Paimon from "../../assets/images/Paimon_Boy.jpg"
-
+import "./StaffRecruitment.scss"
+import { withRouter } from "react-router-dom"
+import axios from "axios";
+import { getStaffPost } from "../../services/userService";
 class StaffRecruitment extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-
-
+            staffrp: []
         }
     }
+
+    async componentDidMount() {
+        let res = await getStaffPost('');
+        // console.log(`Check res: `, res)
+        if (res) {
+            this.setState({
+                staffrp: res.data
+            })
+            // console.log('check nhan data chua: ', this.state)
+        }
+
+        // handleBackButton = () => {
+        //     this.props.history.push(`/user`)
+        // }
+
+    }
     render() {
+        console.log('check render: ', this.state)
+        let arrStaff = this.state.staffrp;
+        // console.log("CHeck arrStaff: ", arrStaff)
         return (
             <>
-                <div className="staff-recruit-table">
-                    <div className="staff-recruit-table top-content">
-                        <div className="staff-recruit-table top-content avatar">
-                            <img src={Paimon} alt=""></img>
-                        </div>
-                        <div className="staff-recruit-table top-content content-info">
-                            <h2 className="staff-recruit-table top-content content-info job-name">tên công việc</h2>
-                            <p className="staff-recruit-table top-content content-info company-name">tên công ty</p>
-                        </div>
-                    </div>
+                <h1>A Fancy Table</h1>
+                {arrStaff && arrStaff.map((item, index) => {
+                    console.log("check map: ", item, index)
+                    return (
+                        <>
+                            <div className="staff-recruit-table">
+                                {/*các class được viết tắt theo tên class cha */}
+                                <div className="srt-top-content">
+                                    <div className="srttc-content-info">
+                                        <h2 className="srttcci-job-name">{item.job_name}</h2>
+                                        <p className="srttcci-company-name">{item.company_code}</p>
+                                    </div>
+                                </div>
 
-                    <div className="staff-recruit-table main-content">
-                        <div className="staff-recruit-table main-content content-date">
-                            <p className="staff-recruit-table main-content content-date date-posted">ngày đăng</p>
-                            <p className="staff-recruit-table main-content content-date expired-date">ngày hết hạn</p>
-                        </div>
+                                <div className="srt-main-content">
+                                    <div className="srtmc-content-date">
+                                        <p className="srtmccd-date-posted">{item.date_posted}</p>
+                                        <p className="srtmccd-expired-date">{item.date_Expired}</p>
+                                    </div>
 
-                        <div className="staff-recruit-table main-content ">
-                            <p className="staff-recruit-table main-content job-salary">
-                                <span>lương thấp - lương cao</span>
-                            </p>
-                            <p className="staff-recruit-table main-content job-exp">kinh nghiệm</p>
-                            <p className="staff-recruit-table main-content job-location">vị trí công việc</p>
-                        </div>
-                    </div>
-                    <div className="staff-recruit-table sub-content">
-                        <button className="staff-recruit-table sub-content staff-recruit-save">
-                            lưu
-                        </button>
-                    </div>
-                </div>
+                                    <div className="srtmc-content-info">
+                                        <p className="srtmcci-job-salary">
+                                            <span>{item.min_salary} - {item.max_salary}</span>
+                                        </p>
+                                        <p className="srtmcci-job-exp">{item.job_exp}</p>
+                                        <p className="srtmcci-job-location">{item.position}</p>
+                                    </div>
+                                </div>
+                                <div className="srt-sub-content">
+                                    <button className="srtsc-staff-recruit-save">
+                                        lưu
+                                    </button>
+                                </div>
+                            </div>
+                        </>
+                    )
+
+                }
+
+
+                )}
+
+
             </>
         )
     }

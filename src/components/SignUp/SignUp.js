@@ -2,6 +2,7 @@ import React from "react";
 import './SignUp.scss';
 import LHU_logo from "../../assets/images/Logo_LHU_Vi.png";
 import path from "../../utils/constant";
+import Form from 'react-bootstrap/Form';
 
 class SignUp extends React.Component {
 
@@ -9,6 +10,7 @@ class SignUp extends React.Component {
         super(props);
 
         this.state = {
+            userType: ``,
             peoplename: ``,
             username: ``,
             password: ``,
@@ -16,6 +18,15 @@ class SignUp extends React.Component {
             isShowPassword: false
 
         }
+    }
+
+    handleChangeUserType = (event) => {
+        this.setState({
+            userType: event.target.value
+        }, () => {
+            console.log(`check user type: `, this.state.userType)
+        })
+
     }
 
     handleChangePeoplename = (event) => {
@@ -45,13 +56,15 @@ class SignUp extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        if (!this.state.peoplename || !this.state.username || !this.state.password || !this.state.checkpassword) {
+
+        if (!this.state.userType || !this.state.peoplename || !this.state.username || !this.state.password || !this.state.checkpassword) {
             alert(`Nhập đầy đủ dữ liệu!`)
             return;
         }
         if (this.state.password === this.state.checkpassword) {
             alert('Nhập thành công!')
-            console.log(`name: `, this.state.peoplename,
+            console.log(`id: `, this.state.userType,
+                `name: `, this.state.peoplename,
                 `, username: `, this.state.username,
                 `, password: `, this.state.password,
                 `, checkpassword: `, this.state.checkpassword)
@@ -76,6 +89,11 @@ class SignUp extends React.Component {
                 </div>
                 <div className="middle-form">
                     <div className="text-login" >Lac Hong University E-Profile</div>
+                    <Form.Select onChange={(event) => this.handleChangeUserType(event)} className="text-Box">
+                        <option disabled selected value>Chọn loại tài khoản</option>
+                        <option value="sv">Sinh Viên</option>
+                        <option value="dn">Doanh Nghiệp</option>
+                    </Form.Select>
                     <input onChange={(event) => this.handleChangePeoplename(event)} className="text-Box" type="text" placeholder="Nhập Họ Tên Của Bạn" /><br />
                     <input onChange={(event) => this.handleChangeUsername(event)} className="text-Box" type="text" placeholder="Nhập Email Của Bạn" /><br />
                     <input onChange={(event) => this.handleChangePassword(event)} className="text-Box" type={this.state.isShowPassword ? "text" : "password"}

@@ -1,0 +1,29 @@
+<div className="staff-recruit-table">
+                    {/*các class được viết tắt theo tên class cha */}
+                    <div className="srt-top-content">
+                        <div className="srttc-content-info">
+                            <h2 className="srttcci-job-name">{staffrp.job_name}</h2>
+                            <p className="srttcci-company-name">{staffrp.company_code}</p>
+                        </div>
+                    </div>
+
+                    <div className="srt-main-content">
+                        <div className="srtmc-content-date">
+                            <p className="srtmccd-date-posted">{staffrp.date_posted}</p>
+                            <p className="srtmccd-expired-date">{staffrp.date_Expired}</p>
+                        </div>
+
+                        <div className="srtmc-content-info">
+                            <p className="srtmcci-job-salary">
+                                <span>{staffrp.min_salary} - {staffrp.max_salary}</span>
+                            </p>
+                            <p className="srtmcci-job-exp">{staffrp.job_exp}</p>
+                            <p className="srtmcci-job-location">{staffrp.position}</p>
+                        </div>
+                    </div>
+                    <div className="srt-sub-content">
+                        <button className="srtsc-staff-recruit-save">
+                            lưu
+                        </button>
+                    </div>
+                </div>

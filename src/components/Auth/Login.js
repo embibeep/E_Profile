@@ -1,8 +1,9 @@
 import React from "react";
 import "./Login.scss"
 import LHU_logo from "../../assets/images/Logo_LHU_Vi.png";
-import { redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import path from "../../utils/constant";
+import { handleLoginApi } from "../../services/userService";
 class Login extends React.Component {
 
     constructor(props) {
@@ -28,13 +29,16 @@ class Login extends React.Component {
         })
     }
 
-    handleSubmit = (event) => {
+    handleLogin = async (event) => {
         event.preventDefault()
         if (!this.state.username || !this.state.password) {
             alert(`Nhập đầy đủ dữ liệu!`)
             return;
+        } else {
+            alert('Nhập thành công!')
+            { <Navigate to="/news" /> }
         }
-        alert('Nhập thành công!')
+
         console.log(`username: `, this.state.username, `, password: `, this.state.password)
     }
 
@@ -62,7 +66,7 @@ class Login extends React.Component {
                         <input type="checkbox" onClick={(event) => { this.handleShowPassword(event) }} />
                         <label htmlFor="checkBox-Password" className="text-label"> Hiện Thị Mật Khẩu</label><br />
                     </div>
-                    <button className="btnSubmit" onClick={(event) => this.handleSubmit(event)}
+                    <button className="btnSubmit" onClick={(event) => this.handleLogin(event)}
                         type="submit">Đăng Nhập</button>
                 </div>
                 <div className="bottom_form">

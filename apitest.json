@@ -1,0 +1,44 @@
+{
+  "LoginAuth": [
+    {
+      "username": "nam",
+      "password": "654321",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "username": "huy",
+      "password": "123456"
+    }
+  ],
+  "StaffRecruitPost": [
+    {
+      "id": "1",
+      "company_code": "CT01",
+      "job_code": "CN01",
+      "job_name": "Frond-End",
+      "position": "Developer",
+      "min_salary": "7",
+      "max_salary": "15",
+      "ghichu": "",
+      "date_posted": "10/3/2022",
+      "date_Expired": "20/3/2022",
+      "job_exp": "3",
+      "staff_count": "5"
+    },
+    {
+      "id": "2",
+      "company_code": "CT02",
+      "job_code": "CN02",
+      "job_name": "Back-End",
+      "position": "Developer",
+      "min_salary": "10",
+      "max_salary": "12",
+      "ghichu": "",
+      "date_posted": "13/3/2022",
+      "date_Expired": "25/3/2022",
+      "job_exp": "5",
+      "staff_count": "2"
+    }
+  ]
+}
