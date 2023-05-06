@@ -1,12 +1,31 @@
 .topnav {
     background-color: white;
     overflow: hidden;
+    padding-bottom: 8px;
 
     .LHU_Logo{
       height: 30px;
       width: 20vmin;
       margin-top: -10px;
     }
+
+    .profile_logo_1{
+      height: 35px;
+      width: 35px;
+      float: right;
+      margin: 15px 15px 0 0;
+      border: solid orange 1px;
+      border-radius: 100px;
+      margin-right: 20px;
+      margin-left: 7px;
+    }
+    .profile_logo{
+      height: 35px;
+      width: 35px;
+      float: right;
+      margin: 15px 15px 0 10px;
+    }
+    
  /* Style the links inside the navigation bar */
     a {
       float: left;

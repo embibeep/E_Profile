@@ -34,7 +34,8 @@ class StaffRecruitment extends React.Component {
         // console.log("CHeck arrStaff: ", arrStaff)
         return (
             <>
-                <h1>A Fancy Table</h1>
+                {/* <h1>A Fancy Table</h1> */}
+
                 {arrStaff && arrStaff.map((item, index) => {
                     console.log("check map: ", item, index)
                     return (
@@ -75,6 +76,7 @@ class StaffRecruitment extends React.Component {
 
 
                 )}
+
 
 
             </>

@@ -4,15 +4,10 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                hello
+                hellooo
             </div>
         )
 
-        // const { isLoggedIn } = this.props;
-        // let linkToRedirect = isLoggedIn ? '/working' : '/user';
-        // return (
-        //     <Navigate to={linkToRedirect} />
-        // )
     }
 }
 
