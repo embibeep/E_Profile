@@ -1,7 +1,12 @@
+
 .topnav {
     background-color: white;
     overflow: hidden;
     padding-bottom: 8px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 1px 1px rgb(197, 197, 197);
 
     .LHU_Logo{
       height: 30px;
