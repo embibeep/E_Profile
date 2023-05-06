@@ -29,23 +29,34 @@ class ResetPassword extends React.Component {
 
     render() {
         return (
-            <form className="container-rspass">
-                <div className="top-form-rspass">
-                    <img className="LHU-Logo-rspass" src={LHU_logo} alt="" />
-                </div>
-                <div className="middle-form-rspass">
-                    <div className="text-login-rspass" >Lac Hong University E-Profile</div>
-                    <input onChange={(event) => this.handleChangeUsername(event)} className="textBox-rspass" type="text" placeholder="Nhập Email Của Bạn" /><br />
-                    <button className="btnReset" onClick={(event) => this.handleSubmit(event)}
-                        type="submit">Reset Password</button>
-                </div>
-                <div className="bottom-form-rspass">
+            <>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
 
-                    <div className="bottom-form-bar-rspass">
+
+                <form className="container-rspass">
+                    <div className="left-img">
 
                     </div>
-                </div>
-            </form>
+                    <div className="right-resetpass">
+                        <div className="top-form-rspass">
+                            <img className="LHU-Logo-rspass" src={LHU_logo} alt="" />
+                        </div>
+                        <div className="middle-form-rspass">
+                            <div className="text-login-rspass" >Lac Hong University E-Profile</div>
+                            <input onChange={(event) => this.handleChangeUsername(event)} className="textBox-rspass" type="text" placeholder="Nhập Email Của Bạn" /><br />
+                            <button className="btnReset" onClick={(event) => this.handleSubmit(event)}
+                                type="submit">Reset Password</button>
+                        </div>
+                        <div className="bottom-form-rspass">
+
+                            <div className="bottom-form-bar-rspass">
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </>
         )
     }
 }

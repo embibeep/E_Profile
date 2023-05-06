@@ -4,6 +4,7 @@ import StaffRecruitment from "../../components/StaffRecruitment/StaffRecruitment
 import "./working.scss"
 import profileIcon from "../../assets/images/profileIcon.png"
 import iconFollow from "../../assets/images/iconFollow.png"
+import Footer from "../../components/Footer/footer.js";
 import bootstrap from "bootstrap";
 
 class Working extends React.Component {
@@ -247,8 +248,208 @@ class Working extends React.Component {
 
                     </div>
 
+                    <div className="title-tuyenNV">
+                        <p className="left">Tuyển thực tập sinh</p>
+                        <p className="right">>></p>
+                    </div>
+                    <div className="tuyenNV row justify-content-center">
 
+                        {/* danh sách tuyển dụng */}
+                        <div className="jobItem col-4">
+
+                            <div className="Top-Job">
+                                <div className="icon">
+                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                                </div>
+                                <div className="Top-Left">
+                                    <div className="nameJob">
+                                        SoftWare Engineer
+                                    </div>
+                                    <div className="nameCompany">
+                                        công ty TNHH ...
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="Bot-job">
+                                <div className="item">
+                                    từ 15 - 16 triệu VNĐ
+                                </div>
+                                <div className="item">
+                                    Kinh nghiệm từ 2 năm
+                                </div>
+                                <div className="item">
+                                    Quận Thủ Đức, thành phố Hồ Chí Minh
+                                </div>
+
+                                <div className="iconFollow">
+                                    <img className="icon" src={iconFollow} alt="icon follow" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="jobItem col-4">
+
+                            <div className="Top-Job">
+                                <div className="icon">
+                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                                </div>
+                                <div className="Top-Left">
+                                    <div className="nameJob">
+                                        SoftWare Engineer
+                                    </div>
+                                    <div className="nameCompany">
+                                        công ty TNHH ...
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="Bot-job">
+                                <div className="item">
+                                    từ 15 - 16 triệu VNĐ
+                                </div>
+                                <div className="item">
+                                    Kinh nghiệm từ 2 năm
+                                </div>
+                                <div className="item">
+                                    Quận Thủ Đức, thành phố Hồ Chí Minh
+                                </div>
+
+                                <div className="iconFollow">
+                                    <img className="icon" src={iconFollow} alt="icon follow" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="jobItem col-4">
+
+                            <div className="Top-Job">
+                                <div className="icon">
+                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                                </div>
+                                <div className="Top-Left">
+                                    <div className="nameJob">
+                                        SoftWare Engineer
+                                    </div>
+                                    <div className="nameCompany">
+                                        công ty TNHH ...
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="Bot-job">
+                                <div className="item">
+                                    từ 15 - 16 triệu VNĐ
+                                </div>
+                                <div className="item">
+                                    Kinh nghiệm từ 2 năm
+                                </div>
+                                <div className="item">
+                                    Quận Thủ Đức, thành phố Hồ Chí Minh
+                                </div>
+
+                                <div className="iconFollow">
+                                    <img className="icon" src={iconFollow} alt="icon follow" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="jobItem col-4">
+
+                            <div className="Top-Job">
+                                <div className="icon">
+                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                                </div>
+                                <div className="Top-Left">
+                                    <div className="nameJob">
+                                        SoftWare Engineer
+                                    </div>
+                                    <div className="nameCompany">
+                                        công ty TNHH ...
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="Bot-job">
+                                <div className="item">
+                                    từ 15 - 16 triệu VNĐ
+                                </div>
+                                <div className="item">
+                                    Kinh nghiệm từ 2 năm
+                                </div>
+                                <div className="item">
+                                    Quận Thủ Đức, thành phố Hồ Chí Minh
+                                </div>
+
+                                <div className="iconFollow">
+                                    <img className="icon" src={iconFollow} alt="icon follow" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="jobItem col-4">
+
+                            <div className="Top-Job">
+                                <div className="icon">
+                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                                </div>
+                                <div className="Top-Left">
+                                    <div className="nameJob">
+                                        SoftWare Engineer
+                                    </div>
+                                    <div className="nameCompany">
+                                        công ty TNHH ...
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="Bot-job">
+                                <div className="item">
+                                    từ 15 - 16 triệu VNĐ
+                                </div>
+                                <div className="item">
+                                    Kinh nghiệm từ 2 năm
+                                </div>
+                                <div className="item">
+                                    Quận Thủ Đức, thành phố Hồ Chí Minh
+                                </div>
+
+                                <div className="iconFollow">
+                                    <img className="icon" src={iconFollow} alt="icon follow" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="jobItem col-4">
+
+                            <div className="Top-Job">
+                                <div className="icon">
+                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                                </div>
+                                <div className="Top-Left">
+                                    <div className="nameJob">
+                                        SoftWare Engineer
+                                    </div>
+                                    <div className="nameCompany">
+                                        công ty TNHH ...
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="Bot-job">
+                                <div className="item">
+                                    từ 15 - 16 triệu VNĐ
+                                </div>
+                                <div className="item">
+                                    Kinh nghiệm từ 2 năm
+                                </div>
+                                <div className="item">
+                                    Quận Thủ Đức, thành phố Hồ Chí Minh
+                                </div>
+
+                                <div className="iconFollow">
+                                    <img className="icon" src={iconFollow} alt="icon follow" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <Footer />
             </>
         )
     }

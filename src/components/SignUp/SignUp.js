@@ -83,44 +83,56 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <form className="container-Signup">
-                <div className="top-form">
-                    <img className="LHU-Logo" src={LHU_logo} alt="" />
-                </div>
-                <div className="middle-form">
-                    <div className="text-login" >Lac Hong University E-Profile</div>
-                    <Form.Select onChange={(event) => this.handleChangeUserType(event)} className="text-Box">
-                        <option disabled selected value>Chọn loại tài khoản</option>
-                        <option value="sv">Sinh Viên</option>
-                        <option value="dn">Doanh Nghiệp</option>
-                    </Form.Select>
-                    <input onChange={(event) => this.handleChangePeoplename(event)} className="text-Box" type="text" placeholder="Nhập Họ Tên Của Bạn" /><br />
-                    <input onChange={(event) => this.handleChangeUsername(event)} className="text-Box" type="text" placeholder="Nhập Email Của Bạn" /><br />
-                    <input onChange={(event) => this.handleChangePassword(event)} className="text-Box" type={this.state.isShowPassword ? "text" : "password"}
-                        placeholder="Nhập Mật Khẩu" />
-                    <br />
-                    <input onChange={(event) => this.handleCheckPassword(event)} className="text-Box" type={this.state.isShowPassword ? "text" : "password"}
-                        placeholder="Nhập Lại Mật Khẩu" />
-                    <br />
+            <>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
 
-                    <div className="checkBox-Password-Signup" >
-                        <input type="checkbox" onClick={(event) => { this.handleShowPassword(event) }} />
-                        <label htmlFor="checkBox-Password" className="text-label-Signup"> Hiện Thị Mật Khẩu</label><br />
+                <form className="container-Signup">
+                    <div className="left-img">
+
                     </div>
 
-                    <div className="text-Signup-notice">
-                        <p>Bằng việc đăng ký tài khoản, bạn đã đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">chính sách bảo mật</a> của chúng tôi</p>
-                    </div>
-                    <button className="btn-Submit" onClick={(event) => this.handleSubmit(event)}
-                        type="submit">Đăng Ký</button>
-                </div>
-                <div className="bottom-form">
+                    <div className="right-signup">
+                        <div className="top-form">
+                            <img className="LHU-Logo" src={LHU_logo} alt="" />
+                        </div>
+                        <div className="middle-form">
+                            {/* <div className="text-login" >Lac Hong University E-Profile</div> */}
+                            <Form.Select onChange={(event) => this.handleChangeUserType(event)} className="list-Box">
+                                <option disabled selected value>Chọn loại tài khoản</option>
+                                <option value="sv">Sinh Viên</option>
+                                <option value="dn">Doanh Nghiệp</option>
+                            </Form.Select>
+                            <input onChange={(event) => this.handleChangePeoplename(event)} className="text-Box" type="text" placeholder="Nhập Họ Tên Của Bạn" /><br />
+                            <input onChange={(event) => this.handleChangeUsername(event)} className="text-Box" type="text" placeholder="Nhập Email Của Bạn" /><br />
+                            <input onChange={(event) => this.handleChangePassword(event)} className="text-Box" type={this.state.isShowPassword ? "text" : "password"}
+                                placeholder="Nhập Mật Khẩu" />
+                            <br />
+                            <input onChange={(event) => this.handleCheckPassword(event)} className="text-Box" type={this.state.isShowPassword ? "text" : "password"}
+                                placeholder="Nhập Lại Mật Khẩu" />
+                            <br />
 
-                    <div className="bottom-form-bar">
-                        <span>Bạn đã có tài khoản?<a href={path.LOGIN}>Đăng Nhập Ngay</a> </span>
+                            <div className="checkBox-Password-Signup" >
+                                <input type="checkbox" onClick={(event) => { this.handleShowPassword(event) }} />
+                                <label htmlFor="checkBox-Password" className="text-label-Signup"> Hiện Thị Mật Khẩu</label><br />
+                            </div>
+
+                            <div className="text-Signup-notice">
+                                <span>Bạn đã có tài khoản?<a href={path.LOGIN}>Đăng Nhập Ngay</a> </span>
+                                {/* <p>Bằng việc đăng ký tài khoản, bạn đã đồng ý với <a href="#">Điều khoản dịch vụ</a> và  <a href="#">chính sách bảo mật</a> của chúng tôi</p> */}
+                            </div>
+                            <button className="btn-Submit" onClick={(event) => this.handleSubmit(event)}
+                                type="submit">Đăng Ký</button>
+                        </div>
+                        <div className="bottom-form">
+
+                            <div className="bottom-form-bar">
+                                {/* <span>Bạn đã có tài khoản?<a href={path.LOGIN}>Đăng Nhập Ngay</a> </span> */}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </form>
+
+                </form>
+            </>
         )
     }
 }

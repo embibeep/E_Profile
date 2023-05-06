@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.list-company{
+    
+    background-color: white;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .company-item{
+        border: solid #d8d5d5 1px;
+        border-radius: 5px;
+        padding: 0;
+        height: 400px;
+        width: 40%;
+        margin: 10px;
+        box-shadow: 1px 1px #f0ecec;
+
+        .banner{
+            background-image: url(../../assets/images/lachongImg.jpg);
+            height: 110px;
+            width: 100%;
+            background-repeat: no-repeat;
+            border-radius: 5px;
+        }
+
+        .title{
+            height: 55px;
+            display: flex;
+            margin-top: -55px;
+            margin-left: 10px;
+            
+            .avt{
+                background-image: url("../../assets/images/lachongImg.jpg");
+                height: 100px;
+                width: 100px;
+                border: solid orange 2px;
+                border-radius: 100%;
+                background-repeat: no-repeat;
+            }
+
+            .name{
+                padding-top: 70px;
+                margin-left: 10px;
+                font-weight: bold;
+                font-size: 20px;
+                color: black;
+                
+            }
+        }
+
+        .under-border{
+            height: 1px;
+            margin-left: 20px;
+            margin-right: 60px;
+            background-color: rgb(202, 202, 202);
+            margin-top: 50px;
+        }
+        .decoration{
+            color: black;
+            font-size: 15px;
+            padding: 20px;
+            text-align: justify;
+        }
+    }
+}

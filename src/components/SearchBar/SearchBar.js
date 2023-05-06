@@ -25,9 +25,9 @@ class SearchBar extends React.Component {
                             </label>
                         </div>
                         <div className="dexuat">
+                            {/* <span class="dexuat-content">SoftWare Engineer</span>
                             <span class="dexuat-content">SoftWare Engineer</span>
-                            <span class="dexuat-content">SoftWare Engineer</span>
-                            <span class="dexuat-content">SoftWare Engineer</span>
+                            <span class="dexuat-content">SoftWare Engineer</span> */}
                         </div>
 
                     </div>

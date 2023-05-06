@@ -1,6 +1,5 @@
 import React from "react";
 import LHU_logo from "../../assets/images/Logo_LHU_Vi.png";
-import logo192 from "../../assets/images/logo192.png";
 import profileIcon from "../../assets/images/profileIcon.png";
 import messageIcon from "../../assets/images/messageIcon.png";
 import notificationIcon from "../../assets/images/notificationIcon.png";
@@ -16,7 +15,7 @@ class Nav extends React.Component {
             <>
 
                 <div className="topnav">
-                    <NavLink to={path.HOME} activeclassname="active" exact="true">
+                    <NavLink to={path.WORKING} activeclassname="active" exact="true">
                         <img className="LHU_Logo" src={LHU_logo} alt="Đại học Lạc Hồng" />
                     </NavLink>
 
@@ -24,6 +23,9 @@ class Nav extends React.Component {
                     Bản Tin
                 </NavLink> */}
 
+                    <NavLink to={path.WORKING} activeclassname="active">
+                        Việc Làm
+                    </NavLink>
                     <NavLink to={path.COMPANY} activeclassname="active">
                         Công Ty
                     </NavLink>
@@ -31,9 +33,7 @@ class Nav extends React.Component {
                     <NavLink to={path.LOGIN} activeclassname="active">
                         Hồ Sơ
                     </NavLink>
-                    <NavLink to={path.WORKING} activeclassname="active">
-                        Việc Làm
-                    </NavLink>
+
                     <div>
                         <img className="profile_logo_1" src={profileIcon} alt="profile" />
                     </div>
