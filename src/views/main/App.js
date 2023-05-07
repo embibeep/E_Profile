@@ -24,6 +24,7 @@ function App() {
             <Route path={path.HOME} element={<Home />} />
             <Route path={path.NEWS} element={<Working />} />
             <Route path={path.COMPANY} element={<Company />} />
+            <Route path={path.USER} element={<User />} />
             <Route path={path.LOGIN} element={<Login />} />
             <Route path={path.WORKING} element={<Working />} />
             <Route path={path.SignUp} element={<SignUp />} />

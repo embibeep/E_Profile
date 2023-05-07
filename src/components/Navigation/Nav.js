@@ -30,8 +30,12 @@ class Nav extends React.Component {
                         Công Ty
                     </NavLink>
 
-                    <NavLink to={path.LOGIN} activeclassname="active">
+                    <NavLink to={path.USER} activeclassname="active">
                         Hồ Sơ
+                    </NavLink>
+
+                    <NavLink to={path.LOGIN} activeclassname="active">
+                        Đăng Nhập
                     </NavLink>
 
                     <div>

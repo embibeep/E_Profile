@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-users{
+    margin-top: 100px;
+    border: 1px solid red;
+    background-color: gray;
+    .list-student{
+        background-color: white;
+        width: 90%;
+        margin:50px auto;
+
+    
+        .left-student-item{
+            // border: solid #d8d5d5 1px;
+            border-radius: 5px;
+            padding: 0;
+            height: auto;
+            width: 50%;
+            margin: 10px;
+            // box-shadow: 1px 1px #f0ecec;
+    
+            .st-title{
+                margin-left: 10px;
+                
+                .st-avt{
+                    background-image: url("../../assets/images/lachongImg.jpg");
+                    height: 200px;
+                    width: 200px;
+                    border: solid orange 2px;
+                    border-radius: 100%;
+                    background-repeat: no-repeat;
+                }
+    
+                .st-name{
+                    padding-top: 20px;
+                    margin-left: 10px;
+                    font-weight: bold;
+                    font-size: 40px;
+                    color: black;
+                    text-align: left;
+                }
+            }
+
+            .st-category{
+                color: blue;
+                font-size: 25px;
+                padding: 10px;
+                padding-left: 20px;
+                text-align: justify;
+            }
+    
+            // .st-under-border{
+            //     height: 1px;
+            //     margin-left: 20px;
+            //     margin-right: 60px;
+            //     background-color: rgb(202, 202, 202);
+            //     margin-top: 50px;
+            // }
+            .st-decoration{
+                color: black;
+                font-size: 15px;
+                padding: 0 20px;
+                text-align: justify;
+            }
+        }
+
+        .right-student-item{
+            border: solid #d8d5d5 1px;
+            border-radius: 5px;
+            padding: 0;
+            height: auto;
+            width: 40%;
+            margin: 10px;
+            box-shadow: 1px 1px #f0ecec;
+            background-color: #e0e0d1;
+    
+            .st-title{
+                margin-left: 10px;
+                
+                .st-avt{
+                    background-image: url("../../assets/images/lachongImg.jpg");
+                    height: 200px;
+                    width: 200px;
+                    border: solid orange 2px;
+                    border-radius: 100%;
+                    background-repeat: no-repeat;
+                }
+    
+                .st-name{
+                    padding-top: 20px;
+                    margin-left: 10px;
+                    font-weight: bold;
+                    font-size: 40px;
+                    color: black;
+                    text-align: left;
+                }
+                
+            }
+
+            .st-category{
+                color: blue;
+                font-size: 25px;
+                padding: 10px;
+                padding-left: 20px;
+                text-align: justify;
+            }
+            .str-decoration{
+                color: black;
+                font-size: 20px;
+                padding: 5px 20px;
+                text-align: justify;
+                .str-title{
+                    font-weight: bold;
+                }
+            }
+
+            .st-decoration{
+                color: black;
+                font-size: 15px;
+                padding: 0 20px;
+                text-align: justify;
+            }
+            .btn-Print-CV{
+                border: 1px solid white;
+                width: 50px;
+                height: 30px;
+                border-radius: 10px;
+                background-color: blue;
+                color: black;
+                float: right;
+            }
+        }
+    }
+}

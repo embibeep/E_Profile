@@ -45,7 +45,7 @@ class Working extends React.Component {
                     {/* /////////////////////////////////////////////////////////// */}
                     <div className="title-tuyenNV">
                         <p className="left">Tuyển nhân viên</p>
-                        <p className="right">>></p>
+                        <p className="right">&gt;&gt;</p>
                     </div>
                     <div className="tuyenNV row justify-content-center">
 
