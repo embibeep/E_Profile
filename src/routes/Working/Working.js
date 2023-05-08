@@ -6,6 +6,8 @@ import profileIcon from "../../assets/images/profileIcon.png"
 import iconFollow from "../../assets/images/iconFollow.png"
 import Footer from "../../components/Footer/footer.js";
 import bootstrap from "bootstrap";
+import { Link } from "react-router-dom";
+import path from "../../utils/constant.js";
 
 class Working extends React.Component {
     render() {
@@ -41,6 +43,7 @@ class Working extends React.Component {
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                         </select>
+                        <Link to={path.STAFFREC} className="select">Đăng bài tuyển</Link>
                     </div>
                     {/* /////////////////////////////////////////////////////////// */}
                     <div className="title-tuyenNV">

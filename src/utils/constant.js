@@ -7,7 +7,8 @@ const path = {
     WORKING: `/working`,
     SignUp: `/signUp`,
     RESETPASS: `/reset-password`,
-    USER: `/user`
+    USER: `/user`,
+    STAFFREC: `/staff-recruitments`
 };
 
 export default path;

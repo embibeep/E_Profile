@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import SignUp from '../../components/SignUp/SignUp';
 import ResetPassword from '../../components/ResetPassword/ResetPassword';
+import RecruitPost from '../../components/RecruitmentPost/RecruitmentPost';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path={path.WORKING} element={<Working />} />
             <Route path={path.SignUp} element={<SignUp />} />
             <Route path={path.RESETPASS} element={<ResetPassword />} />
+            <Route path={path.STAFFREC} element={<RecruitPost />} />
           </Routes>
         </header>
       </div>
