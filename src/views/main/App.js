@@ -1,6 +1,5 @@
 import './App.scss';
 import Nav from '../../components/Navigation/Nav.js';
-import Home from '../../routes/Home/Home';
 import Company from '../../routes/Company/Company';
 import Working from "../../routes/Working/Working";
 import User from "../../routes/User/User";
@@ -22,8 +21,7 @@ function App() {
         <header className="App-header">
           <Nav />
           <Routes>
-            <Route path={path.HOME} element={<Home />} />
-            <Route path={path.NEWS} element={<Working />} />
+            <Route path={path.HOME} element={<Working />} />
             <Route path={path.COMPANY} element={<Company />} />
             <Route path={path.USER} element={<User />} />
             <Route path={path.LOGIN} element={<Login />} />

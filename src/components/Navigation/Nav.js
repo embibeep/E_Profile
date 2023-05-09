@@ -15,7 +15,7 @@ class Nav extends React.Component {
             <>
 
                 <div className="topnav">
-                    <NavLink to={path.WORKING} activeclassname="active" exact="true">
+                    <NavLink to={path.HOME} activeclassname="active" exact="true">
                         <img className="LHU_Logo" src={LHU_logo} alt="Đại học Lạc Hồng" />
                     </NavLink>
 
