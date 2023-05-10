@@ -13,6 +13,7 @@ import {
 import SignUp from '../../components/SignUp/SignUp';
 import ResetPassword from '../../components/ResetPassword/ResetPassword';
 import RecruitPost from '../../components/RecruitmentPost/RecruitmentPost';
+import Posts from '../../components/Posts/Posts';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path={path.SignUp} element={<SignUp />} />
             <Route path={path.RESETPASS} element={<ResetPassword />} />
             <Route path={path.STAFFREC} element={<RecruitPost />} />
+            <Route path={path.POSTS} element={<Posts />} />
           </Routes>
         </header>
       </div>

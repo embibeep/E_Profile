@@ -81,7 +81,9 @@ class Working extends React.Component {
                                 </div>
 
                                 <div className="iconFollow">
-                                    <img className="icon" src={iconFollow} alt="icon follow" />
+                                    <Link to={path.POSTS}>
+                                        <img className="icon" src={iconFollow} alt="icon follow" />
+                                    </Link>
                                 </div>
                             </div>
                         </div>

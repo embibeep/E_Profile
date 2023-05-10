@@ -7,13 +7,9 @@ class RecruitPost extends React.Component {
     render() {
         return (
             <>
-
-
-
                 <div className="container-recruit">
                     <div className="list-recruit row justify-content-center">
 
-                        {/* danh sách tuyển thực tập sinh */}
                         <div className="recruit-item col-6">
 
                             <div className="rec-banner">
@@ -27,8 +23,9 @@ class RecruitPost extends React.Component {
                                 </div>
                             </div>
                             <div className="rec-jobname">
-                                NHẬP TÊN CÔNG VIỆC
+                                NHẬP TÊN CÔNG TY
                             </div>
+
                             <div className="left-recinfo col-6">
                                 <div className="rec-category">
                                     Mức lương

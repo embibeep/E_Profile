@@ -1,6 +1,5 @@
 import React from "react";
 import SearchBar from "../../components/SearchBar/SearchBar.js";
-import Posts from "../../components/Posts/Posts.js";
 import "./Company.scss"
 import Footer from "../../components/Footer/footer.js"
 
