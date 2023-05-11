@@ -1,8 +1,8 @@
 import React from "react";
-import './User.scss';
-import Footer from "../../components/Footer/footer";
+import './St-User.scss';
+import Footer from "../../../components/Footer/footer";
 
-class User extends React.Component {
+class StUser extends React.Component {
     render() {
         return (
             <>
@@ -103,4 +103,4 @@ class User extends React.Component {
     }
 }
 
-export default User;
+export default StUser;

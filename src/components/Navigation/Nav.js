@@ -6,6 +6,7 @@ import notificationIcon from "../../assets/images/notificationIcon.png";
 import "./Nav.scss"
 import path from "../../utils/constant.js";
 import {
+    Link,
     NavLink
 } from "react-router-dom";
 
@@ -39,7 +40,9 @@ class Nav extends React.Component {
                     </NavLink>
 
                     <div>
-                        <img className="profile_logo_1" src={profileIcon} alt="profile" />
+                        <Link to={path.COMUSER}>
+                            <img className="profile_logo_1" src={profileIcon} alt="profile" />
+                        </Link>
                     </div>
                     <div>
                         <img className="profile_logo" src={messageIcon} alt="profile" />

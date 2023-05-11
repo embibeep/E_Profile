@@ -70,7 +70,7 @@ class Posts extends React.Component {
                                 </div>
                             </div>
 
-                            <div className="footer-recinfo col-6">
+                            {/* <div className="footer-recinfo col-6">
                                 <Form.Select className="list-Box">
                                     <option disabled selected value>Chọn loại bài đăng</option>
                                     <option value="sv">Tuyển dụng</option>
@@ -78,7 +78,7 @@ class Posts extends React.Component {
                                 </Form.Select>
 
                                 <Button className="btn-submit">Đăng bài tuyển</Button>
-                            </div>
+                            </div> */}
                         </div>
 
                     </div>

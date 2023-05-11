@@ -2,7 +2,8 @@ import './App.scss';
 import Nav from '../../components/Navigation/Nav.js';
 import Company from '../../routes/Company/Company';
 import Working from "../../routes/Working/Working";
-import User from "../../routes/User/User";
+import StUser from "../../routes/User/Students/St-User.js";
+import ComUser from '../../routes/User/Company/Com-User';
 import Login from '../../components/Auth/Login';
 import path from '../../utils/constant.js';
 import {
@@ -24,7 +25,8 @@ function App() {
           <Routes>
             <Route path={path.HOME} element={<Working />} />
             <Route path={path.COMPANY} element={<Company />} />
-            <Route path={path.USER} element={<User />} />
+            <Route path={path.USER} element={<StUser />} />
+            <Route path={path.COMUSER} element={<ComUser />} />
             <Route path={path.LOGIN} element={<Login />} />
             <Route path={path.WORKING} element={<Working />} />
             <Route path={path.SignUp} element={<SignUp />} />
