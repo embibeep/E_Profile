@@ -40,9 +40,7 @@ class Nav extends React.Component {
                     </NavLink>
 
                     <div>
-                        <Link to={path.COMUSER}>
-                            <img className="profile_logo_1" src={profileIcon} alt="profile" />
-                        </Link>
+                        <img className="profile_logo_1" src={profileIcon} alt="profile" />
                     </div>
                     <div>
                         <img className="profile_logo" src={messageIcon} alt="profile" />

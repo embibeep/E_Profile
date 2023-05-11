@@ -43,7 +43,7 @@ class Working extends React.Component {
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                         </select>
-                        <Link to={path.STAFFREC} className="select">Đăng bài tuyển</Link>
+                        <Link to={path.STAFFREC} className="create-post">Đăng bài tuyển</Link>
                     </div>
                     {/* /////////////////////////////////////////////////////////// */}
                     <div className="title-tuyenNV">

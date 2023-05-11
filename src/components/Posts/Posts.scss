@@ -1,6 +1,6 @@
-.container-recruit{
+.container-post{
     margin-top: 100px;
-    .list-recruit{
+    .list-post{
         background-color: gray;
         width: 90%;
         margin:50px auto;
@@ -8,22 +8,23 @@
         border: 1px solid #e0e0d1;
         display: flex;
         height: auto;
+        padding-bottom: 10px;
     
-        .recruit-item{
+        .post-item{
             // border: solid #d8d5d5 1px;
             border-radius: 5px;
             padding: 0;
             height: auto;
             width: 100%;
             // box-shadow: 1px 1px #f0ecec;
-            .rec-banner{
+            .post-banner{
                 background-color: blue;
                 height: 110px;
                 width: 100%;
                 background-repeat: no-repeat;
                 border-radius: 5px;
             }
-            .rec-title{
+            .post-title{
                 background-color: white;
                 margin: 0 10px;
                 display: flex;
@@ -31,7 +32,7 @@
                 border-bottom: 1px solid gray;
                 border-bottom-left-radius: 5px;
                 border-bottom-right-radius: 5px;
-                .rec-avt{
+                .post-avt{
                     background-image: url("../../assets/images/lachongImg.jpg");
                     height: 200px;
                     width: 200px;
@@ -42,7 +43,7 @@
                     background-repeat: no-repeat;
                 }
     
-                .rec-name{
+                .post-name{
                     padding-top: 90px;
                     margin-left: 30px;
                     font-weight: bold;
@@ -52,7 +53,7 @@
                 
             }
 
-            .rec-category{
+            .post-category{
                 color: blue;
                 font-size: 25px;
                 padding: 10px;
@@ -60,7 +61,7 @@
                 text-align: justify;
             }
     
-            .rec-jobname{
+            .post-jobname{
                 background-color: white;
                 width: auto;
                 height: 100px;
@@ -73,7 +74,7 @@
                 border-radius: 5px;
                 margin: 20px 10px 10px 10px
             }
-            .rec-decoration{
+            .post-decoration{
                 background-color: white;
                 color: black;
                 font-size: 15px;
@@ -81,7 +82,7 @@
                 text-align: justify;
             }
         }
-        .left-recinfo{
+        .left-postinfo{
             background-color: white;
             border-radius: 5px;
             padding: 0;
@@ -89,14 +90,14 @@
             width: 50%;
             margin-left: 10px;
             float: left;
-                .rec-decoration{
+                .post-decoration{
                 color: gray;
                 font-size: 15px;
                 padding: 0 20px;
                 text-align: justify;
                 border-radius: 5px;
             }
-            .rec-category{
+            .post-category{
                 color: blue;
                 font-size: 25px;
                 padding: 10px;
@@ -105,7 +106,7 @@
             }
 
         }
-        .right-recinfo{
+        .right-postinfo{
             background-color: white;
             border-radius: 5px;
             padding: 0;
@@ -113,7 +114,7 @@
             width: 48%;
             margin-left: 10px;
             float: left;
-            .rec-decoration{
+            .post-decoration{
 
                 color: gray;
                 font-size: 15px;
@@ -122,7 +123,7 @@
                 margin-right: 5px;
                 border-radius: 5px;
             }
-            .rec-category{
+            .post-category{
                 color: blue;
                 font-size: 25px;
                 padding: 10px;
@@ -131,7 +132,7 @@
             }
         }
 
-        .footer-recinfo{
+        .footer-postinfo{
             .list-Box{
                 height: 45px; 
                 width: auto; 

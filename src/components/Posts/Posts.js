@@ -7,65 +7,65 @@ class Posts extends React.Component {
     render() {
         return (
             <>
-                <div className="container-recruit">
-                    <div className="list-recruit row justify-content-center">
+                <div className="container-post">
+                    <div className="list-post row justify-content-center">
 
-                        <div className="recruit-item col-6">
+                        <div className="post-item col-6">
 
-                            <div className="rec-banner">
+                            <div className="post-banner">
                             </div>
 
-                            <div className="rec-title">
-                                <div className="rec-avt">
+                            <div className="post-title">
+                                <div className="post-avt">
                                 </div>
-                                <div className="rec-name">
+                                <div className="post-name">
                                     CÔNG TY TNHH ABCXYZ
                                 </div>
                             </div>
-                            <div className="rec-jobname">
+                            <div className="post-jobname">
                                 SOFTWARE ENGINEER
                             </div>
-                            <div className="left-recinfo col-6">
-                                <div className="rec-category">
+                            <div className="left-postinfo col-6">
+                                <div className="post-category">
                                     Mức lương
                                 </div>
-                                <div className="rec-decoration">
+                                <div className="post-decoration">
                                     Từ 15 - 16 triệu VND
                                 </div>
-                                <div className="rec-category">
+                                <div className="post-category">
                                     Kinh nghiệm
                                 </div>
-                                <div className="rec-decoration">
+                                <div className="post-decoration">
                                     Ít nhất 2 năm
                                 </div>
 
-                                <div className="rec-category">
+                                <div className="post-category">
                                     Địa chỉ
                                 </div>
-                                <div className="rec-decoration">
+                                <div className="post-decoration">
                                     Quận Thủ Đức, Thành phố Hồ Chí Minh
                                 </div>
 
-                                <div className="rec-category">
+                                <div className="post-category">
                                     Hạn tuyển
                                 </div>
-                                <div className="rec-decoration">
+                                <div className="post-decoration">
                                     14/5/2023
                                 </div>
 
-                                <div className="rec-category">
+                                <div className="post-category">
                                     GIỚI THIỆU VIỆC LÀM
                                 </div>
-                                <div className="rec-decoration">
+                                <div className="post-decoration">
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                 </div>
                             </div>
 
-                            <div className="right-recinfo col-6">
-                                <div className="rec-category">
+                            <div className="right-postinfo col-6">
+                                <div className="post-category">
                                     Yêu cầu
                                 </div>
-                                <div className="rec-decoration">
+                                <div className="post-decoration">
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                 </div>
                             </div>
