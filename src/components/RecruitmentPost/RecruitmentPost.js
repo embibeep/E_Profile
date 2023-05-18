@@ -15,7 +15,8 @@ class RecruitPost extends React.Component {
             address: ``,
             date: ``,
             note: ``,
-            require: ``
+            require: ``,
+            postType: ``
         }
     }
 
@@ -61,6 +62,12 @@ class RecruitPost extends React.Component {
         })
     }
 
+    handleChangePostType = (e) => {
+        this.setState({
+            postType: e.target.value
+        })
+    }
+
     handleSubmit = (event) => {
         alert('Nhập thành công!')
         console.log(`Jobname: `, this.state.jobname,
@@ -69,7 +76,8 @@ class RecruitPost extends React.Component {
             `Address: `, this.state.address,
             `Date: `, this.state.date,
             `Note: `, this.state.note,
-            `Require: `, this.state.require)
+            `Require: `, this.state.require,
+            `Post Type: `, this.state.postType)
     }
 
     render() {
@@ -126,7 +134,7 @@ class RecruitPost extends React.Component {
                                     GIỚI THIỆU VIỆC LÀM
                                 </div>
                                 <div className="rec-decoration">
-                                    <textarea onChange={(event) => this.handleChangeNote(event)} cols="80" rows="5" placeholder="Nhập nội dung" style={{ border: "0", resize: "none" }}></textarea>
+                                    <textarea onChange={(event) => this.handleChangeNote(event)} cols="75" rows="5" placeholder="Nhập nội dung" style={{ border: "0", resize: "none" }}></textarea>
                                 </div>
                             </div>
 
@@ -140,10 +148,10 @@ class RecruitPost extends React.Component {
                             </div>
 
                             <div className="footer-recinfo col-6">
-                                <Form.Select className="list-Box">
+                                <Form.Select onChange={(e) => this.handleChangePostType(e)} className="list-Box">
                                     <option disabled selected value>Chọn loại bài đăng</option>
-                                    <option value="sv">Tuyển nhân viên</option>
-                                    <option value="dn">Tuyển thực tập sinh</option>
+                                    <option value="nv">Tuyển nhân viên</option>
+                                    <option value="tt">Tuyển thực tập sinh</option>
                                 </Form.Select>
 
                                 <Button onClick={(event) => this.handleSubmit(event)} className="btn-submit">Đăng bài tuyển</Button>

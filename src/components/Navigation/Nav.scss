@@ -1,5 +1,5 @@
 
-.topnav {
+.nav {
     background-color: white;
     overflow: hidden;
     padding-bottom: 8px;
@@ -7,29 +7,39 @@
     top: 0;
     width: 100%;
     box-shadow: 1px 1px rgb(197, 197, 197);
-
-    .LHU_Logo{
-      height: 30px;
-      width: 20vmin;
-      margin-top: -10px;
+    z-index: 1500;
+    .left-nav{
+      width: 15%;
+      .LHU_Logo{
+        width: 100%;
+        background: url('../../assets/images/Logo_LHU_Vi.png') center center no-repeat;
+        margin-top: 10px;
+      }
     }
 
-    .profile_logo_1{
-      height: 35px;
-      width: 35px;
-      float: right;
-      margin: 15px 15px 0 0;
-      border: solid orange 1px;
-      border-radius: 100px;
-      margin-right: 20px;
-      margin-left: 7px;
+
+
+    .right-nav{
+      width: 25%;
+      .profile_logo_1{
+        width: 100%;
+        background: url("../../assets/images/profileIcon.png") center center no-repeat;
+        height: 40px;
+        width: 40px;
+        float: right;
+        margin: 15px 20px 0 7px;
+        border: solid orange 1px;
+        border-radius: 100px;
+      }
+      .profile_logo{
+        height: 40px;
+        width: 40px;
+        float: right;
+        margin: 15px 15px 0 10px;
+      }
     }
-    .profile_logo{
-      height: 35px;
-      width: 35px;
-      float: right;
-      margin: 15px 15px 0 10px;
-    }
+
+    
     
  /* Style the links inside the navigation bar */
     a {

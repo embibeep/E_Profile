@@ -13,7 +13,8 @@ class Login extends React.Component {
         this.state = {
             username: ``,
             password: ``,
-            isShowPassword: false
+            isShowPassword: false,
+            errMessage: ``
 
         }
     }
@@ -30,17 +31,33 @@ class Login extends React.Component {
         })
     }
 
-    handleLogin = async (event) => {
-        event.preventDefault()
-        if (!this.state.username || !this.state.password) {
-            alert(`Nhập đầy đủ dữ liệu!`)
-            return;
-        } else {
-            alert('Nhập thành công!')
-            { <Navigate to="/news" /> }
-        }
-
+    handleLogin = async (e) => {
+        e.preventDefault()
+        this.setState({
+            errMessage: ``
+        })
         console.log(`username: `, this.state.username, `, password: `, this.state.password)
+        try {
+            let data = await handleLoginApi(this.state.username, this.state.password)
+            if (data && data.errCode !== 0) {
+                this.setState({
+                    errMessage: data.message
+                })
+            }
+
+            if (data && data.errCode === 0) {
+                console.log('loging success');
+            }
+        } catch (e) {
+            if (e.response) {
+                if (e.response.data) {
+                    this.setState({
+                        errMessage: e.response.data.message
+                    })
+                }
+            }
+            console.log('error message', e.response)
+        }
     }
 
     handleShowPassword = (event) => {
@@ -73,7 +90,10 @@ class Login extends React.Component {
                                 <input type="checkbox" onClick={(event) => { this.handleShowPassword(event) }} />
                                 <label htmlFor="checkBox-Password" className="text-label"> Hiện Thị Mật Khẩu</label><br />
                             </div>
-                            <button className="btnSubmit" onClick={(event) => this.handleLogin(event)}
+                            <div className="login-ErrAlert" >
+                                check
+                            </div>
+                            <button className="btnSubmit" onClick={(e) => this.handleLogin(e)}
                                 type="submit">Đăng Nhập</button>
                         </div>
                         <div className="bottom_form">

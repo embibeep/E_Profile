@@ -15,39 +15,40 @@ class Nav extends React.Component {
         return (
             <>
 
-                <div className="topnav">
-                    <NavLink to={path.HOME} activeclassname="active" exact="true">
-                        <img className="LHU_Logo" src={LHU_logo} alt="Đại học Lạc Hồng" />
-                    </NavLink>
-
-                    {/* <NavLink to={path.NEWS} activeclassname="active">
-                    Bản Tin
-                </NavLink> */}
-
-                    <NavLink to={path.WORKING} activeclassname="active">
-                        Việc Làm
-                    </NavLink>
-                    <NavLink to={path.COMPANY} activeclassname="active">
-                        Công Ty
-                    </NavLink>
-
-                    <NavLink to={path.USER} activeclassname="active">
-                        Hồ Sơ
-                    </NavLink>
-
-                    <NavLink to={path.LOGIN} activeclassname="active">
-                        Đăng Nhập
-                    </NavLink>
-
-                    <div>
-                        <img className="profile_logo_1" src={profileIcon} alt="profile" />
+                <div className="nav">
+                    <div className="left-nav">
+                        <NavLink to={path.HOME} activeclassname="active" exact="true" className="LHU_Logo">
+                        </NavLink>
                     </div>
-                    <div>
-                        <img className="profile_logo" src={messageIcon} alt="profile" />
+
+                    <div className="center-nav">
+                        <NavLink to={path.WORKING} activeclassname="active">
+                            Việc Làm
+                        </NavLink>
+                        <NavLink to={path.COMPANY} activeclassname="active">
+                            Công Ty
+                        </NavLink>
+
+                        <NavLink to={path.USER} activeclassname="active">
+                            Hồ Sơ
+                        </NavLink>
+
+                        <NavLink to={path.LOGIN} activeclassname="active">
+                            Đăng Nhập
+                        </NavLink>
                     </div>
-                    <div>
-                        <img className="profile_logo" src={notificationIcon} alt="profile" />
+
+                    <div className="right-nav">
+                        <Link to={path.COMUSER} className="profile_logo_1">
+                        </Link>
+                        <div>
+                            <img className="profile_logo" src={messageIcon} alt="profile" />
+                        </div>
+                        <div>
+                            <img className="profile_logo" src={notificationIcon} alt="profile" />
+                        </div>
                     </div>
+
                 </div>
             </>
         )

@@ -1,7 +1,13 @@
 
 import React from "react";
-import './SearchBar.scss'
+import './SearchBar.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 class SearchBar extends React.Component {
+
+    handleEnterSearch = () => {
+        alert(`Thành công!`)
+    }
     render() {
         return (
             <>
@@ -22,6 +28,7 @@ class SearchBar extends React.Component {
                                     className="search-input"
                                     placeholder="Nhập tên công việc hoặc công ty...."
                                 />
+                                <FontAwesomeIcon onClick={() => this.handleEnterSearch()} style={{ marginLeft: "-30px", color: 'black' }} icon={faMagnifyingGlass} />
                             </label>
                         </div>
                         <div className="dexuat">

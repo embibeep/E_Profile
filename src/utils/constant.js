@@ -8,7 +8,7 @@ const path = {
     RESETPASS: `/reset-password`,
     USER: `/user`,
     STAFFREC: `/staff-recruitments`,
-    POSTS: `/post-details`,
+    POSTS: `/working/post-details`,
     COMUSER: `/company-user`
 };
 
