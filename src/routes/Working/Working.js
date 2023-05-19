@@ -84,7 +84,6 @@ class Working extends React.Component {
                     </div>
                     <SimpleSlider />
                 </div >
-                <Footer />
             </>
         )
     }

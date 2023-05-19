@@ -2,7 +2,6 @@ import React from "react";
 import SearchBar from "../../components/SearchBar/SearchBar.js";
 import "./Company.scss"
 import Footer from "../../components/Footer/footer.js"
-
 class Company extends React.Component {
     render() {
         return (
@@ -142,7 +141,6 @@ class Company extends React.Component {
                     </div>
 
                 </div>
-                <Footer />
 
             </>
         )

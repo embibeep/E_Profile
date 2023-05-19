@@ -1,5 +1,9 @@
 import React from "react";
 import "./footer.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSchool } from '@fortawesome/free-solid-svg-icons'
+import { faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 class Footer extends React.Component {
     render() {
@@ -15,7 +19,7 @@ class Footer extends React.Component {
                             <p>Marketing</p>
                             <p>Công nghệ kỹ thuật điện, điện tử</p>
                             <p>Công nghệ kỹ thuật điều khiển và tự động hoá</p>
-                            <a href="https://360.lhu.edu.vn/" className="LHU-map">LacHong University</a>
+
                         </div>
 
                         <div className="major-list-center">
@@ -26,7 +30,7 @@ class Footer extends React.Component {
                             <p>Tài chính - Ngân hàng</p>
                             <p>Quản trị kinh doanh</p>
                             <p>Kinh tế - Ngoại thương</p>
-                            <p className="LHU-phone">+84 251 3951 344</p>
+
                         </div>
 
                         <div className="major-list-right">
@@ -37,7 +41,18 @@ class Footer extends React.Component {
                             <p>Nhật Bản Học</p>
                             <p>Hàn Quốc Học</p>
                             <p>Ngôn ngữ Anh</p>
-                            <a href="https://lhu.edu.vn/" className="LHU-website">https://lhu.edu.vn/</a>
+
+                        </div>
+                    </div>
+
+                    <div className="contact-list">
+                        <div className="contact-content">
+                            <a href="https://360.lhu.edu.vn/" className="LHU-map">
+                                <FontAwesomeIcon icon={faSchool} />&nbsp;LacHong University</a>
+                            <p className="LHU-phone">
+                                <FontAwesomeIcon icon={faPhone} />&nbsp;+84 251 3951 344</p>
+                            <a href="https://lhu.edu.vn/" className="LHU-website">
+                                <FontAwesomeIcon icon={faGlobe} />&nbsp;https://lhu.edu.vn/</a>
                         </div>
                     </div>
                 </div>

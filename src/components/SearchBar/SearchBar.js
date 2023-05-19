@@ -1,4 +1,3 @@
-
 import React from "react";
 import './SearchBar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
