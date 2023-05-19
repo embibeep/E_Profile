@@ -143,11 +143,11 @@ class RecruitPost extends React.Component {
                                     Yêu cầu
                                 </div>
                                 <div className="rec-decoration">
-                                    <textarea onChange={(event) => this.handleChangeRequire(event)} cols="75" rows="25" placeholder="Nhập yêu cầu" style={{ border: "0", resize: "none" }}></textarea>
+                                    <textarea onChange={(event) => this.handleChangeRequire(event)} cols="75" rows="15" placeholder="Nhập yêu cầu" style={{ border: "0", resize: "none" }}></textarea>
                                 </div>
                             </div>
 
-                            <div className="footer-recinfo col-6">
+                            <div className="footer-recinfo">
                                 <Form.Select onChange={(e) => this.handleChangePostType(e)} className="list-Box">
                                     <option disabled selected value>Chọn loại bài đăng</option>
                                     <option value="nv">Tuyển nhân viên</option>

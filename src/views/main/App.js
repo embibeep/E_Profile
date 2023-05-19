@@ -15,7 +15,7 @@ import SignUp from '../../components/SignUp/SignUp';
 import ResetPassword from '../../components/ResetPassword/ResetPassword';
 import RecruitPost from '../../components/RecruitmentPost/RecruitmentPost';
 import Posts from '../../components/Posts/Posts';
-
+import PostDetail from '../../components/Modals/PostDetail';
 function App() {
   return (
     <Router>
@@ -33,6 +33,7 @@ function App() {
             <Route path={path.RESETPASS} element={<ResetPassword />} />
             <Route path={path.STAFFREC} element={<RecruitPost />} />
             <Route path={path.POSTS} element={<Posts />} />
+            <Route path={path.posts} element={<PostDetail />} />
           </Routes>
         </header>
       </div>

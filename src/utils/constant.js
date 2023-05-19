@@ -9,7 +9,8 @@ const path = {
     USER: `/user`,
     STAFFREC: `/staff-recruitments`,
     POSTS: `/working/post-details`,
-    COMUSER: `/company-user`
+    COMUSER: `/company-user`,
+    posts: `/posts`
 };
 
 export default path;
