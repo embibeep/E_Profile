@@ -10,13 +10,14 @@ import { getStaffPost } from '../../services/userService.js';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SimpleSlider from "./section/staffrecruit.js"
+import SimpleSlider from "./section/staffrecruit.js";
+import ModalAddPost from "../../components/Modals/ModalAddPost.js";
 class Working extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-
+            isAddPost: false
         }
     }
 
@@ -25,8 +26,19 @@ class Working extends React.Component {
         console.log("get user from nodejs: ", response)
     }
 
-    render() {
+    handlePopUp = () => {
+        this.setState({
+            isAddPost: true
+        })
+    }
 
+    togglePopUp = () => {
+        this.setState({
+            isAddPost: !this.state.isAddPost
+        })
+    }
+
+    render() {
         return (
             <>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
@@ -46,7 +58,13 @@ class Working extends React.Component {
                             <option value="2">2 năm</option>
                             <option value="3">3 năm</option>
                         </select>
-                        <Link to={path.STAFFREC} className="create-post">Đăng bài tuyển</Link>
+                        <button onClick={() => this.handlePopUp()} className="create-post">Đăng bài tuyển</button>
+                        <ModalAddPost
+                            isOpen={this.state.isAddPost}
+                            toggleFromParent={this.togglePopUp}
+                            test={'abc'}
+
+                        />
                     </div>
                     {/* /////////////////////////////////////////////////////////// */}
                     <div className="title-tuyenNV">

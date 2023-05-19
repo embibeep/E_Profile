@@ -8,8 +8,29 @@ import profileIcon from "../../../assets/images/profileIcon.png"
 import iconFollow from "../../../assets/images/iconFollow.png"
 import { Link } from "react-router-dom";
 import path from "../../../utils/constant";
+import ModalViewPost from "../../../components/Modals/ModalViewPost";
 
 class SimpleSlider extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isViewPost: false
+        }
+    }
+
+    handlePopUp = () => {
+        this.setState({
+            isViewPost: true
+        })
+    }
+
+    togglePopUp = () => {
+        this.setState({
+            isViewPost: !this.state.isViewPost
+        })
+    }
+
     render() {
         let settings = {
             dots: false,
@@ -53,9 +74,13 @@ class SimpleSlider extends React.Component {
                                             </div>
 
                                             <div className="iconFollow">
-                                                <Link to={path.POSTS}>
-                                                    <img className="icon" src={iconFollow} alt="icon follow" />
-                                                </Link>
+
+                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
+                                                <ModalViewPost
+                                                    isOpen={this.state.isViewPost}
+                                                    toggleFromParent={this.togglePopUp}
+
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -91,9 +116,9 @@ class SimpleSlider extends React.Component {
                                             </div>
 
                                             <div className="iconFollow">
-                                                <Link to={path.POSTS}>
-                                                    <img className="icon" src={iconFollow} alt="icon follow" />
-                                                </Link>
+
+                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
+
                                             </div>
                                         </div>
                                     </div>
@@ -130,9 +155,9 @@ class SimpleSlider extends React.Component {
                                             </div>
 
                                             <div className="iconFollow">
-                                                <Link to={path.POSTS}>
-                                                    <img className="icon" src={iconFollow} alt="icon follow" />
-                                                </Link>
+
+                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
+
                                             </div>
                                         </div>
                                     </div>
@@ -168,9 +193,7 @@ class SimpleSlider extends React.Component {
                                             </div>
 
                                             <div className="iconFollow">
-                                                <Link to={path.POSTS}>
-                                                    <img className="icon" src={iconFollow} alt="icon follow" />
-                                                </Link>
+                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
                                             </div>
                                         </div>
                                     </div>
@@ -206,9 +229,7 @@ class SimpleSlider extends React.Component {
                                             </div>
 
                                             <div className="iconFollow">
-                                                <Link to={path.POSTS}>
-                                                    <img className="icon" src={iconFollow} alt="icon follow" />
-                                                </Link>
+                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
                                             </div>
                                         </div>
                                     </div>
@@ -244,9 +265,7 @@ class SimpleSlider extends React.Component {
                                             </div>
 
                                             <div className="iconFollow">
-                                                <Link to={path.POSTS}>
-                                                    <img className="icon" src={iconFollow} alt="icon follow" />
-                                                </Link>
+                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
                                             </div>
                                         </div>
                                     </div>

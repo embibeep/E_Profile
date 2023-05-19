@@ -134,7 +134,7 @@ class RecruitPost extends React.Component {
                                     GIỚI THIỆU VIỆC LÀM
                                 </div>
                                 <div className="rec-decoration">
-                                    <textarea onChange={(event) => this.handleChangeNote(event)} cols="75" rows="5" placeholder="Nhập nội dung" style={{ border: "0", resize: "none" }}></textarea>
+                                    <textarea onChange={(event) => this.handleChangeNote(event)} cols="40" rows="5" placeholder="Nhập nội dung" style={{ border: "0", resize: "none" }}></textarea>
                                 </div>
                             </div>
 
@@ -143,7 +143,7 @@ class RecruitPost extends React.Component {
                                     Yêu cầu
                                 </div>
                                 <div className="rec-decoration">
-                                    <textarea onChange={(event) => this.handleChangeRequire(event)} cols="75" rows="15" placeholder="Nhập yêu cầu" style={{ border: "0", resize: "none" }}></textarea>
+                                    <textarea onChange={(event) => this.handleChangeRequire(event)} cols="40" rows="15" placeholder="Nhập yêu cầu" style={{ border: "0", resize: "none" }}></textarea>
                                 </div>
                             </div>
 
@@ -161,8 +161,6 @@ class RecruitPost extends React.Component {
                     </div>
 
                 </div>
-
-                <Footer />
             </>
         )
     }
