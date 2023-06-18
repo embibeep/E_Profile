@@ -1,6 +1,17 @@
 import React from "react";
 import './St-User.scss';
+import iconbithday from "../../../assets/images/icons-birthday.png"
+import phone from "../../../assets/images/phone.png"
+import address from "../../../assets/images/address.png"
+import email from "../../../assets/images/email.png"
+import facebook from "../../../assets/images/facebook.png"
+import gender from "../../../assets/images/gender.png"
+import profileIcon from "../../../assets/images/profileIcon.png"
+import lachongImg from "../../../assets/images/lachongImg.jpg"
+import iconFollow from "../../../assets/images/iconFollow.png"
 import Footer from "../../../components/Footer/footer";
+
+
 
 class StUser extends React.Component {
     render() {
@@ -8,91 +19,84 @@ class StUser extends React.Component {
             <>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
 
-                <div className="container-users">
-                    <div className="list-student row justify-content-center">
+                <div className="all">
+                    <div className="profileNV">
 
-                        {/* danh sách tuyển thực tập sinh */}
-                        <div className="left-student-item col-6">
-
-
-                            <div className="st-title">
-                                <div className="st-avt">
+                        <div className="pro-left">
+                            <div className="avt-name">
+                                <div className="avt">
                                 </div>
-                                <div className="st-name">
-                                    TÊN SINH VIÊN
-                                </div>
+                                <div className="name">Đoàn Nguyên Huy</div>
                             </div>
-                            <div className="st-under-border">
-
-                            </div>
-                            <div className="st-category">
-                                GIỚI THIỆU
-                            </div>
-                            <div className="st-decoration">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            <div className="gioithieu">
+                                <div className="titleGT">Giới Thiệu</div>
+                                <div className="contentGT text-break">aaaaaaaaaaaa...</div>
                             </div>
 
-                            <div className="st-category">
-                                KINH NGHIỆM
+                            <div className="info">
+                                <div className="icon"><img src={iconbithday} /></div>
+                                <div className="content">03/04/2001</div>
                             </div>
-                            <div className="st-decoration">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            <div className="info">
+                                <div className="icon"><img src={phone} /></div>
+                                <div className="content">0708181583</div>
                             </div>
+                            <div className="info">
+                                <div className="icon"><img src={gender} /></div>
+                                <div className="content">Nam</div>
+                            </div>
+                            <div className="info">
+                                <div className="icon"><img src={address} /></div>
+                                <div className="content">Địa chỉ</div>
+                            </div>
+                            <div className="info">
+                                <div className="icon"><img src={email} /></div>
+                                <div className="content">Email</div>
+                            </div>
+                            <div className="info">
+                                <div className="icon"><img src={facebook} /></div>
+                                <div className="content">facebook</div>
+                            </div>
+
+
+
                         </div>
+                        <div className="pro-right">
+                            <div className="banner">
+                                <img src={lachongImg} />
+                            </div>
+                            <div className="listbutton">
+                                <button className="xemcv btn"> xem cv</button>
+                                <button className="upcv btn">tải lên cv</button>
+                                <button className="editavt btn"> đổi avatar</button>
+                                <button className="editbanner btn"> đổi ảnh bìa</button>
+                                <button className="edit btn">sửa thông tin cá nhân</button>
+                                <button className="save btn">Lưu thông tin</button>
+                            </div>
 
-                        <div className="right-student-item col-6">
+                            <div className="follow">
+                                <div className="titlefollow">Công việc đã ứng tuyển</div>
+                                <div className="listfollow overflow-auto">
+                                    <div className="jobItem">
+                                        <div className="Top-Job">
+                                            <div className="icon">
+                                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                                            </div>
+                                            <div className="Top-Left">
+                                                <div className="nameJob">
+                                                    SoftWare Engineer 1
+                                                </div>
+                                                <div className="nameCompany">
+                                                    công ty TNHH ...
+                                                </div>
+                                            </div>
+                                        </div>
 
-                            <div className="st-title">
-                                {/* <div className="st-category">
-                                    THÔNG TIN CÁ NHÂN
-                                </div> */}
 
-                                <div className="st-under-border">
-                                </div>
-                                <div className="str-decoration">
-                                    <span className="str-title">Ngày sinh</span><br />
-                                    01/01/2001
-                                </div>
-                                <div className="str-decoration">
-                                    <span className="str-title">Số điện thoại</span><br />
-                                    0123456789
-                                </div>
-                                <div className="str-decoration">
-                                    <span className="str-title">Email</span><br />
-                                    abc@gmail.com
-                                </div>
-                                <div className="str-decoration">
-                                    <span className="str-title">Địa chỉ</span><br />
-                                    Abc, Xyz
-                                </div>
-                                <div className="str-decoration">
-                                    <span className="str-title">Giới tính</span><br />
-                                    Nam
-                                </div>
-                                <div className="str-decoration">
-                                    <span className="str-title">Facebook</span><br />
-                                    ww.abc.com
-                                </div>
-                                <div className="str-decoration">
-                                    <span className="str-title">Instagram</span><br />
-                                    www.abc.com
-                                </div>
-                                <div className="str-decoration">
-                                    <span className="str-title">Zalo</span><br />
-                                    www.abc.com
+                                    </div>
                                 </div>
                             </div>
-                            <div className="st-category">
-                                SKILL
-                            </div>
-                            <div className="st-decoration">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br />
 
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </div>
-                            <div>
-                                <button className="btn-Print-CV">IN</button>
-                            </div>
                         </div>
                     </div>
                 </div>

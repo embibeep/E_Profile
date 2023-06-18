@@ -41,239 +41,57 @@ class SimpleSlider extends React.Component {
         };
         return (
             <>
-                <div className="section-staff">
-                    <div className="special-content">
-                        <Slider {...settings}>
-                            <div className="img-customize">
-                                <div className="tuyenNV row justify-content-center">
-                                    <div className="jobItem col-4">
 
-                                        <div className="Top-Job">
-                                            <div className="icon">
-                                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
-                                            </div>
-                                            <div className="Top-Left">
-                                                <div className="nameJob">
-                                                    SoftWare Engineer 1
-                                                </div>
-                                                <div className="nameCompany">
-                                                    công ty TNHH ...
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div className="Bot-job">
-                                            <div className="item">
-                                                từ 15 - 16 triệu VNĐ
-                                            </div>
-                                            <div className="item">
-                                                Kinh nghiệm từ 2 năm
-                                            </div>
-                                            <div className="item">
-                                                Quận Thủ Đức, thành phố Hồ Chí Minh
-                                            </div>
+                <div className="tuyenNV row justify-content-center">
+                    <div className="jobItem col-4" onClick={() => this.handlePopUp()}>
+                        <ModalViewPost
+                            isOpen={this.state.isViewPost}
+                            toggleFromParent={this.togglePopUp}
 
-                                            <div className="iconFollow">
+                        />
 
-                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
-                                                <ModalViewPost
-                                                    isOpen={this.state.isViewPost}
-                                                    toggleFromParent={this.togglePopUp}
-
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div className="Top-Job">
+                            <div className="icon">
+                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                            </div>
+                            <div className="Top-Left">
+                                <div className="nameJob">
+                                    SoftWare Engineer 1
+                                </div>
+                                <div className="nameCompany">
+                                    công ty TNHH ...
                                 </div>
                             </div>
-                            <div className="img-customize">
-                                <div className="tuyenNV row justify-content-center">
-                                    <div className="jobItem col-4">
+                        </div>
 
-                                        <div className="Top-Job">
-                                            <div className="icon">
-                                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
-                                            </div>
-                                            <div className="Top-Left">
-                                                <div className="nameJob">
-                                                    SoftWare Engineer 2
-                                                </div>
-                                                <div className="nameCompany">
-                                                    công ty TNHH ...
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div className="Bot-job">
+                            <div className="item">
+                                từ 15 - 16 triệu VNĐ
+                            </div>
+                            <div className="item">
+                                Kinh nghiệm từ 2 năm
+                            </div>
+                            <div className="item">
+                                Quận Thủ Đức, thành phố Hồ Chí Minh
+                            </div>
 
-                                        <div className="Bot-job">
-                                            <div className="item">
-                                                từ 15 - 16 triệu VNĐ
-                                            </div>
-                                            <div className="item">
-                                                Kinh nghiệm từ 2 năm
-                                            </div>
-                                            <div className="item">
-                                                Quận Thủ Đức, thành phố Hồ Chí Minh
-                                            </div>
+                            <div className="iconFollow">
 
-                                            <div className="iconFollow">
-
-                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {/* <img className="icon" src={iconFollow} alt="icon follow" /> */}
 
                             </div>
-                            <div className="img-customize">
-                                <div className="tuyenNV row justify-content-center">
-                                    <div className="jobItem col-4">
+                        </div>
+                    </div>
 
-                                        <div className="Top-Job">
-                                            <div className="icon">
-                                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
-                                            </div>
-                                            <div className="Top-Left">
-                                                <div className="nameJob">
-                                                    SoftWare Engineer 3
-                                                </div>
-                                                <div className="nameCompany">
-                                                    công ty TNHH ...
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div className="btn">
+                        <button className="btnXemThem" type="button">Xem thêm</button>
+                    </div>
+                </div>
 
-                                        <div className="Bot-job">
-                                            <div className="item">
-                                                từ 15 - 16 triệu VNĐ
-                                            </div>
-                                            <div className="item">
-                                                Kinh nghiệm từ 2 năm
-                                            </div>
-                                            <div className="item">
-                                                Quận Thủ Đức, thành phố Hồ Chí Minh
-                                            </div>
 
-                                            <div className="iconFollow">
 
-                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="img-customize">
-                                <div className="tuyenNV row justify-content-center">
-                                    <div className="jobItem col-4">
-
-                                        <div className="Top-Job">
-                                            <div className="icon">
-                                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
-                                            </div>
-                                            <div className="Top-Left">
-                                                <div className="nameJob">
-                                                    SoftWare Engineer 4
-                                                </div>
-                                                <div className="nameCompany">
-                                                    công ty TNHH ...
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="Bot-job">
-                                            <div className="item">
-                                                từ 15 - 16 triệu VNĐ
-                                            </div>
-                                            <div className="item">
-                                                Kinh nghiệm từ 2 năm
-                                            </div>
-                                            <div className="item">
-                                                Quận Thủ Đức, thành phố Hồ Chí Minh
-                                            </div>
-
-                                            <div className="iconFollow">
-                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="img-customize">
-                                <div className="tuyenNV row justify-content-center">
-                                    <div className="jobItem col-4">
-
-                                        <div className="Top-Job">
-                                            <div className="icon">
-                                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
-                                            </div>
-                                            <div className="Top-Left">
-                                                <div className="nameJob">
-                                                    SoftWare Engineer 5
-                                                </div>
-                                                <div className="nameCompany">
-                                                    công ty TNHH ...
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="Bot-job">
-                                            <div className="item">
-                                                từ 15 - 16 triệu VNĐ
-                                            </div>
-                                            <div className="item">
-                                                Kinh nghiệm từ 2 năm
-                                            </div>
-                                            <div className="item">
-                                                Quận Thủ Đức, thành phố Hồ Chí Minh
-                                            </div>
-
-                                            <div className="iconFollow">
-                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="img-customize">
-                                <div className="tuyenNV row justify-content-center">
-                                    <div className="jobItem col-4">
-
-                                        <div className="Top-Job">
-                                            <div className="icon">
-                                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
-                                            </div>
-                                            <div className="Top-Left">
-                                                <div className="nameJob">
-                                                    SoftWare Engineer 6
-                                                </div>
-                                                <div className="nameCompany">
-                                                    công ty TNHH ...
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="Bot-job">
-                                            <div className="item">
-                                                từ 15 - 16 triệu VNĐ
-                                            </div>
-                                            <div className="item">
-                                                Kinh nghiệm từ 2 năm
-                                            </div>
-                                            <div className="item">
-                                                Quận Thủ Đức, thành phố Hồ Chí Minh
-                                            </div>
-
-                                            <div className="iconFollow">
-                                                <img className="icon" onClick={() => this.handlePopUp()} src={iconFollow} alt="icon follow" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </Slider>
-                    </div >
-                </div >
             </>
         )
     }

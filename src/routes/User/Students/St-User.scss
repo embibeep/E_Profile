@@ -1,137 +1,168 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.all{
+    background-color: rgb(255, 255, 255);
 }
+.profileNV{
 
-.container-users{
-    margin-top: 100px;
-    border: 1px solid red;
-    background-color: gray;
-    .list-student{
-        background-color: white;
-        width: 90%;
-        margin:50px auto;
-
-    
-        .left-student-item{
-            // border: solid #d8d5d5 1px;
-            border-radius: 5px;
-            padding: 0;
+    height: auto;
+    background-color: white;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    .pro-right{
+        background-color: rgb(235, 185, 78);
+        width: 50%;
+        padding-top: 80px;
+        .banner{
             height: auto;
-            width: 50%;
-            margin: 10px;
-            // box-shadow: 1px 1px #f0ecec;
-    
-            .st-title{
-                margin-left: 10px;
-                
-                .st-avt{
-                    background-image: url("../../../assets/images/lachongImg.jpg");
-                    height: 200px;
-                    width: 200px;
-                    border: solid orange 2px;
-                    border-radius: 100%;
-                    background-repeat: no-repeat;
-                }
-    
-                .st-name{
-                    padding-top: 20px;
-                    margin-left: 10px;
-                    font-weight: bold;
-                    font-size: 40px;
-                    color: black;
-                    text-align: left;
-                }
-            }
-
-            .st-category{
-                color: blue;
-                font-size: 25px;
-                padding: 10px;
-                padding-left: 20px;
-                text-align: justify;
-            }
-    
-            // .st-under-border{
-            //     height: 1px;
-            //     margin-left: 20px;
-            //     margin-right: 60px;
-            //     background-color: rgb(202, 202, 202);
-            //     margin-top: 50px;
-            // }
-            .st-decoration{
-                color: black;
-                font-size: 15px;
-                padding: 0 20px;
-                text-align: justify;
+            img{
+                height: 200px;
+                width: 97%;
+                object-fit: fill;
             }
         }
-
-        .right-student-item{
-            border: solid #d8d5d5 1px;
-            border-radius: 5px;
-            padding: 0;
-            height: auto;
-            width: 40%;
-            margin: 10px;
-            box-shadow: 1px 1px #f0ecec;
-            background-color: #e0e0d1;
-    
-            .st-title{
-                margin-left: 10px;
+        .listbutton{
+            margin-top: 5px;
+            .btn{
                 
-                .st-avt{
-                    background-image: url("../../../assets/images/lachongImg.jpg");
-                    height: 200px;
-                    width: 200px;
-                    border: solid orange 2px;
-                    border-radius: 100%;
-                    background-repeat: no-repeat;
-                }
-    
-                .st-name{
-                    padding-top: 20px;
-                    margin-left: 10px;
-                    font-weight: bold;
-                    font-size: 40px;
-                    color: black;
-                    text-align: left;
-                }
-                
-            }
-
-            .st-category{
-                color: blue;
-                font-size: 25px;
-                padding: 10px;
-                padding-left: 20px;
-                text-align: justify;
-            }
-            .str-decoration{
-                color: black;
-                font-size: 20px;
-                padding: 5px 20px;
-                text-align: justify;
-                .str-title{
-                    font-weight: bold;
-                }
-            }
-
-            .st-decoration{
-                color: black;
-                font-size: 15px;
-                padding: 0 20px;
-                text-align: justify;
-            }
-            .btn-Print-CV{
-                border: 1px solid white;
-                width: 50px;
                 height: auto;
-                border-radius: 10px;
-                background-color: blue;
+                width: auto;
+                margin: 5px;
+                font-weight: 500;
+                background-color: white;
+                color: rgb(235, 185, 78);
+            }
+            
+        }
+        .follow{
+            margin-top: 10px;
+            .titlefollow{
+                margin-top: 10px;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+            .listfollow{
+                height: 400px;
+                width: 500px;
+                margin: auto;
+                border-radius: 5px;
+                background-color: white;
+
+                .jobItem{
+                border: solid #d8d5d5 1px;
+                border-radius: 4px;
+                height: 80px;
+                width: 480px;
                 color: black;
-                float: right;
+                margin: 10px;
+                padding: 10px;
+                box-shadow: 1px 1px #f0ecec;
+        
+                
+                .Top-Job{
+                    display: flex;
+                    height: 54px;
+                    .icon{
+                        border: solid black 1px;
+                        height: 40px;
+                        width: 40px;
+                        .avtCompany{
+                            height: 40px;
+                            width: 40px;
+                        }
+        
+                        
+                    }
+                    .Top-Left{
+                        .nameJob{
+                            width: 100%;
+                            text-align: left;
+                            margin-top: -7px;
+                            font-weight: bold;
+                            font-size: 20px;
+                            text-indent: 15px;
+                        }
+        
+                        .nameCompany{
+                            width: 100%;
+                            text-align: left;
+                            font-size: 18px;
+                            font-weight: inherit;
+                            margin-top: -3px;
+                            text-indent: 15px;
+        
+                        }
+        
+                    }
+                }
+        
+                
+                }
+            }
+        }
+        
+}
+    .pro-left{
+        height: 900px;
+        width: 50%;
+        border-left: 2px solid rgb(235, 185, 78);
+        border-top: 20px solid rgb(235, 185, 78);
+        
+        .avt-name{
+            margin-top: 100px;
+            height: auto;
+            width: 100%;
+            .avt{
+                
+                background-image: url("../../../assets/images/lachongImg.jpg");
+                border-radius: 100%;
+                width: 90px;
+                height: 90px;
+                margin-left: 220px;
+            }
+            .name{
+                font-weight: bold;
+                color: black;
+                margin: auto; 
+
+            }
+        }
+        .info{
+            padding-left: 11px;
+            margin-left: 32px;
+            color: black;
+            display: flex;
+            font-size: 16px;
+
+            .icon{
+                img{
+                    height: 30px;
+                    width: 30px;
+                    margin-top: 20px;
+                    padding: auto;
+                }
+            }
+            .content{
+                padding-left: 20px;
+                padding-top: 25px;
+                color: rgb(129, 129, 129);
+            }
+        }
+        .gioithieu{
+            margin-top: 60px;
+            margin-bottom: 10px;
+            width: 180px;
+            .titleGT{
+                font-weight: bold;
+                font-size: 19px;
+                color: black;
+            }
+            .contentGT{
+                font-size: 16px;
+                color: rgb(129, 129, 129);
+                width: 400px;
+                text-align: left;
+                margin-top: 7px;
+                padding-left: 50px;
             }
         }
     }

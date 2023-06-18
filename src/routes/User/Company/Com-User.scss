@@ -1,179 +1,247 @@
-.container-company-user{
-    margin-top: 100px;
-    .list-company-user{
-        background-color: gray;
-        width: 90%;
-        margin:50px auto;
-        border-radius: 5px;
-        border: 1px solid #e0e0d1;
-        display: flex;
-        height: auto;
-    
-        .company-user-item{
-            // border: solid #d8d5d5 1px;
+.all{
+    background-color: rgb(255, 255, 255);
+}
+.profileCT{
+
+    height: auto;
+    background-color: white;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    .pro-right{
+        background-color: rgb(235, 185, 78);
+        width: 50%;
+        padding-top: 80px;
+
+        .infoall{
+            background-color: white;
+            width: 92%;
             border-radius: 5px;
-            padding: 0;
-            height: auto;
-            width: 100%;
-            // box-shadow: 1px 1px #f0ecec;
-            .cu-banner{
-                background-color: blue;
-                height: 110px;
-                width: 100%;
-                background-repeat: no-repeat;
-                border-radius: 5px;
-            }
-            .cu-title{
-                background-color: white;
-                margin: 0 10px;
+            margin: auto;
+            padding-bottom: 10px;
+            .info{
+                margin-left: 22px;
+                color: black;
                 display: flex;
                 
-                border-bottom: 1px solid gray;
-                border-bottom-left-radius: 5px;
-                border-bottom-right-radius: 5px;
-                .cu-avt{
-                    background-image: url("../../../assets/images/lachongImg.jpg");
-                    height: 200px;
-                    width: 200px;
-                    border: solid orange 2px;
-                    border-radius: 20px;
-                    margin-top: -55px;
-                    margin-left: 5px;
-                    background-repeat: no-repeat;
-                }
+                font-size: 16px;
     
-                .cu-name{
-                    padding-top: 90px;
-                    margin-left: 30px;
-                    font-weight: bold;
-                    font-size: 50px;
-                    color: black;
+                .icon{
+                    img{
+                        height: 15px;
+                        width: 15px;
+                        margin-top: 20px;
+                        padding: auto;
+                    }
                 }
+                .content{
+                    padding-left: 20px;
+                    font-size: 14px;
+                    padding-top: 15px;
+                    color: rgb(129, 129, 129);
+                }
+            }
+        }
+
+        .banner{
+            height: auto;
+            img{
+                height: 200px;
+                width: 97%;
+                object-fit: fill;
+            }
+        }
+        .listbutton{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            .btn{
                 
-            }
-
-            .cu-category{
-                color: blue;
-                font-size: 25px;
-                padding: 10px;
-                padding-left: 20px;
-                text-align: justify;
-            }
-    
-            .cu-jobname{
-                background-color: white;
+                height: auto;
                 width: auto;
-                height: 100px;
-                font-size: 30px;
-                font-weight: bold;
-                color: gray;
-                border: 1px solid;
-                text-align: left;
-                padding: 30px 0 0 20px;
-                border-radius: 5px;
-                margin: 20px 10px 10px 10px
-            }
-            .cu-decoration{
-                background-color: white;
-                color: black;
-                font-size: 15px;
-                padding: 0 20px;
-                text-align: justify;
-            }
-        }
-        .left-cuinfo{
-            background-color: white;
-            border-radius: 5px;
-            padding: 0;
-            height: 1000px;
-            width: 58%;
-            margin: 10px 0 10px 10px;
-            float: left;
-                .cu-decoration{
-                color: gray;
-                font-size: 15px;
-                padding: 0 20px;
-                text-align: justify;
-                border-radius: 5px;
-            }
-            .cu-category{
-                color: black;
-                font-size: 25px;
-                padding: 10px;
-                padding-left: 20px;
-                text-align: justify;
-            }
-
-        }
-        .right-cuinfo{
-            background-color: gray;
-            padding: 0;
-            height: 1000px;
-            width: 36%;
-            margin: 10px 10px 10px 30px;
-            float: left;
-            .top-right-cuinfo{
-                width: 100%;
-                height: 400px;
-                margin-bottom: 10px;
-                background-color: white;
-                border-radius: 5px;
-            }
-
-            .bottom-right-cuinfo{
-                width: 100%;
-                height: 590px;
-                background-color: white;
-                border-radius: 5px;
-            }
-
-
-            .cu-decoration{
-
-                color: gray;
-                font-size: 15px;
-                padding: 0 20px;
-                text-align: justify;
-                margin-right: 5px;
-                border-radius: 5px;
-            }
-            .cu-category{
-                color: black;
-                font-size: 25px;
-                padding: 10px;
-                padding-left: 20px;
-                text-align: justify;
-            }
-        }
-
-        .footer-recinfo{
-            .list-Box{
-                height: 45px; 
-                width: auto; 
-                margin: 5px 10px;
-                border-radius: 4px; 
-                border: 1px solid #e4e2e2; 
-                padding-left: 10px; 
-                color: white;
-            font-weight: bold;
-            font-size: 1em; 
-                float: left;
-                background-color: orange;
-              }
-              .btn-submit{
-                padding: 5px;
                 margin: 5px;
-            height: 45px; 
+                font-weight: 500;
+                background-color: white;
+                color: rgb(235, 185, 78);
+            }
+            
+        }
+        .follow{
+            margin-top: 10px;
+            .titlefollow{
+                margin-top: 10px;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+            .listfollow{
+                height: 300px;
+                width: 500px;
+                margin: auto;
+                border-radius: 5px;
+                background-color: white;
+
+                .jobItem{
+                border: solid #d8d5d5 1px;
+                border-radius: 4px;
+                height: 80px;
+                width: 480px;
+                color: black;
+                margin: 10px;
+                padding: 10px;
+                box-shadow: 1px 1px #f0ecec;
+        
+                
+                .Top-Job{
+                    display: flex;
+                    height: 54px;
+                    .icon{
+                        border: solid black 1px;
+                        height: 40px;
+                        width: 40px;
+                        .avtCompany{
+                            height: 40px;
+                            width: 40px;
+                        }
+        
+                        
+                    }
+                    .Top-Left{
+                        .nameJob{
+                            width: 100%;
+                            text-align: left;
+                            margin-top: -7px;
+                            font-weight: bold;
+                            font-size: 20px;
+                            text-indent: 15px;
+                        }
+        
+                        .nameCompany{
+                            width: 100%;
+                            text-align: left;
+                            font-size: 18px;
+                            font-weight: inherit;
+                            margin-top: -3px;
+                            text-indent: 15px;
+        
+                        }
+        
+                    }
+                }
+        
+                
+                }
+            }
+        }
+        .userfollowtitle{
+            margin-top: 10px;
+                margin-bottom: 5px;
+                font-weight: bold;
+        }
+        .userfollow{
+            height: 300px;
+            width: 500px;
+            margin: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            background-color: white;
+            
+            font-size: 16px;
+            .useritem{
+                border: solid #d8d5d5 1px;
+                border-radius: 4px;
+                height: 80px;
+                width: 480px;
+                color: black;
+                display: flex;
+                margin: 10px;
+                padding: 10px;
+                box-shadow: 1px 1px #f0ecec;
+                .icon{
+                    padding: 5px;
+                    img{
+                        border: solid black 1px;
+                        height: 35px;
+                        width: 35px;
+                        padding: auto;
+                    }
+                }
+                .content{
+                    padding-left: 20px;
+                    font-size: 16px;
+                    padding-top: 15px;
+                    color: rgb(129, 129, 129);
+                }
+            }
+            
+        }
+        
+}
+    .pro-left{
+        height: auto;
+        width: 50%;
+        border-left: 2px solid rgb(235, 185, 78);
+        border-top: 20px solid rgb(235, 185, 78);
+        
+        .avt-name{
+            margin-top: 100px;
+            height: auto;
+            width: 100%;
+            .avt{
+                
+                background-image: url("../../../assets/images/lachongImg.jpg");
+                border-radius: 100%;
+                width: 90px;
+                height: 90px;
+                margin-left: 220px;
+            }
+            .name{
+                font-weight: bold;
+                color: black;
+                margin: auto; 
+
+            }
+        }
+        .info{
+            padding-left: 11px;
+            margin-left: 32px;
+            color: black;
+            display: flex;
+            font-size: 16px;
+
+            .icon{
+                img{
+                    height: 30px;
+                    width: 30px;
+                    margin-top: 20px;
+                    padding: auto;
+                }
+            }
+            .content{
+                padding-left: 20px;
+                padding-top: 25px;
+                color: rgb(129, 129, 129);
+            }
+        }
+        .gioithieu{
+            margin-top: 60px;
+            margin-bottom: 10px;
             width: auto;
-            background-color: orange; 
-            color: white;
-            font-weight: bold;
-            font-size: 1em; 
-            border-radius:4px; 
-            border: none;
-            cursor: pointer;
-            float: right;
-              }
+            text-align: left;
+            padding-left: 30px;
+            .titleGT{
+                font-weight: 500;
+                font-size: 17px;
+                width: auto;
+                color: black;
+            }
+            .contentGT{
+                font-size: 14px;
+                color: rgb(129, 129, 129);
+                width: 600px;
+                text-align: left;
+                margin-top: 7px;
+                padding-left: 10px;
+            }
         }
     }
 }

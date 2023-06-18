@@ -41,12 +41,7 @@ class Nav extends React.Component {
                     <div className="right-nav">
                         <Link to={path.COMUSER} className="profile_logo_1">
                         </Link>
-                        <div>
-                            <img className="profile_logo" src={messageIcon} alt="profile" />
-                        </div>
-                        <div>
-                            <img className="profile_logo" src={notificationIcon} alt="profile" />
-                        </div>
+                        
                     </div>
 
                 </div>

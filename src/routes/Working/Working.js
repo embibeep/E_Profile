@@ -41,49 +41,42 @@ class Working extends React.Component {
     render() {
         return (
             <>
+
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
                 <SearchBar />
-                <div className="working">
+                <div className="all">
+                    <div className="working">
 
-                    <div className="filter">
-                        <select className="select" aria-label="Default select example">
-                            <option selected>Mức lương</option>
-                            <option value="1">5 triệu</option>
-                            <option value="2">10 triệu</option>
-                            <option value="3">15 triệu</option>
-                        </select>
-                        <select className="select" aria-label="Default select example">
-                            <option selected>Kinh nghiệm</option>
-                            <option value="1">1 năm</option>
-                            <option value="2">2 năm</option>
-                            <option value="3">3 năm</option>
-                        </select>
-                        <button onClick={() => this.handlePopUp()} className="create-post">Đăng bài tuyển</button>
-                        <ModalAddPost
-                            isOpen={this.state.isAddPost}
-                            toggleFromParent={this.togglePopUp}
-                            test={'abc'}
+                        <div className="filter">
+                            <select className="select" aria-label="Default select example">
+                                <option selected>Mức lương</option>
+                                <option value="1">5 triệu</option>
+                                <option value="2">10 triệu</option>
+                                <option value="3">15 triệu</option>
+                            </select>
+                            <select className="select" aria-label="Default select example">
+                                <option selected>Kinh nghiệm</option>
+                                <option value="1">1 năm</option>
+                                <option value="2">2 năm</option>
+                                <option value="3">3 năm</option>
+                            </select>
+                            <button onClick={() => this.handlePopUp()} className="create-post">Đăng bài tuyển</button>
+                            <ModalAddPost
+                                isOpen={this.state.isAddPost}
+                                toggleFromParent={this.togglePopUp}
+                                test={'abc'}
 
-                        />
-                    </div>
-                    {/* /////////////////////////////////////////////////////////// */}
-                    <div className="title-tuyenNV">
-                        <p className="left">Tuyển nhân viên</p>
-                        <p className="right">&gt;&gt;</p>
-                    </div>
-                    <SimpleSlider />
+                            />
+                        </div>
+                        {/* /////////////////////////////////////////////////////////// */}
+                        <div className="title-tuyenNV">
+                            <p className="left">Tuyển nhân viên</p>
 
+                        </div>
+                        <SimpleSlider />
 
-                    <div className="line">
-
-                    </div>
-
-                    <div className="title-tuyenNV">
-                        <p className="left">Tuyển thực tập sinh</p>
-                        <p className="right">>></p>
-                    </div>
-                    <SimpleSlider />
-                </div >
+                    </div >
+                </div>
             </>
         )
     }

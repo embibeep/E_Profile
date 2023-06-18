@@ -31,7 +31,7 @@ class ModalViewPost extends Component {
                 scrollable='true'
             >
 
-                <ModalHeader toggle={() => { this.toggle() }}>Modal title</ModalHeader>
+                <ModalHeader toggle={() => { this.toggle() }}>Thông tin bài tuyển</ModalHeader>
                 <ModalBody>
                     <Posts />
                 </ModalBody>

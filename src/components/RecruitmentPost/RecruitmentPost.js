@@ -2,7 +2,9 @@ import React from "react";
 import './RecruitmentPost.scss';
 import Footer from "../Footer/footer";
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import lachongImg from "../../assets/images/lachongImg.jpg"
+
 class RecruitPost extends React.Component {
 
     constructor(props) {
@@ -84,25 +86,24 @@ class RecruitPost extends React.Component {
         return (
             <>
                 <div className="container-recruit">
-                    <div className="list-recruit row justify-content-center">
+                    <div className="list-recruit justify-content-center">
 
-                        <div className="recruit-item col-6">
-
-                            <div className="rec-banner">
-                            </div>
+                        <div className="recruit-item">
 
                             <div className="rec-title">
                                 <div className="rec-avt">
+                                    <img src={lachongImg} />
                                 </div>
                                 <div className="rec-name">
-                                    CÔNG TY TNHH ABCXYZ
+                                    <input onChange={(event) => this.handleChangeJobname(event)} type="text" className="rec-textbox" placeholder="Nhập tên công ty" /><br />
+
                                 </div>
                             </div>
                             <div className="rec-jobname">
-                                <input onChange={(event) => this.handleChangeJobname(event)} type="text" className="rec-textbox" placeholder="NHẬP TÊN CÔNG VIỆC" /><br />
+                                <input onChange={(event) => this.handleChangeJobname(event)} type="text" className="rec-textbox" placeholder="Nhập tên công việc" /><br />
                             </div>
 
-                            <div className="left-recinfo col-6">
+                            <div className="left-recinfo">
                                 <div className="rec-category">
                                     Mức lương
                                 </div>
@@ -115,7 +116,12 @@ class RecruitPost extends React.Component {
                                 <div className="rec-decoration">
                                     <input onChange={(event) => this.handleChangeExp(event)} type="text" className="rec-textbox" placeholder="..." style={{ width: "30px" }} /><label>Năm</label>
                                 </div>
-
+                                <div className="rec-category">
+                                    Email
+                                </div>
+                                <div className="rec-decoration">
+                                    <input onChange={(event) => this.handleChangeAddress(event)} type="text" className="rec-textbox" placeholder="Nhập email" /><br />
+                                </div>
                                 <div className="rec-category">
                                     Địa chỉ
                                 </div>
@@ -130,29 +136,21 @@ class RecruitPost extends React.Component {
                                     <input onChange={(event) => this.handleChangeDate(event)} type="date" style={{ border: "0", color: "gray" }} /><br />
                                 </div>
 
-                                <div className="rec-category">
-                                    GIỚI THIỆU VIỆC LÀM
-                                </div>
-                                <div className="rec-decoration">
-                                    <textarea onChange={(event) => this.handleChangeNote(event)} cols="40" rows="5" placeholder="Nhập nội dung" style={{ border: "0", resize: "none" }}></textarea>
-                                </div>
+
                             </div>
 
-                            <div className="right-recinfo col-6">
+                            <div className="right-recinfo">
                                 <div className="rec-category">
                                     Yêu cầu
                                 </div>
                                 <div className="rec-decoration">
-                                    <textarea onChange={(event) => this.handleChangeRequire(event)} cols="40" rows="15" placeholder="Nhập yêu cầu" style={{ border: "0", resize: "none" }}></textarea>
+                                    <textarea onChange={(event) => this.handleChangeNote(event)} cols="40" rows="5" placeholder="Nhập nội dung" style={{ border: "0", resize: "none" }}></textarea>
+
                                 </div>
                             </div>
 
                             <div className="footer-recinfo">
-                                <Form.Select onChange={(e) => this.handleChangePostType(e)} className="list-Box">
-                                    <option disabled selected value>Chọn loại bài đăng</option>
-                                    <option value="nv">Tuyển nhân viên</option>
-                                    <option value="tt">Tuyển thực tập sinh</option>
-                                </Form.Select>
+
 
                                 <Button onClick={(event) => this.handleSubmit(event)} className="btn-submit">Đăng bài tuyển</Button>
                             </div>

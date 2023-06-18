@@ -1,164 +1,46 @@
-.container-post{
-    
-    .list-post{
-        background-color: #E3F2FD;
-        width: 100%;
-        margin: 0 auto;
-        border-radius: 5px;
-        border: 1px solid #e0e0d1;
-        display: flex;
-        height: auto;
-        .post-item{
-            // border: solid #d8d5d5 1px;
-            border-radius: 5px;
-            padding: 0;
-            height: auto;
-            width: 100%;
-            padding-bottom: 10px;
-            // box-shadow: 1px 1px #f0ecec;
-            .post-banner{
-                background-color: blue;
-                height: 70px;
-                width: 100%;
-                background-repeat: no-repeat;
-                border-radius: 5px;
+.jobinfo{
+    height: 400px;
+    .info{
+        margin-left: 15px;
+        .address{
+            .title{
+                width: 144px;
             }
-            .post-title{
-                background-color: white;
-                margin: 0 10px;
-                display: flex;
-                
-                border-bottom: none;
-                border-bottom-left-radius: 5px;
-                border-bottom-right-radius: 5px;
-                .post-avt{
-                    background-image: url("../../assets/images/lachongImg.jpg");
-                    height: 150px;
-                    width: 150px;
-                    border: solid orange 2px;
-                    border-radius: 20px;
-                    margin-top: -55px;
-                    margin-left: 5px;
-                    background-repeat: no-repeat;
-                }
-    
-                .post-name{
-                    padding-top: 30px;
-                    margin-left: 30px;
-                    font-weight: bold;
-                    font-size: 25px;
-                    color: black;
-                }
-                
-            }
+            .content{
 
-            .post-category{
-                color: blue;
-                font-size: 25px;
-                padding: 10px;
-                padding-left: 20px;
-                text-align: justify;
-            }
-    
-            .post-jobname{
-                background-color: white;
-                width: auto;
-                height: 50px;
-                font-size: 20px;
-                font-weight: bold;
-                color: blue;
-                border: none;
-                text-align: left;
-                padding: 10px 0 0 10px;
-                border-radius: 5px;
-                margin: 3px 10px 3px 10px
-            }
-            .post-decoration{
-                background-color: white;
-                color: black;
-                font-size: 15px;
-                padding: 0 20px;
-                text-align: justify;
             }
         }
-        .left-postinfo{
-            background-color: white;
-            border-radius: 5px;
-            padding: 0;
-            height: 600px;
-            width: 50%;
-            margin-left: 10px;
-            float: left;
-                .post-decoration{
-                color: gray;
-                font-size: 13px;
-                padding: 0 20px;
-                text-align: justify;
-                border-radius: 5px;
-            }
-            .post-category{
-                color: blue;
-                font-size: 25px;
-                padding: 10px;
-                padding-left: 20px;
-                text-align: justify;
-            }
+        .fl{
+            display: flex;
+            margin-top: 5px;
+            
+        }
+        .title{
+            font-weight: 500;
+            width: 120px;
+        }
+        .content{
+            padding-left: 15px;
+            text-align: left;
 
         }
-        .right-postinfo{
-            background-color: white;
-            border-radius: 5px;
-            padding: 0;
-            height: 600px;
-            width: 46%;
-            margin-left: 10px;
-            float: left;
-            .post-decoration{
-
-                color: gray;
-                font-size: 13px;
-                padding: 0 20px;
-                text-align: justify;
-                margin-right: 5px;
-                border-radius: 5px;
-            }
-            .post-category{
-                color: blue;
-                font-size: 25px;
-                padding: 10px;
-                padding-left: 20px;
-                text-align: justify;
+    }
+    .avt-name{
+        
+        .avt{
+            img{
+            margin-top: 15px;
+            margin-left: 15px;
+            height: 70px;
+            border: 2px solid orange;
+            width: 70px;
+            border-radius: 100%;
             }
         }
-
-        .footer-postinfo{
-            .list-Box{
-                height: 45px; 
-                width: auto; 
-                margin: 5px 10px;
-                border-radius: 4px; 
-                border: 1px solid #e4e2e2; 
-                padding-left: 10px; 
-                color: white;
+        .name{
             font-weight: bold;
-            font-size: 1em; 
-                float: left;
-                background-color: orange;
-              }
-              .btn-submit{
-                padding: 5px;
-                margin: 5px;
-            height: 45px; 
-            width: auto;
-            background-color: orange; 
-            color: white;
-            font-weight: bold;
-            font-size: 1em; 
-            border-radius:4px; 
-            border: none;
-            cursor: pointer;
-            float: right;
-              }
+            padding-left: 15px;
+            font-size: 18px;
         }
     }
 }

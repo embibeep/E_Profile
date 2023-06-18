@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.all{
+    width: 100%;
+    background-color: white;
+}
 .filter{
     
     height: 40px;
@@ -25,17 +29,20 @@
 
 .create-post{
     float: right;
-    border: 1px solid gray;
+    border: none;
     text-decoration: none;
     color: black;
     background-color: orange;
     border-radius: 5px;
     font-size: 20px;
     margin: 3px;
+    color: white;
 }
 .working{
     background-color: white;
     height: 100%;
+    width: 100%;
+    margin: auto;
 }
 
 .title-tuyenNV{
