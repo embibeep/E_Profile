@@ -11,22 +11,98 @@ import gender from "../../../assets/images/gender.png"
 import profileIcon from "../../../assets/images/profileIcon.png"
 import iconFollow from "../../../assets/images/iconFollow.png"
 import lachongImg from "../../../assets/images/lachongImg.jpg"
+import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalAddPost, ModalViewCV, ModalViewPost } from "../../../components/Modals";
+import Nav from "../../../components/Navigation/Nav";
+import Footer from "../../../components/Footer/footer";
 class ComUser extends React.Component {
-    handlePopUp = () => {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isAvtCompanyChange: false,
+            isBGCompanyChange: false,
+            isEditCompany: false,
+            isAddPost: false,
+            isViewPost: false,
+            isViewCV: false
+        }
+    }
+
+    handlePopUp1 = () => {
+        this.setState({
+            isAvtCompanyChange: true
+        })
+    }
+
+    togglePopUp1 = () => {
+        this.setState({
+            isAvtCompanyChange: !this.state.isAvtCompanyChange
+        })
+    }
+
+    handlePopUp2 = () => {
+        this.setState({
+            isBGCompanyChange: true
+        })
+    }
+
+    togglePopUp2 = () => {
+        this.setState({
+            isBGCompanyChange: !this.state.isBGCompanyChange
+        })
+    }
+
+    handlePopUp3 = () => {
+        this.setState({
+            isEditCompany: true
+        })
+    }
+
+    togglePopUp3 = () => {
+        this.setState({
+            isEditCompany: !this.state.isEditCompany
+        })
+    }
+
+    handlePopUp4 = () => {
+        this.setState({
+            isAddPost: true
+        })
+    }
+
+    togglePopUp4 = () => {
+        this.setState({
+            isAddPost: !this.state.isAddPost
+        })
+    }
+
+    handlePopUp5 = () => {
         this.setState({
             isViewPost: true
         })
     }
 
-    togglePopUp = () => {
+    togglePopUp5 = () => {
         this.setState({
             isViewPost: !this.state.isViewPost
+        })
+    }
+
+    handlePopUp6 = () => {
+        this.setState({
+            isViewCV: true
+        })
+    }
+
+    togglePopUp6 = () => {
+        this.setState({
+            isViewCV: !this.state.isViewCV
         })
     }
     render() {
         return (
             <>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
+                <Nav />
 
                 <div className="all">
                     <div className="profileCT">
@@ -65,10 +141,34 @@ class ComUser extends React.Component {
                             </div>
 
                             <div className="listbutton">
-                                <button className="editavt btn"> đổi avatar</button>
-                                <button className="editbanner btn"> đổi ảnh bìa</button>
-                                <button className="editGT btn">sửa thông tin giới thiệu</button>
-                                <button className="upload btn">Đăng bài tuyển</button>
+                                <button className="editavt btn" onClick={() => this.handlePopUp1()}> đổi avatar</button>
+
+                                <ModalAvtCompanyChange
+                                    isOpen={this.state.isAvtCompanyChange}
+                                    toggleFromParent={this.togglePopUp1}
+                                    test={'abc'} />
+
+                                <button className="editbanner btn" onClick={() => this.handlePopUp2()}> đổi ảnh bìa</button>
+
+                                <ModalBGCompanyChange
+                                    isOpen={this.state.isBGCompanyChange}
+                                    toggleFromParent={this.togglePopUp2}
+                                    test={'abc'} />
+
+                                <button className="editGT btn" onClick={() => this.handlePopUp3()}>sửa thông tin giới thiệu</button>
+
+                                <ModalEditCompany
+                                    isOpen={this.state.isEditCompany}
+                                    toggleFromParent={this.togglePopUp3}
+                                    test={'abc'} />
+
+                                <button className="upload btn" onClick={() => this.handlePopUp4()}>Đăng bài tuyển</button>
+
+                                <ModalAddPost
+                                    isOpen={this.state.isAddPost}
+                                    toggleFromParent={this.togglePopUp4}
+                                    test={'abc'} />
+
                                 <button className="save btn">Lưu thông tin</button>
                             </div>
                             <div className="infoall">
@@ -89,7 +189,12 @@ class ComUser extends React.Component {
                             <div className="follow">
                                 <div className="titlefollow">Đang tuyển</div>
                                 <div className="listfollow overflow-auto">
-                                    <div className="jobItem">
+                                    <div className="jobItem" onClick={() => this.handlePopUp5()}>
+
+                                        <ModalViewPost
+                                            isOpen={this.state.isViewPost}
+                                            toggleFromParent={this.togglePopUp5} />
+
                                         <div className="Top-Job">
                                             <div className="icon">
                                                 <img className="avtCompany" src={profileIcon} alt="avata công ty" />
@@ -110,7 +215,11 @@ class ComUser extends React.Component {
                             </div>
                             <div className="userfollowtitle">Danh sách ứng tuyển</div>
                             <div className="userfollow overflow-auto">
-                                <div className="useritem">
+                                <div className="useritem" onClick={() => this.handlePopUp6()}>
+
+                                    <ModalViewCV
+                                        isOpen={this.state.isViewCV}
+                                        toggleFromParent={this.togglePopUp6} />
                                     <div className="icon object-fit: fill"><img src={address} /></div>
                                     <div className="content">Đoàn Nguyên Huy</div>
                                 </div>
@@ -118,6 +227,7 @@ class ComUser extends React.Component {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </>
         )
     }

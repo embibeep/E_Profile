@@ -8,16 +8,103 @@ import facebook from "../../../assets/images/facebook.png"
 import gender from "../../../assets/images/gender.png"
 import profileIcon from "../../../assets/images/profileIcon.png"
 import lachongImg from "../../../assets/images/lachongImg.jpg"
+import { ModalAvtStudentChange, ModalBGStudentChange, ModalEditStudent, ModalViewCV, ModalUploadCV, ModalViewPost } from "../../../components/Modals";
 import iconFollow from "../../../assets/images/iconFollow.png"
 import Footer from "../../../components/Footer/footer";
+import Nav from "../../../components/Navigation/Nav";
 
 
 
 class StUser extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isViewCV: false,
+            isUploadCV: false,
+            isAvtStudentChange: false,
+            isBGStudentChange: false,
+            isEditStudent: false,
+            isViewPost: false
+        }
+    }
+
+    handlePopUp1 = () => {
+        this.setState({
+            isViewCV: true
+        })
+    }
+
+    togglePopUp1 = () => {
+        this.setState({
+            isViewCV: !this.state.isViewCV
+        })
+    }
+
+    handlePopUp2 = () => {
+        this.setState({
+            isUploadCV: true
+        })
+    }
+
+    togglePopUp2 = () => {
+        this.setState({
+            isUploadCV: !this.state.isUploadCV
+        })
+    }
+
+    handlePopUp3 = () => {
+        this.setState({
+            isAvtStudentChange: true
+        })
+    }
+
+    togglePopUp3 = () => {
+        this.setState({
+            isAvtStudentChange: !this.state.isAvtStudentChange
+        })
+    }
+
+    handlePopUp4 = () => {
+        this.setState({
+            isBGStudentChange: true
+        })
+    }
+
+    togglePopUp4 = () => {
+        this.setState({
+            isBGStudentChange: !this.state.isBGStudentChange
+        })
+    }
+
+    handlePopUp5 = () => {
+        this.setState({
+            isEditStudent: true
+        })
+    }
+
+    togglePopUp5 = () => {
+        this.setState({
+            isEditStudent: !this.state.isEditStudent
+        })
+    }
+
+    handlePopUp6 = () => {
+        this.setState({
+            isViewPost: true
+        })
+    }
+
+    togglePopUp6 = () => {
+        this.setState({
+            isViewPost: !this.state.isViewPost
+        })
+    }
+
     render() {
         return (
             <>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
+                <Nav />
 
                 <div className="all">
                     <div className="profileNV">
@@ -66,18 +153,47 @@ class StUser extends React.Component {
                                 <img src={lachongImg} />
                             </div>
                             <div className="listbutton">
-                                <button className="xemcv btn"> xem cv</button>
-                                <button className="upcv btn">tải lên cv</button>
-                                <button className="editavt btn"> đổi avatar</button>
-                                <button className="editbanner btn"> đổi ảnh bìa</button>
-                                <button className="edit btn">sửa thông tin cá nhân</button>
+                                <button className="xemcv btn" onClick={() => this.handlePopUp1()}> xem cv</button>
+
+                                <ModalViewCV
+                                    isOpen={this.state.isViewCV}
+                                    toggleFromParent={this.togglePopUp1} />
+
+                                <button className="upcv btn" onClick={() => this.handlePopUp2()}>tải lên cv</button>
+
+                                <ModalUploadCV
+                                    isOpen={this.state.isUploadCV}
+                                    toggleFromParent={this.togglePopUp2} />
+
+                                <button className="editavt btn" onClick={() => this.handlePopUp3()}> đổi avatar</button>
+
+                                <ModalAvtStudentChange
+                                    isOpen={this.state.isAvtStudentChange}
+                                    toggleFromParent={this.togglePopUp3} />
+
+                                <button className="editbanner btn" onClick={() => this.handlePopUp4()}> đổi ảnh bìa</button>
+
+                                <ModalBGStudentChange
+                                    isOpen={this.state.isBGStudentChange}
+                                    toggleFromParent={this.togglePopUp4} />
+
+                                <button className="edit btn" onClick={() => this.handlePopUp5()}>sửa thông tin cá nhân</button>
+
+                                <ModalEditStudent
+                                    isOpen={this.state.isEditStudent}
+                                    toggleFromParent={this.togglePopUp5} />
+
                                 <button className="save btn">Lưu thông tin</button>
                             </div>
 
                             <div className="follow">
                                 <div className="titlefollow">Công việc đã ứng tuyển</div>
                                 <div className="listfollow overflow-auto">
-                                    <div className="jobItem">
+                                    <div className="jobItem" onClick={() => this.handlePopUp6()}>
+
+                                        <ModalViewPost
+                                            isOpen={this.state.isViewPost}
+                                            toggleFromParent={this.togglePopUp6} />
                                         <div className="Top-Job">
                                             <div className="icon">
                                                 <img className="avtCompany" src={profileIcon} alt="avata công ty" />
@@ -100,6 +216,8 @@ class StUser extends React.Component {
                         </div>
                     </div>
                 </div>
+
+                <Footer />
             </>
 
         )

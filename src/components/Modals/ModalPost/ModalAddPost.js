@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import Posts from '../Posts/Posts.js'
-import './ModalViewPost.scss'
-class ModalViewPost extends Component {
+import RecruitPost from '../../RecruitmentPost/RecruitmentPost';
+import './ModalAddPost.scss'
+class ModalAddPost extends Component {
 
     constructor(props) {
         super(props);
@@ -25,15 +25,15 @@ class ModalViewPost extends Component {
         return (
             <Modal isOpen={this.props.isOpen}
                 toggle={() => { this.toggle() }}
-                className={'modal-ModalViewPost'}
+                className={'modal-ModalAddPost'}
                 size='lg'
                 centered='true'
                 scrollable='true'
             >
 
-                <ModalHeader toggle={() => { this.toggle() }}>Thông tin bài tuyển</ModalHeader>
+                <ModalHeader toggle={() => { this.toggle() }}>Tạo bài tuyển</ModalHeader>
                 <ModalBody>
-                    <Posts />
+                    <RecruitPost />
                 </ModalBody>
                 {/* <ModalFooter>
                     <Button color="primary" onClick={() => { this.toggle() }}>
@@ -59,5 +59,5 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ModalViewPost);
-export default ModalViewPost;
+// export default connect(mapStateToProps, mapDispatchToProps)(ModalAddPost);
+export default ModalAddPost;

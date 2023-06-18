@@ -8,7 +8,7 @@ import profileIcon from "../../../assets/images/profileIcon.png"
 import iconFollow from "../../../assets/images/iconFollow.png"
 import { Link } from "react-router-dom";
 import path from "../../../utils/constant";
-import ModalViewPost from "../../../components/Modals/ModalViewPost";
+import ModalViewPost from "../../../components/Modals/ModalPost/ModalViewPost";
 
 class SimpleSlider extends React.Component {
 

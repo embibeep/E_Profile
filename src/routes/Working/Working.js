@@ -1,8 +1,7 @@
 import React from "react";
 import SearchBar from "../../components/SearchBar/SearchBar.js";
 import "./working.scss"
-import profileIcon from "../../assets/images/profileIcon.png"
-import iconFollow from "../../assets/images/iconFollow.png"
+import Nav from "../../components/Navigation/Nav.js";
 import Footer from "../../components/Footer/footer.js";
 import { Link } from "react-router-dom";
 import path from "../../utils/constant.js";
@@ -11,7 +10,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SimpleSlider from "./section/staffrecruit.js";
-import ModalAddPost from "../../components/Modals/ModalAddPost.js";
+import ModalAddPost from "../../components/Modals/ModalPost/ModalAddPost.js";
 class Working extends React.Component {
 
     constructor(props) {
@@ -41,8 +40,7 @@ class Working extends React.Component {
     render() {
         return (
             <>
-
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
+                <Nav />
                 <SearchBar />
                 <div className="all">
                     <div className="working">
@@ -77,6 +75,7 @@ class Working extends React.Component {
 
                     </div >
                 </div>
+                <Footer />
             </>
         )
     }

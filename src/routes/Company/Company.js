@@ -1,13 +1,34 @@
 import React from "react";
 import SearchBar from "../../components/SearchBar/SearchBar.js";
 import "./Company.scss"
+import ModalViewCompany from "../../components/Modals/ModalPost/ModalViewCompany.js";
 import Footer from "../../components/Footer/footer.js"
+import Nav from "../../components/Navigation/Nav.js";
 class Company extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isViewPost: false
+        }
+    }
+
+    handlePopUp = () => {
+        this.setState({
+            isViewPost: true
+        })
+    }
+
+    togglePopUp = () => {
+        this.setState({
+            isViewPost: !this.state.isViewPost
+        })
+    }
+
     render() {
         return (
             <>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
-
+                <Nav />
                 <SearchBar />
                 {/* <Posts /> */}
                 <div className="company">
@@ -22,8 +43,13 @@ class Company extends React.Component {
 
                     <div className="list-company row justify-content-center">
 
-                        {/* danh sách tuyển thực tập sinh */}
-                        <div className="company-item col-6">
+                        <div className="company-item col-6" onClick={() => this.handlePopUp()}>
+
+                            <ModalViewCompany
+                                isOpen={this.state.isViewPost}
+                                toggleFromParent={this.togglePopUp}
+
+                            />
 
                             <div className="banner">
                             </div>
@@ -42,7 +68,7 @@ class Company extends React.Component {
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </div>
                         </div>
-                        <div className="company-item col-6">
+                        <div className="company-item col-6" onClick={() => this.handlePopUp()}>
 
                             <div className="banner">
                             </div>
@@ -61,7 +87,7 @@ class Company extends React.Component {
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </div>
                         </div>
-                        <div className="company-item col-6">
+                        <div className="company-item col-6" onClick={() => this.handlePopUp()}>
 
                             <div className="banner">
                             </div>
@@ -80,7 +106,7 @@ class Company extends React.Component {
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </div>
                         </div>
-                        <div className="company-item col-6">
+                        <div className="company-item col-6" onClick={() => this.handlePopUp()}>
 
                             <div className="banner">
                             </div>
@@ -99,7 +125,7 @@ class Company extends React.Component {
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </div>
                         </div>
-                        <div className="company-item col-6">
+                        <div className="company-item col-6" onClick={() => this.handlePopUp()}>
 
                             <div className="banner">
                             </div>
@@ -111,7 +137,7 @@ class Company extends React.Component {
                                     CÔNG TY TNHH ABCXYZ
                                 </div>
                             </div>
-                            <div className="under-border">
+                            <div className="under-border" onClick={() => this.handlePopUp()}>
 
                             </div>
                             <div className="decoration">
@@ -141,6 +167,7 @@ class Company extends React.Component {
                     </div>
 
                 </div>
+                <Footer />
 
             </>
         )
