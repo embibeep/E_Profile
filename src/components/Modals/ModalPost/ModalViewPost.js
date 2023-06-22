@@ -46,7 +46,6 @@ class ModalViewPost extends Component {
             </Modal>
         )
     }
-
 }
 
 const mapStateToProps = state => {

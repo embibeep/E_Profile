@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import "../working.scss"
 import "slick-carousel/slick/slick.css";
@@ -10,14 +10,74 @@ import { Link } from "react-router-dom";
 import path from "../../../utils/constant";
 import ModalViewPost from "../../../components/Modals/ModalPost/ModalViewPost";
 
-class SimpleSlider extends React.Component {
+import { database } from '../../../firebase'
+
+export const JobCard = (props) => {
+    const [isViewPost, setIsViewPost] = useState(false);
+
+    function handlePopUp() {
+        setIsViewPost(true);
+    }
+
+    function togglePopUp() {
+        setIsViewPost(!isViewPost);
+    }
+
+    return (
+        <>
+            <div className="tuyenNV row justify-content-center">
+                <div className="jobItem col-4" onClick={() => handlePopUp()}>
+                    <ModalViewPost
+                        isOpen={isViewPost}
+                        toggleFromParent={togglePopUp}
+                    />
+
+                    <div className="Top-Job">
+                        <div className="icon">
+                            <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                        </div>
+                        <div className="Top-Left">
+                            <div className="nameJob">
+                                {props.job.title}
+                            </div>
+                            <div className="nameCompany">
+                                {`${props.job.company.name}`}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="Bot-job">
+                        <div className="item">
+                            {props.job.salary}
+                        </div>
+                        <div className="item">
+                            {props.job.exp}
+                        </div>
+                        <div className="item">
+                            {props.job.company.address}
+                        </div>
+
+                        <div className="iconFollow">
+
+                            {/* <img className="icon" src={iconFollow} alt="icon follow" /> */}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+
+
+export class SimpleSlider extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            isViewPost: false
-        }
+        this.state = {}
     }
+
+
 
     handlePopUp = () => {
         this.setState({
@@ -97,4 +157,3 @@ class SimpleSlider extends React.Component {
     }
 
 }
-export default SimpleSlider;

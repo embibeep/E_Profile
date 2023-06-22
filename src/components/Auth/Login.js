@@ -2,6 +2,7 @@ import React from "react";
 import "./Login.scss"
 import LHU_logo from "../../assets/images/Logo_LHU_Vi.png";
 import { Navigate } from "react-router-dom";
+import { useHref } from "react-router-dom";
 import lachongImg from "../../assets/images/lachongImg.jpg"
 import path from "../../utils/constant";
 import { handleLoginApi } from "../../services/userService";
@@ -47,6 +48,7 @@ class Login extends React.Component {
 
             if (data && data.errCode === 0) {
                 console.log('loging success');
+
             }
         } catch (e) {
             if (e.response) {
@@ -58,6 +60,8 @@ class Login extends React.Component {
             }
             console.log('error message', e.response)
         }
+
+
     }
 
     handleShowPassword = (event) => {
@@ -90,9 +94,7 @@ class Login extends React.Component {
                                 <input type="checkbox" onClick={(event) => { this.handleShowPassword(event) }} />
                                 <label htmlFor="checkBox-Password" className="text-label"> Hiện Thị Mật Khẩu</label><br />
                             </div>
-                            <div className="login-ErrAlert" >
-                                check
-                            </div>
+
                             <button className="btnSubmit" onClick={(e) => this.handleLogin(e)}
                                 type="submit">Đăng Nhập</button>
                         </div>

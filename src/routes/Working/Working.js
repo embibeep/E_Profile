@@ -9,20 +9,43 @@ import { getStaffPost } from '../../services/userService.js';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SimpleSlider from "./section/staffrecruit.js";
+import { SimpleSlider, JobCard } from "./section/staffrecruit.js";
 import ModalAddPost from "../../components/Modals/ModalPost/ModalAddPost.js";
+
+import { firestore } from "../../firebase";
+import { collection, doc, getDocs, getDoc, onSnapshot, query, where } from "firebase/firestore";
 class Working extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            isAddPost: false
+            isAddPost: false,
+            jobs: []
         }
     }
 
     async componentDidMount() {
-        let response = await getStaffPost('')
-        console.log("get user from nodejs: ", response)
+        // let response = await getStaffPost('')
+        // console.log("get user from nodejs: ", response)
+
+        let ref = collection(firestore, "Job");
+        let snapshot = await getDocs(ref);
+        let docs = await Promise.all(snapshot.docs.map(async function (docParam) {
+            let data = docParam.data();
+            let companySnapshot = await getDoc(doc(firestore, ...data.company.path.split("/ ")));
+            let company = companySnapshot.data();
+
+            console.log(companySnapshot)
+
+            let result = { ...data, company: company }
+            console.log(result);
+            return result;
+        }));
+
+        console.log(docs);
+        this.setState({
+            jobs: docs
+        })
     }
 
     handlePopUp = () => {
@@ -58,20 +81,19 @@ class Working extends React.Component {
                                 <option value="2">2 năm</option>
                                 <option value="3">3 năm</option>
                             </select>
-                            <button onClick={() => this.handlePopUp()} className="create-post">Đăng bài tuyển</button>
-                            <ModalAddPost
-                                isOpen={this.state.isAddPost}
-                                toggleFromParent={this.togglePopUp}
-                                test={'abc'}
 
-                            />
                         </div>
                         {/* /////////////////////////////////////////////////////////// */}
                         <div className="title-tuyenNV">
                             <p className="left">Tuyển nhân viên</p>
 
                         </div>
-                        <SimpleSlider />
+
+                        {this.state.jobs.map((job) => {
+                            return (<JobCard job={job} />)
+                        })}
+
+                        {/* <SimpleSlider /> */}
 
                     </div >
                 </div>

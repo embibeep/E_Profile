@@ -12,3 +12,8 @@ Run the Fecth APIs.\
 Open [http://localhost:3003](http://localhost:3003) to view it in your browser.
 If you want to change the port of Fecth APIs, please change number after "--port" in the command.
 
+firebase login
+
+firebase init
+
+firebase deploy
