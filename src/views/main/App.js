@@ -14,6 +14,7 @@ import SignUp from '../../components/SignUp/SignUp';
 import ResetPassword from '../../components/ResetPassword/ResetPassword';
 import RecruitPost from '../../components/RecruitmentPost/RecruitmentPost';
 import Posts from '../../components/Posts/Posts';
+import PostLists from '../../components/Modals/ModalCompany/Company-Post-Lists';
 function App() {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path={path.RESETPASS} element={<ResetPassword />} />
             <Route path={path.STAFFREC} element={<RecruitPost />} />
             <Route path={path.POSTS} element={<Posts />} />
+            <Route path={path.POSTLISTS} element={<PostLists />} />
           </Routes>
         </header>
       </div>

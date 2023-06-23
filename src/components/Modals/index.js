@@ -1,5 +1,5 @@
 export { default as ModalAvtCompanyChange } from './ModalCompany/AvatarChange';
-export { default as ModalBGCompanyChange } from './ModalCompany/BGChange';
+export { default as PostLists } from './ModalCompany/Company-Post-Lists';
 export { default as ModalEditCompany } from './ModalCompany/EditCompany';
 
 export { default as ModalAddPost } from './ModalPost/ModalAddPost';

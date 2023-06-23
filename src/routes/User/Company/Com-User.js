@@ -14,6 +14,8 @@ import lachongImg from "../../../assets/images/lachongImg.jpg"
 import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalAddPost, ModalViewCV, ModalViewPost } from "../../../components/Modals";
 import Nav from "../../../components/Navigation/Nav";
 import Footer from "../../../components/Footer/footer";
+import { Link } from "react-router-dom";
+import path from "../../../utils/constant";
 class ComUser extends React.Component {
 
     constructor(props) {
@@ -41,16 +43,14 @@ class ComUser extends React.Component {
     }
 
     handlePopUp2 = () => {
-        this.setState({
-            isBGCompanyChange: true
-        })
+
     }
 
-    togglePopUp2 = () => {
-        this.setState({
-            isBGCompanyChange: !this.state.isBGCompanyChange
-        })
-    }
+    // togglePopUp2 = () => {
+    //     this.setState({
+    //         isBGCompanyChange: !this.state.isBGCompanyChange
+    //     })
+    // }
 
     handlePopUp3 = () => {
         this.setState({
@@ -148,12 +148,8 @@ class ComUser extends React.Component {
                                     toggleFromParent={this.togglePopUp1}
                                     test={'abc'} />
 
-                                <button className="editbanner btn" onClick={() => this.handlePopUp2()}> Quản lý bài đăng</button>
-
-                                <ModalBGCompanyChange
-                                    isOpen={this.state.isBGCompanyChange}
-                                    toggleFromParent={this.togglePopUp2}
-                                    test={'abc'} />
+                                <Link to={path.POSTLISTS} className="editbanner btn" >
+                                    Quản lý bài đăng </Link>
 
                                 <button className="editGT btn" onClick={() => this.handlePopUp3()}>sửa thông tin giới thiệu</button>
 
