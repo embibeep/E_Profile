@@ -137,7 +137,7 @@ class ComUser extends React.Component {
                         </div>
                         <div className="pro-right">
                             <div className="banner">
-                                <img src={lachongImg} />
+                                {/* <img src={lachongImg} /> */}
                             </div>
 
                             <div className="listbutton">
@@ -148,7 +148,7 @@ class ComUser extends React.Component {
                                     toggleFromParent={this.togglePopUp1}
                                     test={'abc'} />
 
-                                <button className="editbanner btn" onClick={() => this.handlePopUp2()}> đổi ảnh bìa</button>
+                                <button className="editbanner btn" onClick={() => this.handlePopUp2()}> Quản lý bài đăng</button>
 
                                 <ModalBGCompanyChange
                                     isOpen={this.state.isBGCompanyChange}

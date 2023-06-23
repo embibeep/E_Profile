@@ -15,8 +15,8 @@
             .jobItem{
                 border: solid #d8d5d5 1px;
                 border-radius: 4px;
-                height: 215px;
-                width: 420px;
+                height: 160px;
+                width: 90%;
                 margin: 10px;
                 padding: 10px;
                 box-shadow: 1px 1px #f0ecec;
@@ -37,19 +37,20 @@
                         
                     }
                     .Top-Left{
+                        margin-top: 2px;
                         .nameJob{
                             width: 100%;
                             text-align: left;
                             margin-top: -7px;
                             font-weight: bold;
-                            font-size: 20px;
+                            font-size: 18px;
                             text-indent: 15px;
                         }
         
                         .nameCompany{
                             width: 100%;
                             text-align: left;
-                            font-size: 18px;
+                            font-size: 16px;
                             font-weight: inherit;
                             margin-top: -3px;
                             text-indent: 15px;
@@ -61,25 +62,18 @@
         
                 .Bot-job{
         
-                    margin-top: 40px;
+                    margin-top: 10px;
                     .item{
                         background-color: #e5e2e2;
                         margin: 10px;
                         margin-left: 0px;
                         width: fit-content;
-                        padding: 4px 10px 4px 10px;
+                        padding: 1px 10px 1px 10px;
                         border-radius: 2px;
                         font-size: 11px;
                     }
         
-                    .iconFollow{
-                        .icon{
-                            width: 20px;
-                            height: 20px;
-                            float: right;
-                            margin-top: -35px;
-                        }
-                    }
+                    
                 }
             }
         }

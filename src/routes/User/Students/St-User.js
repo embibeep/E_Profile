@@ -150,7 +150,7 @@ class StUser extends React.Component {
                         </div>
                         <div className="pro-right">
                             <div className="banner">
-                                <img src={lachongImg} />
+                                {/* <img src={lachongImg} /> */}
                             </div>
                             <div className="listbutton">
                                 <button className="xemcv btn" onClick={() => this.handlePopUp1()}> xem cv</button>

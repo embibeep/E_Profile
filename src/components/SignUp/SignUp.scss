@@ -7,7 +7,6 @@
     padding: 20px 20px 20px 0;
 	text-align: center;
     margin: auto;
-	margin-top: 70px;
     
 	color: white;
     font-family: product;
@@ -16,9 +15,10 @@
     display: flex;
 
     .left-img{
+        margin-top: 30px;
         background-image: url(../../assets/images/lachongImg.jpg);
         height: 530px;
-        width: 790px;
+        width: 725px;
         margin-left: 10px;
         border-radius: 5px;
     }

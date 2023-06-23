@@ -34,11 +34,7 @@ class Working extends React.Component {
             let data = docParam.data();
             let companySnapshot = await getDoc(doc(firestore, ...data.company.path.split("/ ")));
             let company = companySnapshot.data();
-
-            console.log(companySnapshot)
-
             let result = { ...data, company: company }
-            console.log(result);
             return result;
         }));
 
