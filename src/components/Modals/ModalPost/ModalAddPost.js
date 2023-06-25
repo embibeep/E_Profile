@@ -31,7 +31,7 @@ class ModalAddPost extends Component {
                 scrollable='true'
             >
 
-                <ModalHeader toggle={() => { this.toggle() }}>Tạo bài tuyển</ModalHeader>
+                <ModalHeader className='titlee' toggle={() => { this.toggle() }}>Tạo bài tuyển</ModalHeader>
                 <ModalBody>
                     <RecruitPost />
                 </ModalBody>

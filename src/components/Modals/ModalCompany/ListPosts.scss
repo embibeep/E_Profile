@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.btnExit{
+    .btnn{
+    background-color: rgb(255, 187, 0);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    width: 160px;
+    height: 35px;
+    border-radius: 5px;
+    justify-content: left;
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 20px;
+    
+    }
+    
+}
+
+.listPosts{
+    height: 600px;
+    width: 100%;
+    color: black;
+    
+    .top{
+        width: 100%;
+        margin: auto;
+        margin-top: 60px;
+        background-color: rgb(238, 238, 238);
+        table{
+            width: 100%;
+            thead{
+                tr{
+
+                    .stt{
+                        text-align: center;
+                        
+                    }
+                    th{
+                        font-size: 14px;
+                        vertical-align:top;
+                        width: 100px;
+                        text-align: left;
+                    }
+                }
+            }
+            tbody{
+                
+                tr:hover{
+                    background-color: rgb(174, 219, 255);
+                }
+                tr{
+
+                    .stt{
+                        text-align: center;
+                        p{
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            width: 60px;
+                            margin: auto;
+                            margin-left: 0;
+                            text-align: right;
+                        }
+                    }
+                    th{
+                        font-size: 14px;
+                        vertical-align: middle;
+                        text-align: left;
+                    }
+                    td{
+                        height: 100%;
+                        vertical-align: middle;
+                       
+                        p{
+
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            width: 140px;
+                            margin: auto;
+                            margin-left: 0;
+                            text-align: left;
+                        }
+                        font-size: 14px;
+                    }
+                }
+
+                
+            }
+
+            
+
+        }
+    }
+
+    .right{
+
+    }
+}

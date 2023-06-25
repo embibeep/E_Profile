@@ -26,16 +26,15 @@
       .profile_logo_1{
         width: 100%;
         background: url("../../assets/images/profileIcon.png") center center no-repeat;
-        height: 40px;
+        background-size: 40px;
         width: 40px;
         float: right;
         margin: 15px 20px 0 7px;
-        border: solid orange 1px;
         border-radius: 100px;
       }
       .profile_logo{
-        height: 40px;
-        width: 40px;
+        height: 10px;
+        width: 10px;
         float: right;
         margin: 15px 15px 0 10px;
       }

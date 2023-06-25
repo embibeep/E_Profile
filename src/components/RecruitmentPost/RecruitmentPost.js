@@ -85,6 +85,7 @@ class RecruitPost extends React.Component {
     render() {
         return (
             <>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></link>
                 <div className="container-recruit">
                     <div className="list-recruit justify-content-center">
 
@@ -144,15 +145,17 @@ class RecruitPost extends React.Component {
                                     Yêu cầu
                                 </div>
                                 <div className="rec-decoration">
-                                    <textarea onChange={(event) => this.handleChangeNote(event)} cols="40" rows="5" placeholder="Nhập nội dung" style={{ border: "0", resize: "none" }}></textarea>
+                                    <textarea className="form-control" onChange={(event) => this.handleChangeNote(event)} cols="40" rows="5" placeholder="Nhập nội dung" style={{ border: "0", resize: "none" }}></textarea>
 
                                 </div>
                             </div>
 
                             <div className="footer-recinfo">
 
-
                                 <Button onClick={(event) => this.handleSubmit(event)} className="btn-submit">Đăng bài tuyển</Button>
+                                <Button onClick={(event) => this.handleSubmit(event)} className="btn-submit">Cập nhật</Button>
+                                <Button onClick={(event) => this.handleSubmit(event)} className="btn-submit">Tạo mới</Button>
+                                <Button onClick={(event) => this.handleSubmit(event)} className="btn-submit">Xóa bài tuyển</Button>
                             </div>
                         </div>
 

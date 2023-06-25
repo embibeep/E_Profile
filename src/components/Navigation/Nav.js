@@ -41,7 +41,7 @@ class Nav extends React.Component {
                     <div className="right-nav">
                         <Link to={path.COMUSER} className="profile_logo_1">
                         </Link>
-                        
+
                     </div>
 
                 </div>

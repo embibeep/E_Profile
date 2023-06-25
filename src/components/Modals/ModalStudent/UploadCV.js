@@ -27,9 +27,11 @@ class ModalUploadCV extends Component {
                 scrollable='true'
             >
 
-                <ModalHeader toggle={() => { this.toggle() }}>Đăng tải CV</ModalHeader>
-                <ModalBody style={{ width: "500px", height: "500px" }}>
-
+                <ModalHeader className='titlee' toggle={() => { this.toggle() }}>Đăng tải CV</ModalHeader>
+                <ModalBody className='avtinputbox' style={{ width: "500px", height: "400px" }}>
+                    <label for="img" >Chọn ảnh:</label>
+                    <input className='inputavt' type="file" id="img" name="img" accept="image/*"></input>
+                    <button className='btnaddimg' type='submit'>Đăng ảnh</button>
                 </ModalBody>
             </Modal>
         )

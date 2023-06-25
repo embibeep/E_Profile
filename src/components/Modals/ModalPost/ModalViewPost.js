@@ -31,18 +31,12 @@ class ModalViewPost extends Component {
                 scrollable='true'
             >
 
-                <ModalHeader toggle={() => { this.toggle() }}>Thông tin bài tuyển</ModalHeader>
+                <ModalHeader className='titlee' toggle={() => { this.toggle() }}>Thông tin bài tuyển</ModalHeader>
                 <ModalBody>
                     <Posts />
                 </ModalBody>
-                {/* <ModalFooter>
-                    <Button color="primary" onClick={() => { this.toggle() }}>
-                        Do Something
-                    </Button>{' '}
-                    <Button color="secondary" onClick={() => { this.toggle() }}>
-                        Cancel
-                    </Button>
-                </ModalFooter> */}
+
+
             </Modal>
         )
     }

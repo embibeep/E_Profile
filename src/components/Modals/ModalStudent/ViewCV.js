@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+import lachongImg from '../../../assets/images/lachongImg.jpg';
 class ModalViewCV extends Component {
 
     constructor(props) {
@@ -27,9 +29,10 @@ class ModalViewCV extends Component {
                 scrollable='true'
             >
 
-                <ModalHeader toggle={() => { this.toggle() }}>Xem CV</ModalHeader>
-                <ModalBody style={{ width: "500px", height: "500px" }}>
+                <ModalHeader className='titlee' toggle={() => { this.toggle() }}>Xem CV</ModalHeader>
+                <ModalBody className='avtinputboxviewcv' style={{ width: "100%", height: "450px" }}>
 
+                    <img src={lachongImg}></img>
                 </ModalBody>
             </Modal>
         )

@@ -1,0 +1,64 @@
+.avtinputbox{
+
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    .inputavt{
+        margin-left: 15px;
+        border: none;
+    }
+    .btnaddimg{
+        border: none;
+        height: 30px;
+        width: 100px;
+        background-color: rgb(255, 219, 14);
+        border-radius: 5px;
+        color: rgb(133, 133, 133);
+    }
+}
+
+.avtinputboxviewcv{
+    
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.modalViewCV{
+    padding-top: 60px;
+}
+.btn-right{
+    float: right;
+    margin-right: 10px;
+    background-color: orange !important;
+    border: none !important;
+}
+.form-group{
+    display: flex;
+    
+    label{
+        padding-top: 7px;
+        width: 140px;
+    }
+    .form-control{
+        width: 500px;
+        margin-top: 5px;
+    }
+    .form-select{
+        width: 500px;
+        color: rgb(99, 99, 99);
+        margin-top: 5px;
+    }
+
+    .decription{
+        height: 400px;
+        width: 620px;
+    }
+}
+
+
+.aa{
+    .decription{
+        height: 400px;
+        width: 620px;
+    }
+}

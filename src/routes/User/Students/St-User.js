@@ -25,8 +25,19 @@ class StUser extends React.Component {
             isAvtStudentChange: false,
             isBGStudentChange: false,
             isEditStudent: false,
-            isViewPost: false
+            isViewPost: false,
+            response: {
+
+            }
         }
+    }
+
+    componentDidMount() {
+        this.loadStudent();
+    }
+
+    loadStudent = () => {
+
     }
 
     handlePopUp1 = () => {
@@ -113,36 +124,36 @@ class StUser extends React.Component {
                             <div className="avt-name">
                                 <div className="avt">
                                 </div>
-                                <div className="name">Đoàn Nguyên Huy</div>
+                                <div className="name">name</div>
                             </div>
                             <div className="gioithieu">
                                 <div className="titleGT">Giới Thiệu</div>
-                                <div className="contentGT text-break">aaaaaaaaaaaa...</div>
+                                <div className="contentGT text-break">introduce</div>
                             </div>
 
                             <div className="info">
                                 <div className="icon"><img src={iconbithday} /></div>
-                                <div className="content">03/04/2001</div>
+                                <div className="content">birthday</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={phone} /></div>
-                                <div className="content">0708181583</div>
+                                <div className="content">phone</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={gender} /></div>
-                                <div className="content">Nam</div>
+                                <div className="content">gender</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={address} /></div>
-                                <div className="content">Địa chỉ</div>
+                                <div className="content">address</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={email} /></div>
-                                <div className="content">Email</div>
+                                <div className="content">email</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={facebook} /></div>
-                                <div className="content">facebook</div>
+                                <div className="content">link</div>
                             </div>
 
 
@@ -171,7 +182,6 @@ class StUser extends React.Component {
                                     isOpen={this.state.isAvtStudentChange}
                                     toggleFromParent={this.togglePopUp3} />
 
-                                <button className="editbanner btn" onClick={() => this.handlePopUp4()}> đổi ảnh bìa</button>
 
                                 <ModalBGStudentChange
                                     isOpen={this.state.isBGStudentChange}
@@ -183,7 +193,6 @@ class StUser extends React.Component {
                                     isOpen={this.state.isEditStudent}
                                     toggleFromParent={this.togglePopUp5} />
 
-                                <button className="save btn">Lưu thông tin</button>
                             </div>
 
                             <div className="follow">

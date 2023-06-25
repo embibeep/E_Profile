@@ -1,65 +1,12 @@
 {
-  "name": "Công Ty TNHH Giải Pháp Phần Mềm Blackwind",
-  "logo": "sdawfwfawf",
-  "phone": "0789 968 833",
-  "email": "info@blackwind.vn",
-  "address": "46 Cửu Long, Phường 2, Quận Tân Bình, Thành phố Hồ Chí Minh",
-  "externalLink": [
-    {
-      "link": {
-        "stringValue": "https://blackwind.vn/"
-      },
-      "name": {
-        "stringValue": "Website"
-      }
-    }
-  ],
-  "dateOfIncorporation": "28/11/2014",
-  "business": [
-    "Công nghệ thông tin"
-  ],
-  "introduce": "Blackwind cung cấp dịch vụ và giải pháp phần mềm cho doanh nghiệp."
-}
-
-
-
-
-{
+  "quantity": "2",
+  "exp": "Dưới 1 năm",
+  "description": "fesff",
   "expireDate": "08/07/2023",
-  "quantity": 2,
-  "exp": "dưới 1 năm",
-  "description": "- Quản trị website, fanpage
-
-",
-
+  "salary": "10 - 15 triệu",
   "candidates": [
     "projects/eprofile-50e16/databases/(default)/documents/Student/ 1s6bjiOabSZWeXLzAJ01"
   ],
-  "company": "/Company/ OGCI7kZvLgzCRTobmOe0",
   "title": "Nhân Viên SEO-Marketing (Biết Về Code Web)",
-  "salary": "10 - 15 triệu"
-}
-
-
-
-{
-  "cv": "sdfsd",
-  "introduce": "My name is Doan Nguyen Huy",
-  "dateOfBirth": "03/04/2001",
-  "name": "Đoàn Nguyên Huy",
-  "phone": "0708181583",
-  "externalLink": [
-    {
-      "name": {
-        "stringValue": "facebook"
-      },
-      "link": {
-        "stringValue": "https://fb.com/nh375"
-      }
-    }
-  ],
-  "email": "huydoannguyen9@gmail.com",
-  "address": "Biên Hòa, Đồng Nai",
-  "avatar": "sdfsd",
-  "gender": true
+  "company": "/Company/ OGCI7kZvLgzCRTobmOe0"
 }

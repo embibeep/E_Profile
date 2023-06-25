@@ -24,7 +24,7 @@ class SearchBar extends React.Component {
                                     type="search"
                                     name="search-form"
                                     id="search-form"
-                                    className="search-input"
+                                    className="search-input form-control"
                                     placeholder="Nhập tên công việc hoặc công ty...."
                                 />
                                 <FontAwesomeIcon onClick={() => this.handleEnterSearch()} style={{ marginLeft: "-30px", color: 'black' }} icon={faMagnifyingGlass} />

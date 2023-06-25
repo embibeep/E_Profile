@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import "./AvatarChange.scss";
 class ModalAvtStudentChange extends Component {
 
     constructor(props) {
@@ -27,11 +28,14 @@ class ModalAvtStudentChange extends Component {
                 scrollable='true'
             >
 
-                <ModalHeader toggle={() => { this.toggle() }}>Thay đổi Avater</ModalHeader>
-                <ModalBody style={{ width: "500px", height: "500px" }}>
-
+                <ModalHeader className='titlee' toggle={() => { this.toggle() }}>Thay đổi Avatar</ModalHeader>
+                <ModalBody className='avtinputbox' style={{ width: "500px", height: "400px" }}>
+                    <label for="img" >Chọn ảnh:</label>
+                    <input className='inputavt' type="file" id="img" name="img" accept="image/*"></input>
+                    <button className='btnaddimg' type='submit'>Đăng ảnh</button>
                 </ModalBody>
-            </Modal>
+
+            </Modal >
         )
     }
 

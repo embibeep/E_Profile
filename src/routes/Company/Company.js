@@ -4,6 +4,8 @@ import "./Company.scss"
 import ModalViewCompany from "../../components/Modals/ModalPost/ModalViewCompany.js";
 import Footer from "../../components/Footer/footer.js"
 import Nav from "../../components/Navigation/Nav.js";
+
+import path from '../../utils/constant';
 class Company extends React.Component {
 
     constructor(props) {
@@ -48,101 +50,6 @@ class Company extends React.Component {
                                 toggleFromParent={this.togglePopUp}
 
                             />
-
-                            <div className="banner">
-                            </div>
-
-                            <div className="title">
-                                <div className="avt">
-                                </div>
-                                <div className="name">
-                                    CÔNG TY TNHH ABCXYZ
-                                </div>
-                            </div>
-                            <div className="under-border">
-
-                            </div>
-                            <div className="decoration">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </div>
-                        </div>
-                        <div className="company-item col-6" onClick={() => this.handlePopUp()}>
-
-                            <div className="banner">
-                            </div>
-
-                            <div className="title">
-                                <div className="avt">
-                                </div>
-                                <div className="name">
-                                    CÔNG TY TNHH ABCXYZ
-                                </div>
-                            </div>
-                            <div className="under-border">
-
-                            </div>
-                            <div className="decoration">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </div>
-                        </div>
-                        <div className="company-item col-6" onClick={() => this.handlePopUp()}>
-
-                            <div className="banner">
-                            </div>
-
-                            <div className="title">
-                                <div className="avt">
-                                </div>
-                                <div className="name">
-                                    CÔNG TY TNHH ABCXYZ
-                                </div>
-                            </div>
-                            <div className="under-border">
-
-                            </div>
-                            <div className="decoration">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </div>
-                        </div>
-                        <div className="company-item col-6" onClick={() => this.handlePopUp()}>
-
-                            <div className="banner">
-                            </div>
-
-                            <div className="title">
-                                <div className="avt">
-                                </div>
-                                <div className="name">
-                                    CÔNG TY TNHH ABCXYZ
-                                </div>
-                            </div>
-                            <div className="under-border">
-
-                            </div>
-                            <div className="decoration">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </div>
-                        </div>
-                        <div className="company-item col-6" onClick={() => this.handlePopUp()}>
-
-                            <div className="banner">
-                            </div>
-
-                            <div className="title">
-                                <div className="avt">
-                                </div>
-                                <div className="name">
-                                    CÔNG TY TNHH ABCXYZ
-                                </div>
-                            </div>
-                            <div className="under-border" onClick={() => this.handlePopUp()}>
-
-                            </div>
-                            <div className="decoration">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </div>
-                        </div>
-                        <div className="company-item col-6">
 
                             <div className="banner">
                             </div>

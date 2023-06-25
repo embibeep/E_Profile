@@ -20,29 +20,32 @@ class Working extends React.Component {
         super(props);
         this.state = {
             isAddPost: false,
-            jobs: []
+            // jobs: []
+
         }
     }
 
-    async componentDidMount() {
-        // let response = await getStaffPost('')
-        // console.log("get user from nodejs: ", response)
+    // async componentDidMount() {
+    //     // let response = await getStaffPost('')
+    //     // console.log("get user from nodejs: ", response)
 
-        let ref = collection(firestore, "Job");
-        let snapshot = await getDocs(ref);
-        let docs = await Promise.all(snapshot.docs.map(async function (docParam) {
-            let data = docParam.data();
-            let companySnapshot = await getDoc(doc(firestore, ...data.company.path.split("/ ")));
-            let company = companySnapshot.data();
-            let result = { ...data, company: company }
-            return result;
-        }));
+    //     let ref = collection(firestore, "Job");
+    //     let snapshot = await getDocs(ref);
+    //     let docs = await Promise.all(snapshot.docs.map(async function (docParam) {
+    //         let data = docParam.data();
+    //         let companySnapshot = await getDoc(doc(firestore, ...data.company.path.split("/ ")));
+    //         let company = companySnapshot.data();
+    //         let result = { ...data, company: company }
+    //         return result;
+    //     }));
 
-        console.log(docs);
-        this.setState({
-            jobs: docs
-        })
-    }
+    //     console.log(docs);
+    //     this.setState({
+    //         jobs: docs
+    //     })
+    // }
+
+
 
     handlePopUp = () => {
         this.setState({
@@ -59,6 +62,7 @@ class Working extends React.Component {
     render() {
         return (
             <>
+
                 <Nav />
                 <SearchBar />
                 <div className="all">
@@ -85,11 +89,11 @@ class Working extends React.Component {
 
                         </div>
 
-                        {this.state.jobs.map((job) => {
+                        {/* {this.state.jobs.map((job) => {
                             return (<JobCard job={job} />)
-                        })}
+                        })} */}
 
-                        {/* <SimpleSlider /> */}
+                        <SimpleSlider />
 
                     </div >
                 </div>

@@ -8,7 +8,6 @@ class Posts extends React.Component {
     render() {
         return (
             <>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
 
                 <div className="jobinfo">
                     <div className="avt-name">
@@ -16,6 +15,7 @@ class Posts extends React.Component {
                             <img src={lachongImg} />
                         </div>
                         <div className="name">Công ty TNHH PGcom Group</div>
+                        <button className="btnUngTuyen">Ứng tuyển</button>
                     </div>
                     <div className="info">
                         <div className="jobname fl">
@@ -45,7 +45,7 @@ class Posts extends React.Component {
                         <div className="gioithieu">
                             <div className="title text-break">Mô tả công việc:</div>
                             <div className="content">- Ít nhất 03 năm kinh nghiệm phát triển các sản phẩm/dự án xây dựng bằng ngôn ngữ NodeJS và React (hoặc công nghệ Frontend tương đương như Vue, Angular, và có sẵn sàng sử dụng React), trong đó có ít nhất 01 đến 02 năm kinh nghiệm quản lý team;<br></br>
-                                - Có kinh nghiệm làm việc với mô hình Agile, làm việc với Database NoSQL, Mông hoặc Firestore;<br></br>
+                                - Có kinh nghiệm làm việc với mô hình Agile, làm việc với Database NoSQL, Mongo hoặc Firestore;<br></br>
                                 - Có kinh nghiệm với điện toán đám mây, một trong: Google Cloud, FireBase, AWS, Kiến trúc hệ thống Microservice là một lợi thế;<br></br>
                                 - Khả năng đọc hiểu Tiếng Anh tốt, ham tìm tòi kiến thức mới là một điểm cộng;<br></br>
                                 - Có khả năng làm việc đội nhóm, Khả năng quản lý đội nhóm;<br></br>

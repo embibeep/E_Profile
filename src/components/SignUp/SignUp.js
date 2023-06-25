@@ -15,9 +15,35 @@ class SignUp extends React.Component {
             username: ``,
             password: ``,
             checkpassword: ``,
-            isShowPassword: false
+            isShowPassword: false,
+
+
 
         }
+    }
+
+    handleCreateAccount = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "name": this.state.peoplename,
+            "email": this.state.username,
+            "password": this.state.password,
+            "role": this.state.userType,
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/api/auth/register", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
     }
 
     handleChangeUserType = (event) => {
@@ -68,6 +94,8 @@ class SignUp extends React.Component {
                 `, username: `, this.state.username,
                 `, password: `, this.state.password,
                 `, checkpassword: `, this.state.checkpassword)
+
+            this.handleCreateAccount();
         }
         else {
             alert(`Mật khẩu và Xác nhận mật khẩu không giống nhau!`)
@@ -99,8 +127,8 @@ class SignUp extends React.Component {
                             {/* <div className="text-login" >Lac Hong University E-Profile</div> */}
                             <Form.Select onChange={(event) => this.handleChangeUserType(event)} className="list-Box">
                                 <option disabled selected value>Chọn loại tài khoản</option>
-                                <option value="sv">Sinh Viên</option>
-                                <option value="dn">Doanh Nghiệp</option>
+                                <option value="1">Sinh Viên</option>
+                                <option value="2">Doanh Nghiệp</option>
                             </Form.Select>
                             <input onChange={(event) => this.handleChangePeoplename(event)} className="text-Box" type="text" placeholder="Nhập Họ Tên Của Bạn" /><br />
                             <input onChange={(event) => this.handleChangeUsername(event)} className="text-Box" type="text" placeholder="Nhập Email Của Bạn" /><br />
@@ -120,8 +148,9 @@ class SignUp extends React.Component {
                                 <span>Bạn đã có tài khoản?<a href={path.LOGIN}>Đăng Nhập Ngay</a> </span>
                                 {/* <p>Bằng việc đăng ký tài khoản, bạn đã đồng ý với <a href="#">Điều khoản dịch vụ</a> và  <a href="#">chính sách bảo mật</a> của chúng tôi</p> */}
                             </div>
-                            <button className="btn-Submit" onClick={(event) => this.handleSubmit(event)}
-                                type="submit">Đăng Ký</button>
+                            <button className="btn-Submit" onClick={(event) => this.handleSubmit(event)} type="">
+                                Đăng Ký
+                            </button>
                         </div>
                         <div className="bottom-form">
 

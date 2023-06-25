@@ -28,8 +28,8 @@ class ModalViewCompany extends Component {
                 scrollable='true'
             >
 
-                <ModalHeader toggle={() => { this.toggle() }}>Công ty TNHH ABCXYZ</ModalHeader>
-                <ModalBody style={{ width: "500px", height: "500px" }}>
+                <ModalHeader className='titlee' toggle={() => { this.toggle() }}>Công ty TNHH ABCXYZ</ModalHeader>
+                <ModalBody className='bodyy'>
 
                 </ModalBody>
             </Modal>

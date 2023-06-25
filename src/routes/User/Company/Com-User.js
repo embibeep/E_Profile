@@ -10,6 +10,7 @@ import facebook from "../../../assets/images/facebook.png"
 import gender from "../../../assets/images/gender.png"
 import profileIcon from "../../../assets/images/profileIcon.png"
 import iconFollow from "../../../assets/images/iconFollow.png"
+import website from "../../../assets/images/website.png"
 import lachongImg from "../../../assets/images/lachongImg.jpg"
 import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalAddPost, ModalViewCV, ModalViewPost } from "../../../components/Modals";
 import Nav from "../../../components/Navigation/Nav";
@@ -114,19 +115,7 @@ class ComUser extends React.Component {
                                 <div className="name">Công Ty TNHH ABCXYZ...</div>
                             </div>
                             <div className="gioithieu">
-                                <div className="titleGT">Chúng tôi là ai?</div>
-                                <div className="contentGT text-break">aaaaaaaaaaaa...</div>
-                            </div>
-                            <div className="gioithieu">
-                                <div className="titleGT">Thành tựu của chúng tôi</div>
-                                <div className="contentGT text-break">aaaaaaaaaaaa...</div>
-                            </div>
-                            <div className="gioithieu">
-                                <div className="titleGT">Bạn có đang mong muốn</div>
-                                <div className="contentGT text-break">aaaaaaaaaaaa...</div>
-                            </div>
-                            <div className="gioithieu">
-                                <div className="titleGT">Vì sao cơ hội này rất tốt với bạn ?</div>
+                                <div className="titleGT">Giới thiệu</div>
                                 <div className="contentGT text-break">aaaaaaaaaaaa...</div>
                             </div>
 
@@ -158,14 +147,11 @@ class ComUser extends React.Component {
                                     toggleFromParent={this.togglePopUp3}
                                     test={'abc'} />
 
-                                <button className="upload btn" onClick={() => this.handlePopUp4()}>Đăng bài tuyển</button>
 
                                 <ModalAddPost
                                     isOpen={this.state.isAddPost}
                                     toggleFromParent={this.togglePopUp4}
                                     test={'abc'} />
-
-                                <button className="save btn">Lưu thông tin</button>
                             </div>
                             <div className="infoall">
                                 <div className="info">
@@ -180,6 +166,10 @@ class ComUser extends React.Component {
                                 <div className="info">
                                     <div className="icon"><img src={phone} /></div>
                                     <div className="content">0708181583</div>
+                                </div>
+                                <div className="info">
+                                    <div className="icon"><img src={website} /></div>
+                                    <div className="content">https://github.com/embibeep/E_Profile</div>
                                 </div>
                             </div>
                             <div className="follow">
@@ -216,7 +206,7 @@ class ComUser extends React.Component {
                                     <ModalViewCV
                                         isOpen={this.state.isViewCV}
                                         toggleFromParent={this.togglePopUp6} />
-                                    <div className="icon object-fit: fill"><img src={address} /></div>
+                                    <div className="icon object-fit: fill"><img src={profileIcon} /></div>
                                     <div className="content">Đoàn Nguyên Huy</div>
                                 </div>
                             </div>
