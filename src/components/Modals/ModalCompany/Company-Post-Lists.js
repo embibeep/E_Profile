@@ -4,6 +4,10 @@ import path from '../../../utils/constant';
 import Footer from "../../Footer/footer"
 import "./ListPosts.scss"
 import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalAddPost, ModalViewCV, ModalViewPost } from "../../../components/Modals";
+
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+
 class PostLists extends Component {
 
     constructor(props) {
@@ -15,6 +19,7 @@ class PostLists extends Component {
             isAddPost: false,
             isViewPost: false,
             isViewCV: false,
+            job: {},
             response: [
 
             ]
@@ -35,7 +40,26 @@ class PostLists extends Component {
             "pipeline": [
                 {
                     "$match": {}
-                }
+                },
+                {
+                    "$lookup": {
+                        "from": "Company",
+                        "localField": "company",
+                        "foreignField": "_id",
+                        "as": "company"
+                    }
+                },
+                {
+                    "$unwind": "$company"
+                },
+                {
+                    "$lookup": {
+                        "from": "Student",
+                        "localField": "candidates",
+                        "foreignField": "_id",
+                        "as": "candidates"
+                    }
+                },
             ]
         });
 
@@ -56,18 +80,22 @@ class PostLists extends Component {
 
 
 
-    handlePopUp = () => {
+    handlePopUp = (job) => {
         this.setState({
+            job: { ...job },
             isAddPost: true
         })
     }
     togglePopUp = () => {
         this.setState({
-            isAddPost: !this.state.isAddPost
+            isAddPost: !this.state.isAddPost,
+            job: {}
         })
     }
 
     render() {
+
+
         return (
             <>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
@@ -84,7 +112,7 @@ class PostLists extends Component {
                         <table class="table">
                             <thead >
                                 <tr>
-                                    <th scope="col" className='stt'>STT</th>
+                                    <th scope="col" className='stt'>Mã BD</th>
                                     <th scope="col">Tên công ty</th>
                                     <th scope="col">Tên công việc</th>
                                     <th scope="col">Mức lương</th>
@@ -97,13 +125,10 @@ class PostLists extends Component {
                             </thead>
                             <tbody>
                                 {this.state.response.map(item => {
-                                    return <tr className='rowdata' onClick={() => this.handlePopUp()}>
-                                        <ModalAddPost
-                                            isOpen={this.state.isAddPost}
-                                            toggleFromParent={this.togglePopUp}
-                                            test={'abc'} />
-                                        <th className='stt' scope="row"><p>{item.company}</p></th>
-                                        <td><p>{item.company}</p></td>
+                                    return <tr className='rowdata' onClick={() => this.handlePopUp(item)}>
+
+                                        <th className='stt' scope="row"><p>{item._id}</p></th>
+                                        <td><p>{item.company.name}</p></td>
                                         <td><p>{item.title}</p></td>
                                         <td><p>{item.salary}</p></td>
                                         <td><p>{item.exp}</p></td>
@@ -112,7 +137,10 @@ class PostLists extends Component {
                                         <td><p>{item.address}</p></td>
                                         <td><p>{item.description}</p></td>
                                     </tr>
+
                                 })}
+
+
 
                             </tbody>
                         </table>
@@ -120,10 +148,17 @@ class PostLists extends Component {
                     <div className='bot'>
 
                     </div>
+                    <ModalAddPost
+                        data={this.state.response}
+                        isOpen={this.state.isAddPost}
+                        toggleFromParent={this.togglePopUp}
+                        job={this.state.job}
+                        test={'abc'} />
+
 
                 </div>
-
                 <Footer />
+
             </>
         )
     }
@@ -139,6 +174,8 @@ const mapDispatchToProps = dispatch => {
     return {
     };
 };
+
+
 
 // export default connect(mapStateToProps, mapDispatchToProps)(PostList);
 export default PostLists;

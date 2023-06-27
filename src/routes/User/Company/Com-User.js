@@ -147,11 +147,7 @@ class ComUser extends React.Component {
                                     toggleFromParent={this.togglePopUp3}
                                     test={'abc'} />
 
-
-                                <ModalAddPost
-                                    isOpen={this.state.isAddPost}
-                                    toggleFromParent={this.togglePopUp4}
-                                    test={'abc'} />
+                                
                             </div>
                             <div className="infoall">
                                 <div className="info">
@@ -177,9 +173,7 @@ class ComUser extends React.Component {
                                 <div className="listfollow overflow-auto">
                                     <div className="jobItem" onClick={() => this.handlePopUp5()}>
 
-                                        <ModalViewPost
-                                            isOpen={this.state.isViewPost}
-                                            toggleFromParent={this.togglePopUp5} />
+
 
                                         <div className="Top-Job">
                                             <div className="icon">
@@ -206,6 +200,7 @@ class ComUser extends React.Component {
                                     <ModalViewCV
                                         isOpen={this.state.isViewCV}
                                         toggleFromParent={this.togglePopUp6} />
+
                                     <div className="icon object-fit: fill"><img src={profileIcon} /></div>
                                     <div className="content">Đoàn Nguyên Huy</div>
                                 </div>

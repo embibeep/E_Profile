@@ -26,9 +26,7 @@ class StUser extends React.Component {
             isBGStudentChange: false,
             isEditStudent: false,
             isViewPost: false,
-            response: {
-
-            }
+            response: {},
         }
     }
 
@@ -37,7 +35,22 @@ class StUser extends React.Component {
     }
 
     loadStudent = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc2ODkzOTAsInN1YiI6IjY0OTY2YmQ3ZjQ0YjViOTYwMTFjM2Q3OSJ9.PH0inGEsfxEu2iNCB1ats25WBnTObl0zA4JyNd3efdM");
 
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders
+        };
+
+        fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                this.setState({ response: { ...result[0] } })
+            })
+            .catch(error => console.log('error', error)).finally(() => {
+                console.log(this.state.response)
+            });
     }
 
     handlePopUp1 = () => {
@@ -124,36 +137,36 @@ class StUser extends React.Component {
                             <div className="avt-name">
                                 <div className="avt">
                                 </div>
-                                <div className="name">name</div>
+                                <div className="name">{this.state.response.name}</div>
                             </div>
                             <div className="gioithieu">
                                 <div className="titleGT">Giới Thiệu</div>
-                                <div className="contentGT text-break">introduce</div>
+                                <div className="contentGT text-break">{this.state.response.introduce}</div>
                             </div>
 
                             <div className="info">
                                 <div className="icon"><img src={iconbithday} /></div>
-                                <div className="content">birthday</div>
+                                <div className="content">{this.state.response?.credential?.dateOfBirth ?? ""}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={phone} /></div>
-                                <div className="content">phone</div>
+                                <div className="content">{this.state.response?.credential?.phone ?? ""}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={gender} /></div>
-                                <div className="content">gender</div>
+                                <div className="content">{this.state.response?.credential?.gender ?? ""}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={address} /></div>
-                                <div className="content">address</div>
+                                <div className="content">{this.state.response?.credential?.address ?? ""}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={email} /></div>
-                                <div className="content">email</div>
+                                <div className="content">{this.state.response.email}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={facebook} /></div>
-                                <div className="content">link</div>
+                                <div className="content">{this.state.response.credential?.externalLink?.link ?? ""}</div>
                             </div>
 
 
@@ -200,9 +213,7 @@ class StUser extends React.Component {
                                 <div className="listfollow overflow-auto">
                                     <div className="jobItem" onClick={() => this.handlePopUp6()}>
 
-                                        <ModalViewPost
-                                            isOpen={this.state.isViewPost}
-                                            toggleFromParent={this.togglePopUp6} />
+
                                         <div className="Top-Job">
                                             <div className="icon">
                                                 <img className="avtCompany" src={profileIcon} alt="avata công ty" />

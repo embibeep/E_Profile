@@ -12,7 +12,7 @@ class SignUp extends React.Component {
         this.state = {
             userType: ``,
             peoplename: ``,
-            username: ``,
+            email: ``,
             password: ``,
             checkpassword: ``,
             isShowPassword: false,
@@ -28,7 +28,7 @@ class SignUp extends React.Component {
 
         var raw = JSON.stringify({
             "name": this.state.peoplename,
-            "email": this.state.username,
+            "email": this.state.email,
             "password": this.state.password,
             "role": this.state.userType,
         });
@@ -44,6 +44,7 @@ class SignUp extends React.Component {
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
+
     }
 
     handleChangeUserType = (event) => {
@@ -61,9 +62,9 @@ class SignUp extends React.Component {
         })
     }
 
-    handleChangeUsername = (event) => {
+    handleChangeEmail = (event) => {
         this.setState({
-            username: event.target.value
+            email: event.target.value
         })
     }
 
@@ -83,24 +84,19 @@ class SignUp extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
 
-        if (!this.state.userType || !this.state.peoplename || !this.state.username || !this.state.password || !this.state.checkpassword) {
+        if (!this.state.userType || !this.state.peoplename || !this.state.email || !this.state.password || !this.state.checkpassword) {
             alert(`Nhập đầy đủ dữ liệu!`)
             return;
-        }
-        if (this.state.password === this.state.checkpassword) {
-            alert('Nhập thành công!')
-            console.log(`id: `, this.state.userType,
-                `name: `, this.state.peoplename,
-                `, username: `, this.state.username,
-                `, password: `, this.state.password,
-                `, checkpassword: `, this.state.checkpassword)
+        } else if (this.state.password !== this.state.checkpassword) {
 
+            alert(`Mật khẩu và Xác nhận mật khẩu không giống nhau!`)
+
+        } else if (this.state.password.length < 8) {
+            alert("Mật khẩu phải dài hơn 8 kí tự");
+        } else {
             this.handleCreateAccount();
         }
-        else {
-            alert(`Mật khẩu và Xác nhận mật khẩu không giống nhau!`)
-            return;
-        }
+
     }
 
     handleShowPassword = (event) => {
@@ -131,7 +127,7 @@ class SignUp extends React.Component {
                                 <option value="2">Doanh Nghiệp</option>
                             </Form.Select>
                             <input onChange={(event) => this.handleChangePeoplename(event)} className="text-Box" type="text" placeholder="Nhập Họ Tên Của Bạn" /><br />
-                            <input onChange={(event) => this.handleChangeUsername(event)} className="text-Box" type="text" placeholder="Nhập Email Của Bạn" /><br />
+                            <input onChange={(event) => this.handleChangeEmail(event)} className="text-Box" type="text" placeholder="Nhập Email Của Bạn" /><br />
                             <input onChange={(event) => this.handleChangePassword(event)} className="text-Box" type={this.state.isShowPassword ? "text" : "password"}
                                 placeholder="Nhập Mật Khẩu" />
                             <br />

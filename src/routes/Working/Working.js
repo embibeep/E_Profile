@@ -11,7 +11,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { SimpleSlider, JobCard } from "./section/staffrecruit.js";
 import ModalAddPost from "../../components/Modals/ModalPost/ModalAddPost.js";
-
 import { firestore } from "../../firebase";
 import { collection, doc, getDocs, getDoc, onSnapshot, query, where } from "firebase/firestore";
 class Working extends React.Component {
@@ -69,17 +68,21 @@ class Working extends React.Component {
                     <div className="working">
 
                         <div className="filter">
-                            <select className="select" aria-label="Default select example">
-                                <option selected>Mức lương</option>
-                                <option value="1">5 triệu</option>
-                                <option value="2">10 triệu</option>
-                                <option value="3">15 triệu</option>
+                            <select className="select form-control" aria-label="Default select example">
+                                <option selected>Địa chỉ</option>
+                                <option value="1">Đồng Nai</option>
+                                <option value="2">Thủ đức</option>
+                                <option value="3">Hồ Chí Minh</option>
+                                <option value="4">Bình Dương</option>
                             </select>
-                            <select className="select" aria-label="Default select example">
-                                <option selected>Kinh nghiệm</option>
+                            <select className="select2 form-control" aria-label="Default select example">
+                                <option selected value="0">Chưa có kinh nghiệm</option>
                                 <option value="1">1 năm</option>
                                 <option value="2">2 năm</option>
-                                <option value="3">3 năm</option>
+                                <option value="4">4 năm</option>
+                                <option value="5">5 năm</option>
+                                <option value="6">6 năm</option>
+
                             </select>
 
                         </div>

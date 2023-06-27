@@ -10,71 +10,13 @@ import { Link } from "react-router-dom";
 import path from "../../../utils/constant";
 import ModalViewPost from "../../../components/Modals/ModalPost/ModalViewPost";
 
-import { database } from '../../../firebase'
-
-// export const JobCard = (props) => {
-//     const [isViewPost, setIsViewPost] = useState(false);
-
-//     function handlePopUp() {
-//         setIsViewPost(true);
-//     }
-
-//     function togglePopUp() {
-//         setIsViewPost(!isViewPost);
-//     }
-
-//     return (
-//         <>
-//             <div className="tuyenNV row justify-content-center">
-//                 <div className="jobItem col-4" onClick={() => handlePopUp()}>
-//                     <ModalViewPost
-//                         isOpen={isViewPost}
-//                         toggleFromParent={togglePopUp}
-//                     />
-
-//                     <div className="Top-Job">
-//                         <div className="icon">
-//                             <img className="avtCompany" src={profileIcon} alt="avata công ty" />
-//                         </div>
-//                         <div className="Top-Left">
-//                             <div className="nameJob">
-//                                 {props.job.title}
-//                             </div>
-//                             <div className="nameCompany">
-//                                 {`${props.job.company.name}`}
-//                             </div>
-//                         </div>
-//                     </div>
-
-//                     <div className="Bot-job">
-//                         <div className="item">
-//                             {props.job.salary}
-//                         </div>
-//                         <div className="item">
-//                             {props.job.exp}
-//                         </div>
-//                         <div className="item">
-//                             {props.job.company.address}
-//                         </div>
-
-//                         <div className="iconFollow">
-
-//                             {/* <img className="icon" src={iconFollow} alt="icon follow" /> */}
-
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </>
-//     )
-// }
-
 
 export class SimpleSlider extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            job: {},
             response: [
             ]
         }
@@ -94,7 +36,26 @@ export class SimpleSlider extends React.Component {
             "pipeline": [
                 {
                     "$match": {}
-                }
+                },
+                {
+                    "$lookup": {
+                        "from": "Company",
+                        "localField": "company",
+                        "foreignField": "_id",
+                        "as": "company"
+                    }
+                },
+                {
+                    "$unwind": "$company"
+                },
+                {
+                    "$lookup": {
+                        "from": "Student",
+                        "localField": "candidates",
+                        "foreignField": "_id",
+                        "as": "candidates"
+                    }
+                },
             ]
         });
 
@@ -113,15 +74,17 @@ export class SimpleSlider extends React.Component {
             .catch(error => console.log('error', error));
     }
 
-    handlePopUp = () => {
+    handlePopUp = (job) => {
         this.setState({
-            isViewPost: true
+            isViewPost: true,
+            job: job
         })
     }
 
     togglePopUp = () => {
         this.setState({
-            isViewPost: !this.state.isViewPost
+            isViewPost: !this.state.isViewPost,
+            job: {}
         })
     }
 
@@ -141,12 +104,7 @@ export class SimpleSlider extends React.Component {
 
                 <div className="tuyenNV row justify-content-center">
                     {this.state.response.map(item => {
-                        return <div className="jobItem col-4" onClick={() => this.handlePopUp()}>
-                            <ModalViewPost
-                                isOpen={this.state.isViewPost}
-                                toggleFromParent={this.togglePopUp}
-
-                            />
+                        return <div className="jobItem col-4" onClick={() => this.handlePopUp(item)}>
 
                             <div className="Top-Job">
                                 <div className="icon">
@@ -157,7 +115,7 @@ export class SimpleSlider extends React.Component {
                                         {item.title}
                                     </div>
                                     <div className="nameCompany">
-                                        {item.company}
+                                        {item.company.name}
                                     </div>
                                 </div>
                             </div>
@@ -188,6 +146,11 @@ export class SimpleSlider extends React.Component {
                         <button className="btnXemThem" type="button">Xem thêm</button>
                     </div>
                 </div>
+                <ModalViewPost
+                    isOpen={this.state.isViewPost}
+                    toggleFromParent={this.togglePopUp}
+                    job={this.state.job}
+                />
 
 
 

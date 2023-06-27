@@ -35,7 +35,7 @@ class Company extends React.Component {
                 {/* <Posts /> */}
                 <div className="company">
                     <div className="filter">
-                        <select className="select" aria-label="Default select example">
+                        <select className="select2 form-control" aria-label="Default select example">
                             <option selected>Khu vực</option>
                             <option value="1">Hồ Chí Minh</option>
                         </select>

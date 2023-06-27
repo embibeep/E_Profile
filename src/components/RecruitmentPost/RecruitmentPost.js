@@ -12,6 +12,7 @@ class RecruitPost extends React.Component {
 
         this.state = {
             jobname: ``,
+            companyname:``,
             salary: ``,
             exp: ``,
             address: ``,
