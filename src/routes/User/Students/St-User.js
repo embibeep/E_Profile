@@ -8,7 +8,8 @@ import facebook from "../../../assets/images/facebook.png"
 import gender from "../../../assets/images/gender.png"
 import profileIcon from "../../../assets/images/profileIcon.png"
 import lachongImg from "../../../assets/images/lachongImg.jpg"
-import { ModalAvtStudentChange, ModalBGStudentChange, ModalEditStudent, ModalViewCV, ModalUploadCV, ModalViewPost } from "../../../components/Modals";
+import { ModalAvtStudentChange, ModalBGStudentChange, ModalEditStudent, ModalUploadCV, ModalViewPost } from "../../../components/Modals";
+import ModalXemCV from "../../../components/Modals/ModalStudent/XemCV"
 import iconFollow from "../../../assets/images/iconFollow.png"
 import Footer from "../../../components/Footer/footer";
 import Nav from "../../../components/Navigation/Nav";
@@ -20,13 +21,13 @@ class StUser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isViewCV: false,
+            isXemCV: false,
             isUploadCV: false,
             isAvtStudentChange: false,
             isBGStudentChange: false,
             isEditStudent: false,
             isViewPost: false,
-            response: {},
+            response: [],
         }
     }
 
@@ -36,7 +37,7 @@ class StUser extends React.Component {
 
     loadStudent = () => {
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc2ODkzOTAsInN1YiI6IjY0OTY2YmQ3ZjQ0YjViOTYwMTFjM2Q3OSJ9.PH0inGEsfxEu2iNCB1ats25WBnTObl0zA4JyNd3efdM");
+        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MzkyNzEsInN1YiI6IjY0OTY2YmQ3ZjQ0YjViOTYwMTFjM2Q3OSJ9.s7fH2XgnM_gN8kV0X4VvSYb6O_MbAZQP_0nQo9rYYT0");
 
         var requestOptions = {
             method: 'GET',
@@ -55,13 +56,13 @@ class StUser extends React.Component {
 
     handlePopUp1 = () => {
         this.setState({
-            isViewCV: true
+            isXemCV: true
         })
     }
 
     togglePopUp1 = () => {
         this.setState({
-            isViewCV: !this.state.isViewCV
+            isXemCV: !this.state.isXemCV
         })
     }
 
@@ -137,11 +138,11 @@ class StUser extends React.Component {
                             <div className="avt-name">
                                 <div className="avt">
                                 </div>
-                                <div className="name">{this.state.response.name}</div>
+                                <div className="name">{this.state.response?.credential?.name ?? ""}</div>
                             </div>
                             <div className="gioithieu">
                                 <div className="titleGT">Giới Thiệu</div>
-                                <div className="contentGT text-break">{this.state.response.introduce}</div>
+                                <div className="contentGT text-break">{this.state.response?.credential?.introduce ?? ""}</div>
                             </div>
 
                             <div className="info">
@@ -162,11 +163,11 @@ class StUser extends React.Component {
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={email} /></div>
-                                <div className="content">{this.state.response.email}</div>
+                                <div className="content">{this.state.response?.credential?.email ?? ""}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={facebook} /></div>
-                                <div className="content">{this.state.response.credential?.externalLink?.link ?? ""}</div>
+                                <div className="content">{this.state.response?.credential?.externalLink?.link ?? ""}</div>
                             </div>
 
 
@@ -179,8 +180,8 @@ class StUser extends React.Component {
                             <div className="listbutton">
                                 <button className="xemcv btn" onClick={() => this.handlePopUp1()}> xem cv</button>
 
-                                <ModalViewCV
-                                    isOpen={this.state.isViewCV}
+                                <ModalXemCV
+                                    isOpen={this.state.isXemCV}
                                     toggleFromParent={this.togglePopUp1} />
 
                                 <button className="upcv btn" onClick={() => this.handlePopUp2()}>tải lên cv</button>
@@ -212,8 +213,6 @@ class StUser extends React.Component {
                                 <div className="titlefollow">Công việc đã ứng tuyển</div>
                                 <div className="listfollow overflow-auto">
                                     <div className="jobItem" onClick={() => this.handlePopUp6()}>
-
-
                                         <div className="Top-Job">
                                             <div className="icon">
                                                 <img className="avtCompany" src={profileIcon} alt="avata công ty" />
@@ -227,9 +226,8 @@ class StUser extends React.Component {
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
+
                                 </div>
                             </div>
 

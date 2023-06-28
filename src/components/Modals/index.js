@@ -10,4 +10,4 @@ export { default as ModalAvtStudentChange } from './ModalStudent/AvatarChange';
 export { default as ModalBGStudentChange } from './ModalStudent/BGChange';
 export { default as ModalEditStudent } from './ModalStudent/EditStudent';
 export { default as ModalUploadCV } from './ModalStudent/UploadCV';
-export { default as ModalViewCV } from './ModalStudent/ViewCV';
+export { default as ModalViewCV } from './ModalStudent/ViewFollow';

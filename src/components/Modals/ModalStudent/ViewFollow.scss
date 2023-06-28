@@ -1,0 +1,42 @@
+.userfollowtitle{
+    margin-top: 10px;
+        margin-bottom: 5px;
+        font-weight: bold;
+}
+.userfollow{
+    height: 300px;
+    width: 500px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    background-color: white;
+    
+    font-size: 16px;
+    .useritem{
+        border: solid #d8d5d5 1px;
+        border-radius: 4px;
+        height: 68px;
+        width: 480px;
+        color: black;
+        display: flex;
+        margin: 10px;
+        padding: 10px;
+        box-shadow: 1px 1px #f0ecec;
+        .icon{
+            padding: 5px;
+            img{
+                border: solid black 1px;
+                height: 35px;
+                width: 35px;
+                padding: auto;
+            }
+        }
+        .content{
+            padding-left: 20px;
+            font-size: 16px;
+            padding-top: 10px;
+            color: rgb(129, 129, 129);
+        }
+    }
+    
+}

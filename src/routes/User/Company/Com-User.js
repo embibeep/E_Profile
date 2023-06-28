@@ -12,11 +12,12 @@ import profileIcon from "../../../assets/images/profileIcon.png"
 import iconFollow from "../../../assets/images/iconFollow.png"
 import website from "../../../assets/images/website.png"
 import lachongImg from "../../../assets/images/lachongImg.jpg"
-import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalAddPost, ModalViewCV, ModalViewPost } from "../../../components/Modals";
+import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalAddPost, ModalViewPost } from "../../../components/Modals";
 import Nav from "../../../components/Navigation/Nav";
 import Footer from "../../../components/Footer/footer";
 import { Link } from "react-router-dom";
 import path from "../../../utils/constant";
+import ModalViewFollow from "../../../components/Modals/ModalStudent/ViewFollow"
 class ComUser extends React.Component {
 
     constructor(props) {
@@ -27,8 +28,86 @@ class ComUser extends React.Component {
             isEditCompany: false,
             isAddPost: false,
             isViewPost: false,
-            isViewCV: false
+            isViewFollow: false,
+            companyInfo: [],
+            listjob: [],
+            candidates: [],
+            response: []
         }
+    }
+
+
+    componentDidMount() {
+        this.loadProfileCompany();
+        this.loadListJobs();
+
+    }
+
+    loadProfileCompany = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MjcwNDAsInN1YiI6IjY0OWJiOGYwYmI0NTQzZDA4NzI1MGY2MSJ9.dkr3G0l_P_1EMOdGAVy-Ou9wlyMKm35MMp566M_lBcU");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders
+        };
+
+        fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                this.setState({ response: { ...result[0] } })
+            })
+            .catch(error => console.log('error', error)).finally(() => {
+                console.log(this.state.response)
+            });
+    }
+
+
+    loadListJobs = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "collection": "Job",
+            "pipeline": [
+                {
+                    "$match": {}
+                },
+                {
+                    "$lookup": {
+                        "from": "Company",
+                        "localField": "company",
+                        "foreignField": "_id",
+                        "as": "company"
+                    }
+                },
+                {
+                    "$unwind": "$company"
+                },
+                {
+                    "$lookup": {
+                        "from": "Student",
+                        "localField": "candidates",
+                        "foreignField": "_id",
+                        "as": "candidates"
+                    }
+                },
+            ]
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/api/v1", requestOptions)
+            .then(listjob => listjob.json())
+            .then(result => {
+                this.setState({ listjob: result })
+            })
+            .catch(error => console.log('error', error));
     }
 
     handlePopUp1 = () => {
@@ -89,20 +168,23 @@ class ComUser extends React.Component {
         })
     }
 
-    handlePopUp6 = () => {
+    handlePopUp6 = (candidates) => {
         this.setState({
-            isViewCV: true
+            isViewFollow: true,
+            candidates: [...candidates]
         })
     }
 
     togglePopUp6 = () => {
         this.setState({
-            isViewCV: !this.state.isViewCV
+            isViewFollow: !this.state.isViewFollow,
+            candidates: []
         })
     }
     render() {
         return (
             <>
+
                 <Nav />
 
                 <div className="all">
@@ -112,15 +194,12 @@ class ComUser extends React.Component {
                             <div className="avt-name">
                                 <div className="avt">
                                 </div>
-                                <div className="name">Công Ty TNHH ABCXYZ...</div>
+                                <div className="name">{this.state.response?.credential?.name ?? ""}</div>
                             </div>
                             <div className="gioithieu">
                                 <div className="titleGT">Giới thiệu</div>
-                                <div className="contentGT text-break">aaaaaaaaaaaa...</div>
+                                <div className="contentGT text-break overflow-auto">{this.state.response?.credential?.introduce ?? ""}</div>
                             </div>
-
-
-
 
 
                         </div>
@@ -147,69 +226,60 @@ class ComUser extends React.Component {
                                     toggleFromParent={this.togglePopUp3}
                                     test={'abc'} />
 
-                                
+
                             </div>
                             <div className="infoall">
                                 <div className="info">
                                     <div className="icon"><img src={address} /></div>
-                                    <div className="content">Quận 10, Thành phố Hồ Chí Minh
+                                    <div className="content diachi">{this.state.response?.credential?.address ?? ""}
                                     </div>
                                 </div>
                                 <div className="info">
                                     <div className="icon"><img src={email} /></div>
-                                    <div className="content">huydoannguyen9@gmail.com</div>
+                                    <div className="content">{this.state.response?.credential?.email ?? ""}</div>
                                 </div>
                                 <div className="info">
                                     <div className="icon"><img src={phone} /></div>
-                                    <div className="content">0708181583</div>
+                                    <div className="content">{this.state.response?.credential?.phone ?? ""}</div>
                                 </div>
                                 <div className="info">
                                     <div className="icon"><img src={website} /></div>
-                                    <div className="content">https://github.com/embibeep/E_Profile</div>
+                                    <div className="content">{this.state.response?.credential?.website ?? ""}</div>
                                 </div>
                             </div>
                             <div className="follow">
                                 <div className="titlefollow">Đang tuyển</div>
                                 <div className="listfollow overflow-auto">
-                                    <div className="jobItem" onClick={() => this.handlePopUp5()}>
-
-
-
-                                        <div className="Top-Job">
-                                            <div className="icon">
-                                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
-                                            </div>
-                                            <div className="Top-Left">
-                                                <div className="nameJob">
-                                                    SoftWare Engineer 1
+                                    {this.state.listjob.map(item => {
+                                        return <div className="jobItem" onClick={() => this.handlePopUp6(item.candidates)}>
+                                            <div className="Top-Job">
+                                                <div className="icon">
+                                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
                                                 </div>
-                                                <div className="nameCompany">
-                                                    công ty TNHH ...
+                                                <div className="Top-Left">
+                                                    <div className="nameJob">
+                                                        {item.title}
+                                                    </div>
+                                                    <div className="nameCompany">
+                                                        {item.company.name}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-
-
-                                    </div>
+                                    })}
                                 </div>
                             </div>
-                            <div className="userfollowtitle">Danh sách ứng tuyển</div>
-                            <div className="userfollow overflow-auto">
-                                <div className="useritem" onClick={() => this.handlePopUp6()}>
-
-                                    <ModalViewCV
-                                        isOpen={this.state.isViewCV}
-                                        toggleFromParent={this.togglePopUp6} />
-
-                                    <div className="icon object-fit: fill"><img src={profileIcon} /></div>
-                                    <div className="content">Đoàn Nguyên Huy</div>
-                                </div>
-                            </div>
+                            <ModalViewFollow
+                                isOpen={this.state.isViewFollow}
+                                toggleFromParent={this.togglePopUp6}
+                                candidates={this.state.candidates}
+                            />
                         </div>
                     </div>
                 </div>
                 <Footer />
             </>
+
         )
     }
 }

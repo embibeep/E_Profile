@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import path from '../../../utils/constant';
 import Footer from "../../Footer/footer"
 import "./ListPosts.scss"
-import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalAddPost, ModalViewCV, ModalViewPost } from "../../../components/Modals";
+import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalViewCV, ModalViewPost } from "../../../components/Modals";
+import ModalAddPost from "../../../components/Modals/ModalPost/ModalAddPost";
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
@@ -20,9 +21,7 @@ class PostLists extends Component {
             isViewPost: false,
             isViewCV: false,
             job: {},
-            response: [
-
-            ]
+            response: []
         }
     }
 
@@ -86,6 +85,7 @@ class PostLists extends Component {
             isAddPost: true
         })
     }
+
     togglePopUp = () => {
         this.setState({
             isAddPost: !this.state.isAddPost,
@@ -105,6 +105,7 @@ class PostLists extends Component {
                         <button className='btnn'>Quay Lại Hồ Sơ</button>
                     </Link>
                 </div>
+
 
 
                 <div className='listPosts'>
@@ -149,11 +150,12 @@ class PostLists extends Component {
 
                     </div>
                     <ModalAddPost
-                        data={this.state.response}
                         isOpen={this.state.isAddPost}
                         toggleFromParent={this.togglePopUp}
+                        loadJob={this.loadListJobs}
                         job={this.state.job}
-                        test={'abc'} />
+
+                        />
 
 
                 </div>

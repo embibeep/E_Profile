@@ -67,6 +67,7 @@
         }
         .follow{
             margin-top: 10px;
+            margin-bottom: 20px;
             .titlefollow{
                 margin-top: 10px;
                 margin-bottom: 5px;
@@ -106,10 +107,12 @@
                     }
                     .Top-Left{
                         .nameJob{
-                            width: 100%;
+                            width: 400px;
                             text-align: left;
                             margin-top: -7px;
-                            font-weight: bold;
+                            font-weight: bold;overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
                             font-size: 20px;
                             text-indent: 15px;
                         }
@@ -237,11 +240,15 @@
             .contentGT{
                 font-size: 14px;
                 color: rgb(129, 129, 129);
-                width: 600px;
+                width: 470px;
                 text-align: left;
                 margin-top: 7px;
                 padding-left: 10px;
             }
         }
     }
+}
+
+.diachi{
+    text-align: left;
 }

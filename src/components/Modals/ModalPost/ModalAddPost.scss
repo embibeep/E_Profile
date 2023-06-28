@@ -4,6 +4,9 @@
 .modal-header{
     padding: 0 !important;
 }
+.titleee{
+    width: 95% !important;
+}
 .modal-body{
     padding: 0 !important;
 }
@@ -13,6 +16,23 @@
     margin: auto;
 }
 
-.rec-textbox{
-    color: black !important;
+.diachi{
+    height: 50px;
+}
+
+.container-recruit{
+    margin-bottom: 50px;
+    margin-top: 8px;
+    .recruit-item{
+        .container-recruit{
+            .list-recruit{
+                .rec-jobname{
+                    .rec-textbox{
+                        color: black !important;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
 }
