@@ -5,6 +5,8 @@ import StUser from "../../routes/User/Students/St-User.js";
 import ComUser from '../../routes/User/Company/Com-User';
 import Login from '../../components/Auth/Login';
 import path from '../../utils/constant.js';
+import XemCVhtml from "../../components/Modals/ModalStudent/XemCVhtml";
+import EditCVhtml from "../../components/Modals/ModalStudent/EditCVhtml";
 import {
   BrowserRouter as Router,
   Routes,
@@ -35,6 +37,8 @@ function App() {
             <Route path={path.STAFFREC} element={<RecruitPost />} />
             <Route path={path.POSTS} element={<Posts />} />
             <Route path={path.POSTLISTS} element={<PostLists />} />
+            <Route path={path.XemCV} element={<XemCVhtml />} />
+            <Route path={path.EditCV} element={<EditCVhtml />} />
           </Routes>
         </header>
       </div>

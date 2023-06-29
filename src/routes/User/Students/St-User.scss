@@ -74,12 +74,15 @@
                     }
                     .Top-Left{
                         .nameJob{
-                            width: 100%;
+                            width: 400px;
                             text-align: left;
                             margin-top: -7px;
                             font-weight: bold;
                             font-size: 20px;
                             text-indent: 15px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
                         }
         
                         .nameCompany{

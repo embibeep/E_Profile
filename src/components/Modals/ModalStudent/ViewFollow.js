@@ -17,7 +17,6 @@ function ModalViewFollow(props) {
             scrollable='true'
         >
 
-            <ModalHeader className='titlee' toggle={props.toggleFromParent}>Danh sách ứng tuyển</ModalHeader>
             <ModalBody className='avtinputboxviewcv' style={{ width: "100%", height: "450px" }}>
 
                 <div className="userfollowtitle">Danh sách ứng tuyển</div>

@@ -6,6 +6,7 @@ import "./ListPosts.scss"
 import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalViewCV, ModalViewPost } from "../../../components/Modals";
 import ModalAddPost from "../../../components/Modals/ModalPost/ModalAddPost";
 
+import HTMLReactParser from "html-react-parser";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
@@ -60,6 +61,7 @@ class PostLists extends Component {
                     }
                 },
             ]
+
         });
 
         var requestOptions = {
@@ -85,6 +87,7 @@ class PostLists extends Component {
             isAddPost: true
         })
     }
+
 
     togglePopUp = () => {
         this.setState({
@@ -113,8 +116,6 @@ class PostLists extends Component {
                         <table class="table">
                             <thead >
                                 <tr>
-                                    <th scope="col" className='stt'>Mã BD</th>
-                                    <th scope="col">Tên công ty</th>
                                     <th scope="col">Tên công việc</th>
                                     <th scope="col">Mức lương</th>
                                     <th scope="col">Kinh nghiệm</th>
@@ -128,20 +129,16 @@ class PostLists extends Component {
                                 {this.state.response.map(item => {
                                     return <tr className='rowdata' onClick={() => this.handlePopUp(item)}>
 
-                                        <th className='stt' scope="row"><p>{item._id}</p></th>
-                                        <td><p>{item.company.name}</p></td>
                                         <td><p>{item.title}</p></td>
                                         <td><p>{item.salary}</p></td>
                                         <td><p>{item.exp}</p></td>
                                         <td><p>{item.expireDate}</p></td>
                                         <td><p>{item.email}</p></td>
                                         <td><p>{item.address}</p></td>
-                                        <td><p>{item.description}</p></td>
+                                        <td><p>{HTMLReactParser(`${item.description}`)}</p></td>
                                     </tr>
 
                                 })}
-
-
 
                             </tbody>
                         </table>
@@ -155,7 +152,7 @@ class PostLists extends Component {
                         loadJob={this.loadListJobs}
                         job={this.state.job}
 
-                        />
+                    />
 
 
                 </div>

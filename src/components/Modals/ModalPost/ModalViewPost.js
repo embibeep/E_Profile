@@ -4,6 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Posts from '../../Posts/Posts'
 import lachongImg from "../../../assets/images/lachongImg.jpg"
 import './ModalViewPost.scss'
+import HTMLReactParser from "html-react-parser";
 class ModalViewPost extends Component {
 
     constructor(props) {
@@ -19,6 +20,8 @@ class ModalViewPost extends Component {
     toggle = () => {
         this.props.toggleFromParent()
     }
+
+
 
     render() {
         // console.log('check child props', this.props)
@@ -70,27 +73,16 @@ class ModalViewPost extends Component {
                             </div>
                             <div className="gioithieu">
                                 <div className="title text-break">Mô tả công việc:</div>
-                                <div className="content">{this.props.job.description}</div>
+                                <div className="content">{HTMLReactParser(`${this.props.job.description}`)}</div>
                             </div>
                         </div>
                     </div>
                 </ModalBody>
-
-
             </Modal>
         )
     }
 }
 
-const mapStateToProps = state => {
-    return {
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-    };
-};
 
 // export default connect(mapStateToProps, mapDispatchToProps)(ModalViewPost);
 export default ModalViewPost;

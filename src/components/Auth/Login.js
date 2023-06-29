@@ -37,8 +37,6 @@ class Login extends React.Component {
 
 
     componentDidMount() {
-        this.LoginAccount();
-        // this.GetAccountWithToken();
     }
 
     LoginAccount = () => {
@@ -58,69 +56,36 @@ class Login extends React.Component {
         };
 
         fetch("http://localhost:8080/api/auth/signin", requestOptions)
-            .then(token => token.text())
+            .then((res) => {
+                if (res.status == 200) return res.text();
+                res.text().then((err) => alert(err))
+            }
+            )
             .then(result => {
+
                 this.setState({ token: result })
             })
-            .catch(error => console.log('error', error));
+            .catch((error) => {
+                console.log('error', error);
+                alert(`$error`)
+            }
+            );
     }
 
-    // GetAccountWithToken = () => {
-    //     var myHeaders = new Headers();
-    //     myHeaders.append("Authorization", `Bearer ${this.state.token}`);
-
-    //     var requestOptions = {
-    //         method: 'GET',
-    //         headers: myHeaders,
-    //         redirect: 'follow'
-    //     };
-
-    //     fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
-    //         .then(response => response.json())
-    //         .then(result => {
-    //             this.setState({ response: result })
-    //         })
-    //         .catch(error => console.log('error', error));
-    // }
 
     handleLogin = () => {
+        if (!this.state.email) {
+            alert("vui lòng nhập email")
+        } else if (!this.state.password) {
+            alert("vui lòng nhập mật khẩu")
+        } else {
 
-        this.LoginAccount();
-        console.log("token:" + this.state.token);
-        // this.GetAccountWithToken();
+            this.LoginAccount();
+        }
+
+
 
     }
-    // handleLogin = async (e) => {
-    //     e.preventDefault()
-    //     this.setState({
-    //         errMessage: ``
-    //     })
-    //     console.log(`email: `, this.state.email, `, password: `, this.state.password)
-    //     try {
-    //         let data = await handleLoginApi(this.state.email, this.state.password)
-    //         if (data && data.errCode !== 0) {
-    //             this.setState({
-    //                 errMessage: data.message
-    //             })
-    //         }
-
-    //         if (data && data.errCode === 0) {
-    //             alert('Đăng nhập thành công');
-
-    //         }
-    //     } catch (e) {
-    //         if (e.response) {
-    //             if (e.response.data) {
-    //                 this.setState({
-    //                     errMessage: e.response.data.message
-    //                 })
-    //             }
-    //         }
-    //         console.log('error message', e.response)
-    //     }
-
-
-    // }
 
     handleShowPassword = (event) => {
         this.setState({
@@ -153,7 +118,7 @@ class Login extends React.Component {
                                 <label htmlFor="checkBox-Password" className="text-label"> Hiện Thị Mật Khẩu</label><br />
                             </div>
 
-                            <a className="btnSubmit" onClick={(e) => this.handleLogin(e)}
+                            <a className="btnSubmit" onClick={(e) => this.handleLogin()}
 
                                 type="submit">Đăng Nhập</a>
                         </div>

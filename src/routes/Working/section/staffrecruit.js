@@ -11,6 +11,7 @@ import path from "../../../utils/constant";
 import ModalViewPost from "../../../components/Modals/ModalPost/ModalViewPost";
 
 
+
 export class SimpleSlider extends React.Component {
 
     constructor(props) {
@@ -86,7 +87,7 @@ export class SimpleSlider extends React.Component {
             isViewPost: !this.state.isViewPost,
             job: {}
         })
-    }
+    } 
 
     render() {
         let settings = {

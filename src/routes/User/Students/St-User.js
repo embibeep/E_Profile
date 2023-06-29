@@ -13,6 +13,12 @@ import ModalXemCV from "../../../components/Modals/ModalStudent/XemCV"
 import iconFollow from "../../../assets/images/iconFollow.png"
 import Footer from "../../../components/Footer/footer";
 import Nav from "../../../components/Navigation/Nav";
+import path from "../../../utils/constant";
+import {
+    Link,
+    NavLink
+} from "react-router-dom";
+
 
 
 
@@ -27,14 +33,67 @@ class StUser extends React.Component {
             isBGStudentChange: false,
             isEditStudent: false,
             isViewPost: false,
-            response: [],
+            sinhvien: [],
+            job: {},
+            response: []
         }
     }
 
+
     componentDidMount() {
         this.loadStudent();
+        this.loadListJobs();
+
     }
 
+
+
+    loadListJobs = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "collection": "Job",
+            "pipeline": [
+                {
+                    "$match": {}
+                },
+                {
+                    "$lookup": {
+                        "from": "Company",
+                        "localField": "company",
+                        "foreignField": "_id",
+                        "as": "company"
+                    }
+                },
+                {
+                    "$unwind": "$company"
+                },
+                {
+                    "$lookup": {
+                        "from": "Student",
+                        "localField": "candidates",
+                        "foreignField": "_id",
+                        "as": "candidates"
+                    }
+                },
+            ]
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/api/v1", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                this.setState({ response: result })
+            })
+            .catch(error => console.log('error', error));
+    }
     loadStudent = () => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MzkyNzEsInN1YiI6IjY0OTY2YmQ3ZjQ0YjViOTYwMTFjM2Q3OSJ9.s7fH2XgnM_gN8kV0X4VvSYb6O_MbAZQP_0nQo9rYYT0");
@@ -45,12 +104,12 @@ class StUser extends React.Component {
         };
 
         fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
-            .then(response => response.json())
+            .then(sinhvien => sinhvien.json())
             .then(result => {
-                this.setState({ response: { ...result[0] } })
+                this.setState({ sinhvien: { ...result[0] } })
             })
             .catch(error => console.log('error', error)).finally(() => {
-                console.log(this.state.response)
+                console.log(this.state.sinhvien)
             });
     }
 
@@ -114,15 +173,17 @@ class StUser extends React.Component {
         })
     }
 
-    handlePopUp6 = () => {
+    handlePopUp6 = (job) => {
         this.setState({
+            job: job,
             isViewPost: true
         })
     }
 
     togglePopUp6 = () => {
         this.setState({
-            isViewPost: !this.state.isViewPost
+            isViewPost: !this.state.isViewPost,
+            job: {}
         })
     }
 
@@ -138,36 +199,36 @@ class StUser extends React.Component {
                             <div className="avt-name">
                                 <div className="avt">
                                 </div>
-                                <div className="name">{this.state.response?.credential?.name ?? ""}</div>
+                                <div className="name">{this.state.sinhvien?.credential?.name ?? ""}</div>
                             </div>
                             <div className="gioithieu">
                                 <div className="titleGT">Giới Thiệu</div>
-                                <div className="contentGT text-break">{this.state.response?.credential?.introduce ?? ""}</div>
+                                <div className="contentGT text-break">{this.state.sinhvien?.credential?.introduce ?? ""}</div>
                             </div>
 
                             <div className="info">
                                 <div className="icon"><img src={iconbithday} /></div>
-                                <div className="content">{this.state.response?.credential?.dateOfBirth ?? ""}</div>
+                                <div className="content">{this.state.sinhvien?.credential?.dateOfBirth ?? ""}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={phone} /></div>
-                                <div className="content">{this.state.response?.credential?.phone ?? ""}</div>
+                                <div className="content">{this.state.sinhvien?.credential?.phone ?? ""}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={gender} /></div>
-                                <div className="content">{this.state.response?.credential?.gender ?? ""}</div>
+                                <div className="content">{this.state.sinhvien?.credential?.gender ?? ""}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={address} /></div>
-                                <div className="content">{this.state.response?.credential?.address ?? ""}</div>
+                                <div className="content">{this.state.sinhvien?.credential?.address ?? ""}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={email} /></div>
-                                <div className="content">{this.state.response?.credential?.email ?? ""}</div>
+                                <div className="content">{this.state.sinhvien?.credential?.email ?? ""}</div>
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={facebook} /></div>
-                                <div className="content">{this.state.response?.credential?.externalLink?.link ?? ""}</div>
+                                <div className="content">{this.state.sinhvien?.credential?.externalLink?.link ?? ""}</div>
                             </div>
 
 
@@ -178,17 +239,10 @@ class StUser extends React.Component {
                                 {/* <img src={lachongImg} /> */}
                             </div>
                             <div className="listbutton">
-                                <button className="xemcv btn" onClick={() => this.handlePopUp1()}> xem cv</button>
+                                <Link to={path.XemCV}><button className="xemcv btn"> xem cv</button></Link>
+                                <Link to={path.EditCV}><button className="upcv btn">Sửa CV</button></Link>
 
-                                <ModalXemCV
-                                    isOpen={this.state.isXemCV}
-                                    toggleFromParent={this.togglePopUp1} />
 
-                                <button className="upcv btn" onClick={() => this.handlePopUp2()}>tải lên cv</button>
-
-                                <ModalUploadCV
-                                    isOpen={this.state.isUploadCV}
-                                    toggleFromParent={this.togglePopUp2} />
 
                                 <button className="editavt btn" onClick={() => this.handlePopUp3()}> đổi avatar</button>
 
@@ -212,21 +266,29 @@ class StUser extends React.Component {
                             <div className="follow">
                                 <div className="titlefollow">Công việc đã ứng tuyển</div>
                                 <div className="listfollow overflow-auto">
-                                    <div className="jobItem" onClick={() => this.handlePopUp6()}>
-                                        <div className="Top-Job">
-                                            <div className="icon">
-                                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
-                                            </div>
-                                            <div className="Top-Left">
-                                                <div className="nameJob">
-                                                    SoftWare Engineer 1
+                                    {this.state.response.map(item => {
+                                        return <div className="jobItem" onClick={() => this.handlePopUp6(item)}>
+                                            <div className="Top-Job">
+                                                <div className="icon">
+                                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
                                                 </div>
-                                                <div className="nameCompany">
-                                                    công ty TNHH ...
+                                                <div className="Top-Left">
+                                                    <div className="nameJob">
+                                                        {item.title}
+                                                    </div>
+                                                    <div className="nameCompany">
+                                                        {item.company.name}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    })}
+
+                                    <ModalViewPost
+                                        isOpen={this.state.isViewPost}
+                                        toggleFromParent={this.togglePopUp6}
+                                        job={this.state.job}
+                                    />
 
                                 </div>
                             </div>

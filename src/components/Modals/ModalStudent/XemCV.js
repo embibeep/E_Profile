@@ -15,7 +15,7 @@ function ModalXemCV(props) {
             scrollable='true'
         >
 
-            <ModalHeader className='titlee' toggle={props.toggleFromParent}>Danh sách ứng tuyển</ModalHeader>
+            <ModalHeader className='titlee' toggle={props.toggleFromParent}>Xem CV</ModalHeader>
             <ModalBody className='avtinputboxviewcv' style={{ width: "100%", height: "450px" }}>
                 <img src={lachongImg} />
             </ModalBody>

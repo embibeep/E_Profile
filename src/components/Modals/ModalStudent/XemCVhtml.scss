@@ -1,0 +1,148 @@
+// *{
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     background-color: black;
+// } 
+ 
+.containerCV{
+    background-color: rgb(65, 65, 65) !important;
+    width: 100% !important;
+    height: 100%;
+    display: flex; 
+    margin: auto;
+    font-family: 'Poppins', sans-serif !important;
+
+    .btn{
+        background-color: orange !important;
+        margin-left: 10px;
+        color: white;
+        font-weight: 500;
+        margin-top: 20px;
+        margin-bottom: 20px;
+}
+.btn:hover{
+    background-color: white !important;
+    color: orange;
+}
+
+   .content-CV{
+       font-size: 15px;
+       text-indent: 10px;
+   }
+   .form-control{
+       width: 300px;
+       margin-left: 18px;
+       margin-top: 10px;
+   }
+    .joditeditor{
+        color: black !important;
+        margin: auto;
+        margin-top: 8px;
+        height: 200px !important;
+        margin-right: 15px;
+        font-size: 16px;
+        text-indent: 15px;
+    }
+
+    .text-left{
+       margin-top: 30px;
+       text-align: left;
+       padding-left: 18px;
+   }
+   .titleCV{
+       font-weight: bold;
+       margin-bottom: 20px;
+       background-color: rgb(255, 255, 255);
+       color: rgb(0, 0, 0);
+       border-end-end-radius: 20px;
+       height: 50px;
+       width: fit-content;
+       padding-right: 30px;
+       padding-left: 20px;
+       padding-top: 8px;
+       margin-bottom: 20px;
+   }
+   .titleCV-right{
+       font-weight: bold;
+       background-color: rgb(49, 49, 49);
+       color: white;
+       border-end-end-radius: 20px;
+       height: 50px;
+       width: fit-content;
+       padding-right: 20px;
+       padding-left: 20px;
+       padding-top: 8px;
+       margin-bottom: 20px;
+   }
+
+
+    .left{
+        
+       border: none !important;
+       width: 1040px !important;
+       height: 100% !important;
+       background-color: yellow;
+       display: flex;
+       margin: auto;
+       color: white;
+
+       .l-left{
+           width: 40%;
+           padding-top: 40px;
+           background-color: rgb(49, 49, 49);
+           padding-bottom: 40px;
+           .avatar{
+               img{
+                height: 150px !important;
+                width: 150px !important;
+                border-radius: 100%;
+               }
+           }
+           .name{
+
+           }
+           .line-border{
+               height: 10px;
+               width: 150px;
+               margin: auto;
+               border-bottom: 1px solid white;
+           }
+           .chuyennganh{
+               font-size: 20px;
+           }
+
+           .vebanthan{
+               margin-top: 30px;
+           }
+
+           .kynang{
+            margin-top: 0px !important;
+           }
+
+
+       }
+
+       .r-left{
+           background-color: white;
+           color: black !important;
+           width: 60%;
+
+           .kinhnghiem{
+
+           }
+
+           .giaoduc{
+
+           }
+
+           .duan{
+
+           }
+
+           .khac{
+
+           }
+       }
+    }
+}

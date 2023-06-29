@@ -43,24 +43,6 @@ class ComUser extends React.Component {
 
     }
 
-    loadProfileCompany = () => {
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MjcwNDAsInN1YiI6IjY0OWJiOGYwYmI0NTQzZDA4NzI1MGY2MSJ9.dkr3G0l_P_1EMOdGAVy-Ou9wlyMKm35MMp566M_lBcU");
-
-        var requestOptions = {
-            method: 'GET',
-            headers: myHeaders
-        };
-
-        fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-                this.setState({ response: { ...result[0] } })
-            })
-            .catch(error => console.log('error', error)).finally(() => {
-                console.log(this.state.response)
-            });
-    }
 
 
     loadListJobs = () => {
@@ -110,6 +92,24 @@ class ComUser extends React.Component {
             .catch(error => console.log('error', error));
     }
 
+    loadProfileCompany = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MjcwNDAsInN1YiI6IjY0OWJiOGYwYmI0NTQzZDA4NzI1MGY2MSJ9.dkr3G0l_P_1EMOdGAVy-Ou9wlyMKm35MMp566M_lBcU");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders
+        };
+
+        fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                this.setState({ response: { ...result[0] } })
+            })
+            .catch(error => console.log('error', error)).finally(() => {
+                console.log(this.state.response)
+            });
+    }
     handlePopUp1 = () => {
         this.setState({
             isAvtCompanyChange: true
@@ -186,7 +186,7 @@ class ComUser extends React.Component {
             <>
 
                 <Nav />
-
+ 
                 <div className="all">
                     <div className="profileCT">
 
