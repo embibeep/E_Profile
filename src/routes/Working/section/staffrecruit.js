@@ -87,7 +87,7 @@ export class SimpleSlider extends React.Component {
             isViewPost: !this.state.isViewPost,
             job: {}
         })
-    } 
+    }
 
     render() {
         let settings = {
@@ -142,10 +142,6 @@ export class SimpleSlider extends React.Component {
 
                     })}
 
-
-                    <div className="btn">
-                        <button className="btnXemThem" type="button">Xem thêm</button>
-                    </div>
                 </div>
                 <ModalViewPost
                     isOpen={this.state.isViewPost}

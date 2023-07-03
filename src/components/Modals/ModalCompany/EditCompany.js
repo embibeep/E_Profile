@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
+import JoditEditor from "jodit-react";
+import HTMLReactParser from "html-react-parser";
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+import "./EditCompany.scss";
 
 
 function ModalEditCompany(props) {
 
+    const editor = useRef(null);
+    const [gioithieu, setGioithieu] = useState('');
 
     return (
         <Modal isOpen={props.isOpen}
@@ -42,9 +48,14 @@ function ModalEditCompany(props) {
                             <label>Website:</label>
                             <input class="form-control" placeholder="nhập link website công ty"></input>
                         </div>
-                        <div class="form-group">
-                            <label>Giới thiệu:</label>
-                            <input class="form-control overflow-auto decription" placeholder=""></input>
+
+                        <label>Giới thiệu:</label>
+                        <div class="gioithieu">
+                            <JoditEditor class="dec" ref={editor}
+                                onChange={(newGioithieu) => setGioithieu(newGioithieu)}
+                                value={gioithieu}
+                                placeholder="Nhập thông tin bản thân"
+                            />
                         </div>
 
                         <br></br>

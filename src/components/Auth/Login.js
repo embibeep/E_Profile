@@ -64,12 +64,14 @@ class Login extends React.Component {
             .then(result => {
 
                 this.setState({ token: result })
+                localStorage.setItem("accessToken", result)
             })
             .catch((error) => {
                 console.log('error', error);
                 alert(`$error`)
             }
             );
+
     }
 
 
@@ -81,6 +83,7 @@ class Login extends React.Component {
         } else {
 
             this.LoginAccount();
+
         }
 
 
