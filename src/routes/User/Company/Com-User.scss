@@ -21,6 +21,7 @@
             padding-bottom: 10px;
             .info{
                 margin-left: 22px;
+                margin-right: 10px;
                 color: black;
                 display: flex;
                 
@@ -209,13 +210,15 @@
             }
         }
         .info{
-            padding-left: 11px;
+            padding-left: 11px !important;
             margin-left: 32px;
             color: black;
             display: flex;
+            padding-right: 10px;
             font-size: 16px;
 
             .icon{
+                padding-right: 10px !important;
                 img{
                     height: 30px;
                     width: 30px;

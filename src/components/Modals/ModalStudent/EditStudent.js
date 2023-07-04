@@ -8,7 +8,37 @@ function ModalEditStudent(props) {
 
 
     const editor = useRef(null);
-    const [gt, setGT] = useState('');
+    const [gt, setGT] = useState("");
+    const [responce, setResponce] = useState({});
+
+    useEffect(() => {
+        getCredential();
+    }, [])
+
+    const getCredential = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MzkyNzEsInN1YiI6IjY0OTY2YmQ3ZjQ0YjViOTYwMTFjM2Q3OSJ9.s7fH2XgnM_gN8kV0X4VvSYb6O_MbAZQP_0nQo9rYYT0");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders
+        };
+
+        fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
+            .then(responce => responce.json())
+            .then(result => {
+                setResponce(result[0])
+            })
+            .catch(error => console.log('error', error));
+
+
+        if (responce?.credential?.gender === true) {
+            setGT({ gt: "Nam" })
+        } else {
+            setGT({ gt: "Nữ" })
+        }
+    }
+
 
     return (
 
@@ -29,41 +59,66 @@ function ModalEditStudent(props) {
                     <form>
                         <div class="form-group">
                             <label>Họ và Tên:</label>
-                            <input class="form-control" placeholder="nhập họ tên"></input>
+                            <input class="form-control" placeholder="nhập họ tên"
+                                onChange={(newname) => setResponce({ ...responce?.credential, name: newname })}
+                                value={responce?.credential?.name}></input>
                         </div>
                         <div class="form-group">
                             <label>Ngày sinh:</label>
-                            <input class="form-control" placeholder="nhập ngày sinh"></input>
+                            <input class="form-control" placeholder="nhập ngày sinh"
+                                onChange={(newbirth) => setResponce({ ...responce?.credential, dateOfBirth: newbirth })}
+                                value={responce?.credential?.dateOfBirth}></input>
                         </div>
                         <div class="form-group">
                             <label>Số điện thoại:</label>
-                            <input class="form-control" placeholder="nhập số điện thoại"></input>
+                            <input class="form-control" placeholder="nhập số điện thoại"
+                                onChange={(newphone) => setResponce({ ...responce?.credential, phone: newphone })}
+                                value={responce?.credential?.phone}></input>
                         </div>
                         <div class="form-group">
                             <label>Giới tính:</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>chọn giới tính</option>
-                                <option value="1">nam</option>
-                                <option value="2">nữ</option>
+                            <select class="form-select" aria-label="Default select example"
+                                onChange={(newgender) => setResponce({ ...responce?.credential, phone: newgender })}>
+                                <option selected></option>
+                                <option value={true}>
+                                    nam
+                                </option>
+                                <option value={false}>
+                                    nữ
+                                </option>
                             </select>
                         </div>
+
                         <div class="form-group">
                             <label>Địa chỉ:</label>
-                            <input class="form-control" placeholder="nhập địa chỉ"></input>
+                            <input class="form-control" placeholder="nhập địa chỉ"
+                                onChange={(newaddress) => setResponce({ ...responce?.credential, address: newaddress })}
+                                value={responce?.credential?.address}></input>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email:</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp"
+                                placeholder="Enter email"
+                                value={responce?.credential?.email}
+                                onChange={(newemail) => setResponce({ ...responce?.credential, email: newemail })}></input>
                         </div>
                         <div class="form-group">
                             <label>Facebook:</label>
-                            <input class="form-control" placeholder="nhập địa chỉ facebook"></input>
+                            <input class="form-control"
+                                placeholder="nhập địa chỉ facebook"
+                                onChange={(newfb) => setResponce({ ...responce?.credential?.externalLink?.[0], link: newfb }
+                                )}
+                                value={responce?.credential?.externalLink?.[0]?.link}>
+
+                            </input>
                         </div>
                         <label>Giới thiệu:</label>
                         <div class="gioithieu">
                             <JoditEditor class="dec" ref={editor}
-                                onChange={(newGT) => setGT(newGT)}
-                                value={gt}
+                                onChange={(newgt) => setResponce({ ...responce?.credential, introduce: newgt }
+                                )}
+                                value={responce?.credential?.introduce}
                                 placeholder="Nhập thông tin bản thân"
                             />
                         </div>

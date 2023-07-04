@@ -43,8 +43,6 @@ class ComUser extends React.Component {
 
     }
 
-
-
     loadListJobs = () => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -94,7 +92,7 @@ class ComUser extends React.Component {
 
     loadProfileCompany = () => {
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MjcwNDAsInN1YiI6IjY0OWJiOGYwYmI0NTQzZDA4NzI1MGY2MSJ9.dkr3G0l_P_1EMOdGAVy-Ou9wlyMKm35MMp566M_lBcU");
+        myHeaders.append("Authorization", "Bearer " + localStorage.getItem("accessToken"));
 
         var requestOptions = {
             method: 'GET',
@@ -110,6 +108,8 @@ class ComUser extends React.Component {
                 console.log(this.state.response)
             });
     }
+
+
     handlePopUp1 = () => {
         this.setState({
             isAvtCompanyChange: true
@@ -186,7 +186,7 @@ class ComUser extends React.Component {
             <>
 
                 <Nav />
- 
+
                 <div className="all">
                     <div className="profileCT">
 
@@ -200,7 +200,6 @@ class ComUser extends React.Component {
                                 <div className="titleGT">Giới thiệu</div>
                                 <div className="contentGT text-break overflow-auto">{this.state.response?.credential?.introduce ?? ""}</div>
                             </div>
-
 
                         </div>
                         <div className="pro-right">
@@ -231,20 +230,20 @@ class ComUser extends React.Component {
                             <div className="infoall">
                                 <div className="info">
                                     <div className="icon"><img src={address} /></div>
-                                    <div className="content diachi">{this.state.response?.credential?.address ?? ""}
+                                    <div className="content diachi">&nbsp; &nbsp;{this.state.response?.credential?.address ?? ""}
                                     </div>
                                 </div>
                                 <div className="info">
                                     <div className="icon"><img src={email} /></div>
-                                    <div className="content">{this.state.response?.credential?.email ?? ""}</div>
+                                    <div className="content">&nbsp; &nbsp;{this.state.response?.credential?.email ?? ""}</div>
                                 </div>
                                 <div className="info">
                                     <div className="icon"><img src={phone} /></div>
-                                    <div className="content">{this.state.response?.credential?.phone ?? ""}</div>
+                                    <div className="content">&nbsp; &nbsp;{this.state.response?.credential?.phone ?? ""}</div>
                                 </div>
                                 <div className="info">
                                     <div className="icon"><img src={website} /></div>
-                                    <div className="content">{this.state.response?.credential?.website ?? ""}</div>
+                                    <div className="content">&nbsp; &nbsp;{this.state.response?.credential?.website ?? ""}</div>
                                 </div>
                             </div>
                             <div className="follow">

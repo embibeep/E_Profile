@@ -7,7 +7,7 @@ import path from "../../../utils/constant";
 import { Link, NavLink } from "react-router-dom";
 
 function XemCVhtml(props) {
-
+ 
     const [responce, setResponce] = useState({});
 
     useEffect(() => {

@@ -9,7 +9,7 @@ import path from "../../../utils/constant";
 
 function EditCVhtml(props) {
 
-
+ 
     const editor = useRef(null);
     const [banthan, setBanthan] = useState('');
     const [kynang, setKynang] = useState('');

@@ -14,6 +14,7 @@ import iconFollow from "../../../assets/images/iconFollow.png"
 import Footer from "../../../components/Footer/footer";
 import Nav from "../../../components/Navigation/Nav";
 import path from "../../../utils/constant";
+import HTMLReactParser from "html-react-parser";
 import {
     Link,
     NavLink
@@ -203,10 +204,12 @@ class StUser extends React.Component {
                             </div>
                             <div className="gioithieu">
                                 <div className="titleGT">Giới Thiệu</div>
-                                <div className="contentGT text-break">{this.state.sinhvien?.credential?.introduce ?? ""}</div>
+                                <div className="contentGT text-break">
+                                    {HTMLReactParser(`${this.state.sinhvien?.credential?.introduce ?? ""}`)}
+                                </div>
                             </div>
 
-                            <div className="info">
+                            {/* <div className="info">
                                 <div className="icon"><img src={iconbithday} /></div>
                                 <div className="content">{this.state.sinhvien?.credential?.dateOfBirth ?? ""}</div>
                             </div>
@@ -228,8 +231,8 @@ class StUser extends React.Component {
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={facebook} /></div>
-                                <div className="content">{this.state.sinhvien?.credential?.externalLink?.link ?? ""}</div>
-                            </div>
+                                <div className="content">{this.state.sinhvien?.credential?.externalLink?.[0]?.link ?? ""}</div>
+                            </div> */}
 
 
 
