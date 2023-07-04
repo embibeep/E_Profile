@@ -4,7 +4,7 @@ import HTMLReactParser from "html-react-parser";
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import './ModalAddPost.scss'
 import lachongImg from "../../../assets/images/lachongImg.jpg"
-
+ 
 function ModalAddPost(props) {
 
     const [job, setJob] = useState({})

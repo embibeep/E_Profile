@@ -18,6 +18,7 @@ import Footer from "../../../components/Footer/footer";
 import { Link } from "react-router-dom";
 import path from "../../../utils/constant";
 import ModalViewFollow from "../../../components/Modals/ModalStudent/ViewFollow"
+import HTMLReactParser from "html-react-parser";
 class ComUser extends React.Component {
 
     constructor(props) {
@@ -198,9 +199,11 @@ class ComUser extends React.Component {
                             </div>
                             <div className="gioithieu">
                                 <div className="titleGT">Giới thiệu</div>
-                                <div className="contentGT text-break overflow-auto">{this.state.response?.credential?.introduce ?? ""}</div>
+                                <div className="contentGT text-break overflow-auto">
+                                    {HTMLReactParser(`${this.state.response?.credential?.introduce ?? ""}`)}
+                                    </div>
                             </div>
-
+ 
                         </div>
                         <div className="pro-right">
                             <div className="banner">
@@ -213,6 +216,8 @@ class ComUser extends React.Component {
                                 <ModalAvtCompanyChange
                                     isOpen={this.state.isAvtCompanyChange}
                                     toggleFromParent={this.togglePopUp1}
+                                    loadProfileCompany = {this.loadProfileCompany}
+                                    profile={this.state.response.credential}
                                     test={'abc'} />
 
                                 <Link to={path.POSTLISTS} className="editbanner btn" >
@@ -223,6 +228,8 @@ class ComUser extends React.Component {
                                 <ModalEditCompany
                                     isOpen={this.state.isEditCompany}
                                     toggleFromParent={this.togglePopUp3}
+                                    loadProfileCompany = {this.loadProfileCompany}
+                                    profile={this.state.response.credential}
                                     test={'abc'} />
 
 

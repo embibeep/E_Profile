@@ -8,35 +8,46 @@ function ModalEditStudent(props) {
 
 
     const editor = useRef(null);
-    const [gt, setGT] = useState("");
-    const [responce, setResponce] = useState({});
+    const [student, setStudent] = useState({});
 
     useEffect(() => {
-        getCredential();
-    }, [])
+        setStudent({ ...props.student })
+    }, [props.student])
 
-    const getCredential = () => {
+    
+    let uploadStudent = () => {
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MzkyNzEsInN1YiI6IjY0OTY2YmQ3ZjQ0YjViOTYwMTFjM2Q3OSJ9.s7fH2XgnM_gN8kV0X4VvSYb6O_MbAZQP_0nQo9rYYT0");
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "collection": "Student",
+            "_id": student._id,
+            "modify": {
+                "name": student.name,
+                "introduce": student.introduce,
+                "dateOfBirth": student.dateOfBirth,
+                "gender": student.gender,
+                "address": student.address,
+                "phone": student.phone,
+                "email": student.email,
+            }
+        });
 
         var requestOptions = {
-            method: 'GET',
-            headers: myHeaders
+            method: 'PATCH',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
         };
 
-        fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
-            .then(responce => responce.json())
-            .then(result => {
-                setResponce(result[0])
+        fetch("http://localhost:8080/api/v1", requestOptions)
+            .then(response => response.text())
+            .then(function (result) {
+                props.loadStudent()
+                return console.log(result);
             })
             .catch(error => console.log('error', error));
-
-
-        if (responce?.credential?.gender === true) {
-            setGT({ gt: "Nam" })
-        } else {
-            setGT({ gt: "Nữ" })
-        }
+        alert("Lưu thành công")
     }
 
 
@@ -60,31 +71,35 @@ function ModalEditStudent(props) {
                         <div class="form-group">
                             <label>Họ và Tên:</label>
                             <input class="form-control" placeholder="nhập họ tên"
-                                onChange={(newname) => setResponce({ ...responce?.credential, name: newname })}
-                                value={responce?.credential?.name}></input>
+                                onChange={(event) => setStudent({ ...student, name: event.currentTarget.value })}
+                                value={student?.name}
+                            ></input>
                         </div>
                         <div class="form-group">
                             <label>Ngày sinh:</label>
                             <input class="form-control" placeholder="nhập ngày sinh"
-                                onChange={(newbirth) => setResponce({ ...responce?.credential, dateOfBirth: newbirth })}
-                                value={responce?.credential?.dateOfBirth}></input>
+                                onChange={(event) => setStudent({ ...student, dateOfBirth: event.currentTarget.value })}
+                                value={student?.dateOfBirth}
+                            ></input>
                         </div>
                         <div class="form-group">
                             <label>Số điện thoại:</label>
                             <input class="form-control" placeholder="nhập số điện thoại"
-                                onChange={(newphone) => setResponce({ ...responce?.credential, phone: newphone })}
-                                value={responce?.credential?.phone}></input>
+                                onChange={(event) => setStudent({ ...student, phone: event.currentTarget.value })}
+                                value={student?.phone}
+                            ></input>
                         </div>
                         <div class="form-group">
                             <label>Giới tính:</label>
                             <select class="form-select" aria-label="Default select example"
-                                onChange={(newgender) => setResponce({ ...responce?.credential, phone: newgender })}>
-                                <option selected></option>
+                                onChange={(event) => setStudent({ ...student, gender: event.currentTarget.value })}
+                            >
+                                {student?.gender == true ? <option selected>Nam</option> : <option selected>Nữ</option>}
                                 <option value={true}>
-                                    nam
+                                    Nam
                                 </option>
                                 <option value={false}>
-                                    nữ
+                                    Nữ
                                 </option>
                             </select>
                         </div>
@@ -92,39 +107,38 @@ function ModalEditStudent(props) {
                         <div class="form-group">
                             <label>Địa chỉ:</label>
                             <input class="form-control" placeholder="nhập địa chỉ"
-                                onChange={(newaddress) => setResponce({ ...responce?.credential, address: newaddress })}
-                                value={responce?.credential?.address}></input>
+                                onChange={(event) => setStudent({ ...student, address: event.currentTarget.value })}
+                                value={student?.address}
+                            ></input>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email:</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
                                 placeholder="Enter email"
-                                value={responce?.credential?.email}
-                                onChange={(newemail) => setResponce({ ...responce?.credential, email: newemail })}></input>
+                                onChange={(event) => setStudent({ ...student, email: event.currentTarget.value })}
+                                value={student?.email}
+                            ></input>
                         </div>
                         <div class="form-group">
                             <label>Facebook:</label>
                             <input class="form-control"
                                 placeholder="nhập địa chỉ facebook"
-                                onChange={(newfb) => setResponce({ ...responce?.credential?.externalLink?.[0], link: newfb }
-                                )}
-                                value={responce?.credential?.externalLink?.[0]?.link}>
+                            >
 
                             </input>
                         </div>
                         <label>Giới thiệu:</label>
                         <div class="gioithieu">
                             <JoditEditor class="dec" ref={editor}
-                                onChange={(newgt) => setResponce({ ...responce?.credential, introduce: newgt }
-                                )}
-                                value={responce?.credential?.introduce}
+                                onChange={(event) => setStudent({ ...student, introduce: event })}
+                                value={student?.introduce}
                                 placeholder="Nhập thông tin bản thân"
                             />
                         </div>
 
                         <br></br>
-                        <button type="submit" class="btn-right btn btn-primary">Cập nhật thông tin</button>
+                        <button type="button" onClick={uploadStudent} class="btn-right btn btn-primary">Cập nhật thông tin</button>
                     </form>
                 </>
             </ModalBody>

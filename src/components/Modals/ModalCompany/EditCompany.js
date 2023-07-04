@@ -10,47 +10,27 @@ import "./EditCompany.scss";
 function ModalEditCompany(props) {
 
     const editor = useRef(null);
-    const [gioithieu, setGioithieu] = useState('');
-    const [response, setResponse] = useState({});
+    const [profile, setProfile] = useState({});
 
     useEffect(() => {
-        loadProfileCompany();
-    }, [])
+        setProfile({ ...props.profile })
+    }, [props.profile])
 
 
-    const loadProfileCompany = () => {
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer " + localStorage.getItem("accessToken"));
-
-        var requestOptions = {
-            method: 'GET',
-            headers: myHeaders
-        };
-
-        fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-                setResponse(result[0])
-            })
-            .catch(error => console.log('error', error)).finally(() => {
-                console.log(response)
-            });
-    }
-
-    let uploadCompany = () => {
+    let updateCompany = () => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
             "collection": "Company",
-            "_id": response?._id,
+            "_id": profile._id,
             "modify": {
-                "name": response?.credential?.name,
-                "introduce": response?.credential?.introduce,
-                "address": response?.credential?.address,
-                "email": response?.credential?.email,
-                "phone": response?.credential?.phone,
-                "website": response?.credential?.website
+                "name": profile.name,
+                "introduce": profile.introduce,
+                "address": profile.address,
+                "email": profile.email,
+                "phone": profile.phone,
+                "website": profile.website
             }
         });
 
@@ -62,15 +42,20 @@ function ModalEditCompany(props) {
         };
 
         fetch("http://localhost:8080/api/v1", requestOptions)
-            .then(res => res.json())
-            .then(result => console.log(result))
+            .then(response => response.text())
+            .then(function (result) {
+                props.loadProfileCompany()
+                return console.log(result);
+            })
             .catch(error => console.log('error', error));
+        alert("Cập nhật thành công")
     }
 
     return (
         <Modal isOpen={props.isOpen}
             toggle={props.toggleFromParent}
             className={'modal-ModalEditCompany'}
+            profile={props.profile}
             size='lg'
             centered='true'
             scrollable='true'
@@ -86,50 +71,49 @@ function ModalEditCompany(props) {
                         <div class="form-group">
                             <label>Tên công ty:</label>
                             <input class="form-control" placeholder="nhập tên công ty"
-                                onChange={(newname) => setResponse({ ...response?.credential, name: newname })}
-                                value={response?.credential?.name}
+                                onChange={(event) => setProfile({ ...profile, name: event.currentTarget.value })}
+                                value={profile?.name}
                             ></input>
                         </div>
                         <div class="form-group">
                             <label>Địa chỉ:</label>
                             <input class="form-control" placeholder="nhập địa chỉ"
-                                onChange={(event) => setResponse({ ...response?.credential, address: event })}
-                                value={response?.credential?.address}
+                                onChange={(event) => setProfile({ ...profile, address: event.currentTarget.value })}
+                                value={profile?.address}
                             ></input>
                         </div>
                         <div class="form-group">
                             <label>Email:</label>
                             <input class="form-control" placeholder="nhập email"
-                                onChange={(event) => setResponse({ ...response?.credential, email: event })}
-                                value={response?.credential?.email}
+                                onChange={(event) => setProfile({ ...profile, email: event.currentTarget.value })}
+                                value={profile?.email}
                             ></input>
                         </div>
                         <div class="form-group">
                             <label>Số điện thoại:</label>
                             <input class="form-control" placeholder="nhập số điện thoại"
-                                onChange={(event) => setResponse({ ...response?.credential, phone: event })}
-                                value={response?.credential?.phone}
+                                onChange={(event) => setProfile({ ...profile, phone: event.currentTarget.value })}
+                                value={profile?.phone}
                             ></input>
                         </div>
                         <div class="form-group">
                             <label>Website:</label>
                             <input class="form-control" placeholder="nhập link website công ty"
-                                onChange={(event) => setResponse({ ...response?.credential, website: event })}
-                                value={response?.credential?.website}
+                                onChange={(event) => setProfile({ ...profile, website: event.currentTarget.value })}
+                                value={profile?.website}
                             ></input>
                         </div>
 
                         <label>Giới thiệu:</label>
                         <div class="gioithieu">
                             <JoditEditor class="dec" ref={editor}
-                                onChange={(event) => setResponse({ ...response?.credential, introduce: event })}
-                                value={response?.credential?.introduce}
                                 placeholder="Nhập thông tin bản thân"
+                                onChange={(event) => setProfile({ ...profile, introduce: event })}
+                                value={profile?.introduce}
                             />
                         </div>
-
                         <br></br>
-                        <button type="button" onClick={uploadCompany} class="btn-right btn btn-primary">Cập nhật thông tin</button>
+                        <button type="submit" onClick={updateCompany} class="btn-right btn btn-primary">Cập nhật thông tin</button>
                     </form>
                 </>
             </ModalBody>
@@ -137,16 +121,4 @@ function ModalEditCompany(props) {
     )
 }
 
-
-const mapStateToProps = state => {
-    return {
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-    };
-};
-
-// export default connect(mapStateToProps, mapDispatchToProps)(ModalEditCompany);
 export default ModalEditCompany;

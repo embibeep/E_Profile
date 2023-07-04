@@ -114,6 +114,8 @@ class StUser extends React.Component {
             });
     }
 
+
+
     handlePopUp1 = () => {
         this.setState({
             isXemCV: true
@@ -209,7 +211,7 @@ class StUser extends React.Component {
                                 </div>
                             </div>
 
-                            {/* <div className="info">
+                            <div className="info">
                                 <div className="icon"><img src={iconbithday} /></div>
                                 <div className="content">{this.state.sinhvien?.credential?.dateOfBirth ?? ""}</div>
                             </div>
@@ -219,7 +221,10 @@ class StUser extends React.Component {
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={gender} /></div>
-                                <div className="content">{this.state.sinhvien?.credential?.gender ?? ""}</div>
+                                {this.state.sinhvien?.credential?.gender == true ? <div className="content">Nam</div> : <div className="content">Nữ</div>
+
+                                }
+
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={address} /></div>
@@ -232,7 +237,7 @@ class StUser extends React.Component {
                             <div className="info">
                                 <div className="icon"><img src={facebook} /></div>
                                 <div className="content">{this.state.sinhvien?.credential?.externalLink?.[0]?.link ?? ""}</div>
-                            </div> */}
+                            </div>
 
 
 
@@ -262,7 +267,9 @@ class StUser extends React.Component {
 
                                 <ModalEditStudent
                                     isOpen={this.state.isEditStudent}
-                                    toggleFromParent={this.togglePopUp5} />
+                                    toggleFromParent={this.togglePopUp5}
+                                    loadStudent = {this.loadStudent}
+                                    student={this.state.sinhvien.credential} />
 
                             </div>
 

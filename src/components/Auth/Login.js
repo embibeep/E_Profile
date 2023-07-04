@@ -91,9 +91,6 @@ class Login extends React.Component {
             this.setState({pathUser: path.USER})
 
         }
-
-
-
     }
 
     handleShowPassword = (event) => {
