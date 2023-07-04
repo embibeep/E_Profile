@@ -4,6 +4,7 @@ import "./Company.scss"
 import ModalViewCompany from "../../components/Modals/ModalPost/ModalViewCompany.js";
 import Footer from "../../components/Footer/footer.js"
 import Nav from "../../components/Navigation/Nav.js";
+import HTMLReactParser from "html-react-parser";
 
 import path from '../../utils/constant';
 class Company extends React.Component {
@@ -11,8 +12,42 @@ class Company extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isViewPost: false
+            isViewPost: false,
+            res: []
         }
+    }
+
+
+    componentDidMount() {
+        this.loadListCompany();
+    }
+
+    loadListCompany = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "collection": "Company",
+            "pipeline": [
+                {
+                    "$match": {}
+                }
+            ]
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/api/v1", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                this.setState({ res: result })
+            })
+            .catch(error => console.log('error', error));
     }
 
     handlePopUp = () => {
@@ -42,32 +77,27 @@ class Company extends React.Component {
                     </div>
 
                     <div className="list-company row justify-content-center">
+                        {this.state.res.map(item => {
+                            return <div className="company-item col-6">
 
-                        <div className="company-item col-6" onClick={() => this.handlePopUp()}>
-
-                            <ModalViewCompany
-                                isOpen={this.state.isViewPost}
-                                toggleFromParent={this.togglePopUp}
-
-                            />
-
-                            <div className="banner">
-                            </div>
-
-                            <div className="title">
-                                <div className="avt">
+                                <div className="banner">
                                 </div>
-                                <div className="name">
-                                    CÔNG TY TNHH ABCXYZ
-                                </div>
-                            </div>
-                            <div className="under-border">
 
+                                <div className="title">
+                                    <div className="avt">
+                                    </div>
+                                    <div className="name">
+                                        {item.name}
+                                    </div>
+                                </div>
+                                <div className="under-border">
+
+                                </div>
+                                {/* <div className="decoration">
+                                    {HTMLReactParser(`${item.introduce}`)}
+                                </div> */}
                             </div>
-                            <div className="decoration">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </div>
-                        </div>
+                        })}
 
                     </div>
 

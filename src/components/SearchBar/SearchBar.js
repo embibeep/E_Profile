@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 class SearchBar extends React.Component {
 
-    handleEnterSearch = () => {
-        alert(`Thành công!`)
-    }
+    // handleEnterSearch = () => {
+    //     alert(`Thành công!`)
+    // }
     render() {
         return (
             <>
@@ -19,15 +19,15 @@ class SearchBar extends React.Component {
 
                     <div className="wrapper">
                         <div className="search-wrapper">
-                            <label htmlFor="search-form">
+                            <label htmlFor="search-form" className="searchform">
                                 <input
                                     type="search"
                                     name="search-form"
                                     id="search-form"
                                     className="search-input form-control"
                                     placeholder="Nhập tên công việc hoặc công ty...."
-                                />
-                                <FontAwesomeIcon onClick={() => this.handleEnterSearch()} style={{ marginLeft: "-30px", color: 'black' }} icon={faMagnifyingGlass} />
+                                /> <button class="btn btnsearch btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                                {/* <FontAwesomeIcon onClick={() => this.handleEnterSearch()} style={{ marginLeft: "90px", color: 'black' }} icon={faMagnifyingGlass} /> */}
                             </label>
                         </div>
                         <div className="dexuat">

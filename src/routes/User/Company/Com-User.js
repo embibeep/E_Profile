@@ -201,13 +201,13 @@ class ComUser extends React.Component {
                                 <div className="titleGT">Giới thiệu</div>
                                 <div className="contentGT text-break overflow-auto">
                                     {HTMLReactParser(`${this.state.response?.credential?.introduce ?? ""}`)}
-                                    </div>
+                                </div>
                             </div>
- 
+
                         </div>
                         <div className="pro-right">
                             <div className="banner">
-                                {/* <img src={lachongImg} /> */}
+                                <img src={lachongImg} />
                             </div>
 
                             <div className="listbutton">
@@ -216,7 +216,15 @@ class ComUser extends React.Component {
                                 <ModalAvtCompanyChange
                                     isOpen={this.state.isAvtCompanyChange}
                                     toggleFromParent={this.togglePopUp1}
-                                    loadProfileCompany = {this.loadProfileCompany}
+                                    loadProfileCompany={this.loadProfileCompany}
+                                    profile={this.state.response.credential}
+                                    test={'abc'} />
+                                <button className="editavt btn" onClick={() => this.handlePopUp1()}> đổi banner</button>
+
+                                <ModalAvtCompanyChange
+                                    isOpen={this.state.isAvtCompanyChange}
+                                    toggleFromParent={this.togglePopUp1}
+                                    loadProfileCompany={this.loadProfileCompany}
                                     profile={this.state.response.credential}
                                     test={'abc'} />
 
@@ -228,7 +236,7 @@ class ComUser extends React.Component {
                                 <ModalEditCompany
                                     isOpen={this.state.isEditCompany}
                                     toggleFromParent={this.togglePopUp3}
-                                    loadProfileCompany = {this.loadProfileCompany}
+                                    loadProfileCompany={this.loadProfileCompany}
                                     profile={this.state.response.credential}
                                     test={'abc'} />
 

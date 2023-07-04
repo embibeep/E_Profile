@@ -11,6 +11,56 @@ import {
 } from "react-router-dom";
 
 class Nav extends React.Component {
+
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            pathUser: "",
+            verify: {},
+            isLogin: localStorage.getItem("accessToken") != null,
+
+        }
+    }
+    componentDidMount() {
+        this.getInforToken();
+    }
+
+    getInforToken = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + localStorage.getItem("accessToken"));
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                this.setState({ verify: { ...result[0] } })
+            })
+            .catch(error => console.log('error', error));
+    }
+
+    verifyProfile = () => {
+
+        if (this.state.verify?.role == 1) {
+            this.state.pathUser = path.USER
+        } else if (this.state.verify?.role == 2) {
+            this.state.pathUser = path.COMUSER
+        }
+    }
+
+    LogoutAccount = () => {
+
+
+        localStorage.removeItem("accessToken");
+    }
+
+
     render() {
         return (
             <>
@@ -33,14 +83,19 @@ class Nav extends React.Component {
                             Hồ Sơ
                         </NavLink>
 
-                        <NavLink to={path.LOGIN} activeclassname="active">
+                        {this.state.isLogin ? <NavLink to={path.LOGIN} onClick={this.LogoutAccount} activeclassname="active">
+                            Đăng xuất
+                        </NavLink> : <NavLink to={path.LOGIN} activeclassname="active">
                             Đăng Nhập
                         </NavLink>
+                        }
+
                     </div>
 
                     <div className="right-nav">
-                        <Link to={path.COMUSER} className="profile_logo_1">
-                        </Link>
+                        {this.state.isLogin ? <Link onClick={this.verifyProfile()} to={this.state.pathUser} className="profile_logo_1">
+                        </Link> : <div />}
+
 
                     </div>
 

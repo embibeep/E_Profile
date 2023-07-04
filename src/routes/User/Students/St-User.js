@@ -9,7 +9,7 @@ import gender from "../../../assets/images/gender.png"
 import profileIcon from "../../../assets/images/profileIcon.png"
 import lachongImg from "../../../assets/images/lachongImg.jpg"
 import { ModalAvtStudentChange, ModalBGStudentChange, ModalEditStudent, ModalUploadCV, ModalViewPost } from "../../../components/Modals";
-import ModalXemCV from "../../../components/Modals/ModalStudent/XemCV"
+import ModalXemCV from "../../../components/Modals/ModalStudent/XacNhanDangNhap"
 import iconFollow from "../../../assets/images/iconFollow.png"
 import Footer from "../../../components/Footer/footer";
 import Nav from "../../../components/Navigation/Nav";
@@ -95,6 +95,8 @@ class StUser extends React.Component {
             })
             .catch(error => console.log('error', error));
     }
+
+    ////////////
     loadStudent = () => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MzkyNzEsInN1YiI6IjY0OTY2YmQ3ZjQ0YjViOTYwMTFjM2Q3OSJ9.s7fH2XgnM_gN8kV0X4VvSYb6O_MbAZQP_0nQo9rYYT0");

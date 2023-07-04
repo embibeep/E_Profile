@@ -4,6 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import "./ViewFollow.scss";
 import lachongImg from '../../../assets/images/lachongImg.jpg';
+
 function ModalXemCV(props) {
 
     return (

@@ -9,7 +9,7 @@ import path from "../../../utils/constant";
 
 function EditCVhtml(props) {
 
- 
+
     const editor = useRef(null);
     const [banthan, setBanthan] = useState('');
     const [kynang, setKynang] = useState('');
@@ -162,7 +162,6 @@ function EditCVhtml(props) {
 
                     <div className="headerbutton">
                         <button className="btn" onClick={uploadCV}>Lưu CV</button>
-                        <button className="btn">In CV</button>
                         <Link to={path.USER}>
                             <button className="btn">Quay lại</button>
                         </Link>

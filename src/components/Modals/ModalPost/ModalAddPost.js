@@ -208,7 +208,7 @@ function ModalAddPost(props) {
                                 <div className="rec-name">
                                     <input
                                         value={job?.company?.name}
-                                        type="text" className="rec-textbox"
+                                        type="text" className="rec-textbox tencongty"
                                         placeholder="Nhập tên công ty" />
                                     <br />
 

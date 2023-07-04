@@ -44,6 +44,7 @@ class SignUp extends React.Component {
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
+            alert("Đăng kí thành công")
 
     }
 
@@ -126,7 +127,7 @@ class SignUp extends React.Component {
                                 <option value="1">Sinh Viên</option>
                                 <option value="2">Doanh Nghiệp</option>
                             </Form.Select>
-                            <input onChange={(event) => this.handleChangePeoplename(event)} className="text-Box" type="text" placeholder="Nhập Họ Tên Của Bạn" /><br />
+                            <input onChange={(event) => this.handleChangePeoplename(event)} className="text-Box" type="text" placeholder="Nhập Họ Tên hoặc tên công ty của bạn" /><br />
                             <input onChange={(event) => this.handleChangeEmail(event)} className="text-Box" type="text" placeholder="Nhập Email Của Bạn" /><br />
                             <input onChange={(event) => this.handleChangePassword(event)} className="text-Box" type={this.state.isShowPassword ? "text" : "password"}
                                 placeholder="Nhập Mật Khẩu" />

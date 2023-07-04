@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.search-label{
+    margin-top: 30px;
+}
+
 .search-container{
     border: none;
     height: 400px;
@@ -12,10 +16,25 @@
     background-position: center;
     background-size: 100%;
     background-image: url("../../assets/images/lachongImg.jpg");
-    .search-label{
-        padding-top: 60px;
-    }
 
+
+    .searchform{
+        .btnsearch{
+            width: 100px !important;
+            color: white;
+            font-weight: 400;
+            border: orange solid 1px;
+        }
+        .btnsearch:active{
+            color: orange;
+        }
+        .btnsearch:hover{
+            background-color: orange;
+            color: white;
+        }
+
+    }
+    
 
     .wrapper{
         margin-top: 30px;

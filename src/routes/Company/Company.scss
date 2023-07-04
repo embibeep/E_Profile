@@ -15,7 +15,7 @@
         border: solid #d8d5d5 1px;
         border-radius: 5px;
         padding: 0;
-        height: 400px;
+        height: 250px;
         width: 40%;
         margin: 10px;
         box-shadow: 1px 1px #f0ecec;
@@ -64,6 +64,11 @@
             color: black;
             font-size: 15px;
             padding: 20px;
+            height: 200px;
+            width: 98%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             text-align: justify;
         }
     }
