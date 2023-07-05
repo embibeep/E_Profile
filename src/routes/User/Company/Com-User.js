@@ -33,18 +33,18 @@ class ComUser extends React.Component {
             companyInfo: [],
             listjob: [],
             candidates: [],
-            response: []
+            response: {}
         }
     }
 
 
     componentDidMount() {
-        this.loadProfileCompany();
-        this.loadListJobs();
+        this.loadProfileCompany()
 
     }
 
-    loadListJobs = () => {
+    loadListJobs = async () => {
+        console.log(this.state.response?.credential?._id)
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -52,7 +52,9 @@ class ComUser extends React.Component {
             "collection": "Job",
             "pipeline": [
                 {
-                    "$match": {}
+                    "$match": {
+                        ":company": this.state.response?.credential?._id
+                    }
                 },
                 {
                     "$lookup": {
@@ -91,7 +93,7 @@ class ComUser extends React.Component {
             .catch(error => console.log('error', error));
     }
 
-    loadProfileCompany = () => {
+    loadProfileCompany = async () => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Bearer " + localStorage.getItem("accessToken"));
 
@@ -104,6 +106,8 @@ class ComUser extends React.Component {
             .then(response => response.json())
             .then(result => {
                 this.setState({ response: { ...result[0] } })
+                console.log(result[0])
+                this.loadListJobs();
             })
             .catch(error => console.log('error', error)).finally(() => {
                 console.log(this.state.response)

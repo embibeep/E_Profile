@@ -22,16 +22,39 @@ class PostLists extends Component {
             isViewPost: false,
             isViewCV: false,
             job: {},
-            response: []
+            response: {},
+            listjob: []
         }
     }
 
     componentDidMount() {
-        this.loadListJobs();
+        this.loadProfileCompany()
+    }
+
+    loadProfileCompany = async () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + localStorage.getItem("accessToken"));
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders
+        };
+
+        fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                this.setState({ response: { ...result[0] } })
+                console.log(result[0])
+                this.loadListJobs();
+            })
+            .catch(error => console.log('error', error)).finally(() => {
+                console.log(this.state.response)
+            });
     }
 
 
-    loadListJobs = () => {
+    loadListJobs = async () => {
+        console.log(this.state.response?.credential?._id)
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -39,7 +62,9 @@ class PostLists extends Component {
             "collection": "Job",
             "pipeline": [
                 {
-                    "$match": {}
+                    "$match": {
+                        ":company": this.state.response?.credential?._id
+                    }
                 },
                 {
                     "$lookup": {
@@ -61,7 +86,6 @@ class PostLists extends Component {
                     }
                 },
             ]
-
         });
 
         var requestOptions = {
@@ -72,9 +96,9 @@ class PostLists extends Component {
         };
 
         fetch("http://localhost:8080/api/v1", requestOptions)
-            .then(response => response.json())
+            .then(listjob => listjob.json())
             .then(result => {
-                this.setState({ response: result })
+                this.setState({ listjob: result })
             })
             .catch(error => console.log('error', error));
     }
@@ -101,7 +125,8 @@ class PostLists extends Component {
 
         return (
             <>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
+                integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
 
                 <div className='btnExit'>
                     <Link to={path.COMUSER} >
@@ -126,7 +151,7 @@ class PostLists extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.state.response.map(item => {
+                                {this.state.listjob.map(item => {
                                     return <tr className='rowdata' onClick={() => this.handlePopUp(item)}>
 
                                         <td><p>{item.title}</p></td>

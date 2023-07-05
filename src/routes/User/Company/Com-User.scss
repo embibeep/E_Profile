@@ -1,17 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .all{
     background-color: rgb(255, 255, 255);
+    height: 100%;
+    margin-bottom: 10px;
 }
 .profileCT{
 
-    height: auto;
+    height: 100%;
     background-color: white;
     width: 80%;
     display: flex;
     margin: auto;
+    margin-top: 70px;
+    border: 2px solid rgb(235, 185, 78);
     .pro-right{
         background-color: rgb(235, 185, 78);
         width: 50%;
-        padding-top: 80px;
+        padding-top: 7px;
 
         .infoall{
             background-color: white;
@@ -185,13 +195,11 @@
         
 }
     .pro-left{
-        height: auto;
+        height: 100%;
         width: 50%;
-        border-left: 2px solid rgb(235, 185, 78);
-        border-top: 20px solid rgb(235, 185, 78);
         
         .avt-name{
-            margin-top: 100px;
+            margin-top: 50px;
             height: auto;
             width: 100%;
             .avt{
@@ -203,6 +211,7 @@
                 margin-left: 220px;
             }
             .name{
+                padding-top: 10px;
                 font-weight: bold;
                 color: black;
                 margin: auto; 
@@ -246,6 +255,7 @@
             }
             .contentGT{
                 font-size: 14px;
+                height: fit-content;
                 color: rgb(129, 129, 129);
                 width: 470px;
                 text-align: left;

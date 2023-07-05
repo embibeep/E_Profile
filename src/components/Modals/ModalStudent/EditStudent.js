@@ -14,7 +14,7 @@ function ModalEditStudent(props) {
         setStudent({ ...props.student })
     }, [props.student])
 
-    
+
     let uploadStudent = () => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -26,7 +26,7 @@ function ModalEditStudent(props) {
                 "name": student.name,
                 "introduce": student.introduce,
                 "dateOfBirth": student.dateOfBirth,
-                "gender": student.gender,
+                "gender": student?.gender,
                 "address": student.address,
                 "phone": student.phone,
                 "email": student.email,

@@ -223,8 +223,7 @@ class StUser extends React.Component {
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={gender} /></div>
-                                {this.state.sinhvien?.credential?.gender == true ? <div className="content">Nam</div> : <div className="content">Nữ</div>
-
+                                {this.state.sinhvien?.credential?.gender === true ? <div className="content">Nam</div> : <div className="content">Nữ</div>
                                 }
 
                             </div>
@@ -246,7 +245,7 @@ class StUser extends React.Component {
                         </div>
                         <div className="pro-right">
                             <div className="banner">
-                                {/* <img src={lachongImg} /> */}
+                                <img src={lachongImg} />
                             </div>
                             <div className="listbutton">
                                 <Link to={path.XemCV}><button className="xemcv btn"> xem cv</button></Link>
@@ -255,6 +254,12 @@ class StUser extends React.Component {
 
 
                                 <button className="editavt btn" onClick={() => this.handlePopUp3()}> đổi avatar</button>
+
+                                <ModalAvtStudentChange
+                                    isOpen={this.state.isAvtStudentChange}
+                                    toggleFromParent={this.togglePopUp3} />
+
+                                <button className="editavt btn" onClick={() => this.handlePopUp3()}> đổi banner</button>
 
                                 <ModalAvtStudentChange
                                     isOpen={this.state.isAvtStudentChange}
@@ -270,7 +275,7 @@ class StUser extends React.Component {
                                 <ModalEditStudent
                                     isOpen={this.state.isEditStudent}
                                     toggleFromParent={this.togglePopUp5}
-                                    loadStudent = {this.loadStudent}
+                                    loadStudent={this.loadStudent}
                                     student={this.state.sinhvien.credential} />
 
                             </div>
