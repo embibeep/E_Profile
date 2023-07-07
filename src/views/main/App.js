@@ -7,16 +7,13 @@ import Login from '../../components/Auth/Login';
 import path from '../../utils/constant.js';
 import XemCVhtml from "../../components/Modals/ModalStudent/XemCVhtml";
 import EditCVhtml from "../../components/Modals/ModalStudent/EditCVhtml";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 import SignUp from '../../components/SignUp/SignUp';
 import ResetPassword from '../../components/ResetPassword/ResetPassword';
 import RecruitPost from '../../components/RecruitmentPost/RecruitmentPost';
 import Posts from '../../components/Posts/Posts';
 import PostLists from '../../components/Modals/ModalCompany/Company-Post-Lists';
+import ViewProfileStudent from '../../components/Modals/ModalStudent/ViewProfileStudent';
 function App() {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
   return (

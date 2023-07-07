@@ -33,7 +33,10 @@ class ComUser extends React.Component {
             companyInfo: [],
             listjob: [],
             candidates: [],
-            response: {}
+            response: {},
+            isShowUserFollow: false,
+            userFollow: {},
+            isUserFollow: false
         }
     }
 
@@ -186,6 +189,20 @@ class ComUser extends React.Component {
             candidates: []
         })
     }
+    handlePopUp7 = (userFollow) => {
+        this.setState({
+            isUserFollow: true,
+            userFollow: { ...userFollow }
+        })
+    }
+
+    togglePopUp7 = () => {
+        this.setState({
+            isUserFollow: !this.state.isUserFollow,
+            userFollow: {}
+        })
+    }
+
     render() {
         return (
             <>
@@ -210,20 +227,9 @@ class ComUser extends React.Component {
 
                         </div>
                         <div className="pro-right">
-                            <div className="banner">
-                                <img src={lachongImg} />
-                            </div>
 
                             <div className="listbutton">
                                 <button className="editavt btn" onClick={() => this.handlePopUp1()}> đổi avatar</button>
-
-                                <ModalAvtCompanyChange
-                                    isOpen={this.state.isAvtCompanyChange}
-                                    toggleFromParent={this.togglePopUp1}
-                                    loadProfileCompany={this.loadProfileCompany}
-                                    profile={this.state.response.credential}
-                                    test={'abc'} />
-                                <button className="editavt btn" onClick={() => this.handlePopUp1()}> đổi banner</button>
 
                                 <ModalAvtCompanyChange
                                     isOpen={this.state.isAvtCompanyChange}
@@ -269,6 +275,7 @@ class ComUser extends React.Component {
                                 <div className="titlefollow">Đang tuyển</div>
                                 <div className="listfollow overflow-auto">
                                     {this.state.listjob.map(item => {
+                                        // onClick={() => this.handlePopUp6(item.candidates)}
                                         return <div className="jobItem" onClick={() => this.handlePopUp6(item.candidates)}>
                                             <div className="Top-Job">
                                                 <div className="icon">
@@ -285,12 +292,26 @@ class ComUser extends React.Component {
                                             </div>
                                         </div>
                                     })}
+
+
+                                </div>
+
+                                <div className="titlefollow">Đang ứng tuyển</div>
+                                <div className="listfollow overflow-auto">
+                                    {this.state.candidates?.map(item => {
+                                        // onClick={() => this.handlePopUp6(item.candidates)}
+                                        return <div className="useritem" onClick={() => this.handlePopUp7(item)}>
+                                            <div className="icon object-fit: fill"><img src={profileIcon} /></div>
+                                            <div className="content">{item.name}</div>
+                                        </div>
+                                    })}
+
                                 </div>
                             </div>
                             <ModalViewFollow
-                                isOpen={this.state.isViewFollow}
-                                toggleFromParent={this.togglePopUp6}
-                                candidates={this.state.candidates}
+                                isOpen={this.state.isUserFollow}
+                                toggleFromParent={this.togglePopUp7}
+                                userFollow={this.state.userFollow}
                             />
                         </div>
                     </div>

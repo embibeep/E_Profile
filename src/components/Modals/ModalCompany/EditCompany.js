@@ -102,7 +102,7 @@ function ModalEditCompany(props) {
                                 onChange={(event) => setProfile({ ...profile, website: event.currentTarget.value })}
                                 value={profile?.website}
                             ></input>
-                        </div>
+                        </div> 
 
                         <label>Giới thiệu:</label>
                         <div class="gioithieu">

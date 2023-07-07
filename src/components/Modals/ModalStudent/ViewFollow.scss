@@ -1,42 +1,233 @@
-.userfollowtitle{
-    margin-top: 10px;
-        margin-bottom: 5px;
-        font-weight: bold;
-}
-.userfollow{
-    height: 300px;
-    width: 500px;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    background-color: white;
-    
-    font-size: 16px;
-    .useritem{
-        border: solid #d8d5d5 1px;
-        border-radius: 4px;
-        height: 68px;
-        width: 480px;
-        color: black;
+.alll{
+    .top{
         display: flex;
-        margin: 10px;
-        padding: 10px;
-        box-shadow: 1px 1px #f0ecec;
-        .icon{
-            padding: 5px;
-            img{
-                border: solid black 1px;
-                height: 35px;
-                width: 35px;
-                padding: auto;
+        height: 570px;
+    
+        .avt-name{
+            margin-top: 80px;
+            width: 50%;
+            margin-left: 0;
+            .avt{
+                text-align: center;
+                margin-left: -100px;
+                width: 595px;
+                img{
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 100%;
+                }
+            }
+        
+            .name{
+                width: 500px;
+                margin: auto;
+                margin-top: 10px;
+                font-weight: bold;
+                font-size: 20px;
+                margin-left: -50px;
+                text-align: center;
             }
         }
-        .content{
-            padding-left: 20px;
-            font-size: 16px;
-            padding-top: 10px;
-            color: rgb(129, 129, 129);
+    
+        .about{
+            width: 50%;
+            height: 570px;
+            background-color: orange;
+            .inforall{
+                
+                background-color: white;
+                margin: 10px;
+                margin-top: 45px;
+                height: 270px;
+                width: 484px;
+                .infoo{
+                    padding-top: 10px;
+                    padding-left: 11px !important;
+                    margin-left: 32px;
+                    color: black;
+                    display: flex;
+                    padding-right: 10px;
+                    font-size: 16px;
+                    height: 55px;
+        
+                    .iconn{
+                        padding-right: 10px !important;
+                        padding-top: 0px !important;
+                        margin: 0 !important;
+                        img{
+                            height: 20px;
+                            width: 20px;
+                            padding: auto;
+                        }
+                    }
+                    .contentt{
+                        text-align: left;
+                    }
+                }
+            }
+            
+            
         }
     }
+    .bot{
+        
+        width: 95%;
+        height: fit-content;
+        margin: auto;
+        margin-top: 20px;
+        padding-bottom: 30px;
+    }
     
+    }
+    
+
+    .btn-xemcv{
+        background-color: orange;
+        border: none;
+        color: white;
+        width: 100px;
+        height: 35px;
+        border-radius: 5px;
+        margin-left: 10px;
+        margin-top: 50px;
+        font-weight: 500;
+        float: left;
+
+    }
+    .btn-quaylai:hover{
+        background-color: white;
+        border: 2px solid orange;
+        color: orange;
+
+    }
+
+//CV
+.allcontainer{
+    margin-left: -40px !important;
+    margin-top: 35px !important;
+    .container{
+        background-color: rgb(65, 65, 65) !important;
+        width: 80% !important;
+        height: fit-content;
+        border-top: 12px solid rgb(65, 65, 65);
+        border-bottom: 12px solid rgb(65, 65, 65);
+        display: flex; 
+        margin: auto;
+        font-family: 'Poppins', sans-serif !important;
+    
+       .content-CV{
+           font-size: 13px;
+           text-indent: 10px;
+    
+       }
+       .form-control{
+           width: 300px;
+           margin-left: 18px;
+           margin-top: 10px;
+       }
+    
+    
+        .text-left{
+           margin-top: 30px;
+           text-align: left;
+           padding-left: 18px;
+       }
+       .titleCV{
+           font-weight: bold;
+           margin-bottom: 20px;
+           background-color: rgb(255, 255, 255);
+           color: rgb(0, 0, 0);
+           border-end-end-radius: 20px;
+           height: 40px;
+           width: fit-content;
+           padding-right: 30px;
+           padding-left: 20px;
+           padding-top: 8px;
+           margin-bottom: 20px;
+       }
+       .titleCV-right{
+           font-weight: bold;
+           background-color: rgb(49, 49, 49);
+           color: white;
+           border-end-end-radius: 20px;
+           height: 40px;
+           width: fit-content;
+           padding-right: 20px;
+           padding-left: 20px;
+           padding-top: 8px;
+           margin-bottom: 20px;
+       }
+    
+    
+        .left{
+            
+           border: none !important;
+           width: 1040px !important;
+           height: 100% !important;
+           background-color: yellow;
+           display: flex;
+           margin: auto;
+           color: white;
+    
+           .l-left{
+               width: 40%;
+               padding-top: 40px;
+               background-color: rgb(49, 49, 49);
+               padding-bottom: 40px;
+               .avatar{
+                   text-align: center;
+                   img{
+                    height: 150px !important;
+                    width: 150px !important;
+                    border-radius: 100%;
+                   }
+               }
+               .name{
+                    text-align: center;
+               }
+               .line-border{
+                   height: 10px;
+                   width: 150px;
+                   margin: auto;
+                   border-bottom: 1px solid white;
+               }
+               .chuyennganh{
+                   font-size: 20px;
+                   text-align: center;
+               }
+    
+               .vebanthan{
+                   margin-top: 30px;
+               }
+    
+               .kynang{
+                margin-top: 0px !important;
+               }
+    
+    
+           }
+    
+           .r-left{
+               background-color: white;
+               color: black !important;
+               padding-bottom: 30px;
+               width: 60%;
+    
+               .kinhnghiem{
+    
+               }
+    
+               .giaoduc{
+    
+               }
+    
+               .duan{
+    
+               }
+    
+               .khac{
+               }
+           }
+        }
+    }
 }

@@ -94,7 +94,7 @@ function ModalEditStudent(props) {
                             <select class="form-select" aria-label="Default select example"
                                 onChange={(event) => setStudent({ ...student, gender: event.currentTarget.value })}
                             >
-                                {student?.gender == true ? <option selected>Nam</option> : <option selected>Nữ</option>}
+                                {student?.gender == "true" ? <option selected>Nam</option> : <option selected>Nữ</option>}
                                 <option value={true}>
                                     Nam
                                 </option>
@@ -120,14 +120,14 @@ function ModalEditStudent(props) {
                                 value={student?.email}
                             ></input>
                         </div>
-                        <div class="form-group">
+                        {/* <div class="form-group">
                             <label>Facebook:</label>
                             <input class="form-control"
                                 placeholder="nhập địa chỉ facebook"
                             >
 
                             </input>
-                        </div>
+                        </div> */}
                         <label>Giới thiệu:</label>
                         <div class="gioithieu">
                             <JoditEditor class="dec" ref={editor}

@@ -85,12 +85,37 @@
                 font-weight: bold;
             }
             .listfollow{
-                height: 300px;
+                height: 220px;
                 width: 500px;
                 margin: auto;
                 border-radius: 5px;
                 background-color: white;
-
+                .useritem{
+                    border: solid #d8d5d5 1px;
+                    border-radius: 4px;
+                    height: 68px;
+                    width: 480px;
+                    color: black;
+                    display: flex;
+                    margin: 10px;
+                    padding: 10px;
+                    box-shadow: 1px 1px #f0ecec;
+                    .icon{
+                        padding: 5px;
+                        img{
+                            border: solid black 1px;
+                            height: 35px;
+                            width: 35px;
+                            padding: auto;
+                        }
+                    }
+                    .content{
+                        padding-left: 20px;
+                        font-size: 16px;
+                        padding-top: 10px;
+                        color: rgb(129, 129, 129);
+                    }
+                }
                 .jobItem{
                 border: solid #d8d5d5 1px;
                 border-radius: 4px;

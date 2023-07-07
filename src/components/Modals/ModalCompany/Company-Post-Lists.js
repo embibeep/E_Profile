@@ -5,6 +5,7 @@ import Footer from "../../Footer/footer"
 import "./ListPosts.scss"
 import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalViewCV, ModalViewPost } from "../../../components/Modals";
 import ModalAddPost from "../../../components/Modals/ModalPost/ModalAddPost";
+import ModalAddPostNew from "../../../components/Modals/ModalPost/ModalAddPostNew";
 
 import HTMLReactParser from "html-react-parser";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
@@ -119,22 +120,35 @@ class PostLists extends Component {
             job: {}
         })
     }
+    handlePopUp2 = (job) => {
+        this.setState({
+            job: { ...job },
+            isAddPost: true
+        })
+    }
 
+
+    togglePopUp2 = () => {
+        this.setState({
+            isAddPost: !this.state.isAddPost,
+            job: {}
+        })
+    }
+
+    
     render() {
 
 
         return (
             <>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
-                integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+                    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link>
 
                 <div className='btnExit'>
                     <Link to={path.COMUSER} >
                         <button className='btnn'>Quay Lại Hồ Sơ</button>
                     </Link>
                 </div>
-
-
 
                 <div className='listPosts'>
                     <div className='top'>

@@ -5,10 +5,7 @@ import messageIcon from "../../assets/images/messageIcon.png";
 import notificationIcon from "../../assets/images/notificationIcon.png";
 import "./Nav.scss"
 import path from "../../utils/constant.js";
-import {
-    Link,
-    NavLink
-} from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 
 class Nav extends React.Component {
 

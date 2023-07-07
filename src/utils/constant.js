@@ -12,7 +12,8 @@ const path = {
     COMUSER: `/company-user`,
     POSTLISTS: `/post-lists`,
     XemCV: `/Xemcv`,
-    EditCV: `/editcv`,
+    EditCV: `/editcv`
+
 };
 
 export default path;

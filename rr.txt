@@ -1,61 +1,292 @@
- <Modal isOpen={this.state.isViewPost}
-                                toggleFromParent={this.togglePopUp()}
-                                className={'modal-ModalViewPost'}
-                                size='lg'
-                                centered='true'
-                                scrollable='true'
-                            >
+import React, { useEffect, useState, useRef, useMemo } from 'react';
+import '../../../routes/User/Students/St-User.scss';
+import iconbithday from "../../../assets/images/icons-birthday.png"
+import phone from "../../../assets/images/phone.png"
+import address from "../../../assets/images/address.png"
+import email from "../../../assets/images/email.png"
+import facebook from "../../../assets/images/facebook.png"
+import gender from "../../../assets/images/gender.png"
+import profileIcon from "../../../assets/images/profileIcon.png"
+import lachongImg from "../../../assets/images/lachongImg.jpg"
+import { ModalAvtStudentChange, ModalBGStudentChange, ModalEditStudent, ModalUploadCV, ModalViewPost } from "../../../components/Modals";
+import ModalXemCV from "../../../components/Modals/ModalStudent/XacNhanDangNhap"
+import iconFollow from "../../../assets/images/iconFollow.png"
+import Footer from "../../../components/Footer/footer";
+import Nav from "../../../components/Navigation/Nav";
+import path from "../../../utils/constant";
+import HTMLReactParser from "html-react-parser";
+import { Link,NavLink} from "react-router-dom";
+import SaveIdStudent from "../ModalPost/SaveIdStudent";
 
-                                <ModalHeader className='titlee' toggle={() => { this.toggle() }}>Thông tin bài tuyển</ModalHeader>
-                                <ModalBody>
-                                    <div className="jobinfo">
-                                        <div className="avt-name">
-                                            <div className="avt">
-                                                <img src={lachongImg} />
+
+
+
+function ViewProfileStudent(props) {
+
+    const [isXemCV, setisXemCV] = useState(false);
+    const [isUploadCV, setisUploadCV] = useState(false);
+    const [isAvtStudentChange, setisAvtStudentChange] = useState(false);
+    const [isBGStudentChange, setisBGStudentChange] = useState(false);
+    const [isEditStudent, setisEditStudent] = useState(false);
+    const [isViewPost, setisViewPost] = useState(false);
+    const [sinhvien, setsinhvien] = useState([]);
+    const [job, setjob] = useState({});
+    const [response, setresponse] = useState([]);
+
+
+    useEffect(() => {
+        loadStudent();
+        loadListJobs();
+
+    }, [])
+
+
+
+    const loadListJobs = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "collection": "Job",
+            "pipeline": [
+                {
+                    "$match": {}
+                },
+                {
+                    "$lookup": {
+                        "from": "Company",
+                        "localField": "company",
+                        "foreignField": "_id",
+                        "as": "company"
+                    }
+                },
+                {
+                    "$unwind": "$company"
+                },
+                {
+                    "$lookup": {
+                        "from": "Student",
+                        "localField": "candidates",
+                        "foreignField": "_id",
+                        "as": "candidates"
+                    }
+                },
+            ]
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/api/v1", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                setresponse({ response: result })
+            })
+            .catch(error => console.log('error', error));
+    }
+
+    ////////////
+    const loadStudent = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MzkyNzEsInN1YiI6IjY0OTY2YmQ3ZjQ0YjViOTYwMTFjM2Q3OSJ9.s7fH2XgnM_gN8kV0X4VvSYb6O_MbAZQP_0nQo9rYYT0");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders
+        };
+
+        fetch("http://localhost:8080/api/auth/credential-state", requestOptions)
+            .then(sinhvien => sinhvien.json())
+            .then(result => {
+                setsinhvien({ sinhvien: { ...result[0] } })
+            })
+            .catch(error => console.log('error', error)).finally(() => {
+                console.log(sinhvien)
+            });
+    }
+
+
+
+    const handlePopUp1 = () => {
+        setisXemCV({
+            isXemCV: true
+        })
+    }
+
+    const togglePopUp1 = () => {
+        setisXemCV({
+            isXemCV: !isXemCV
+        })
+    }
+
+    const handlePopUp2 = () => {
+        setisUploadCV({
+            isUploadCV: true
+        })
+    }
+
+    const togglePopUp2 = () => {
+        setisUploadCV({
+            isUploadCV: !isUploadCV
+        })
+    }
+
+    const handlePopUp3 = () => {
+        setisAvtStudentChange({
+            isAvtStudentChange: true
+        })
+    }
+
+    const togglePopUp3 = () => {
+        setisAvtStudentChange({
+            isAvtStudentChange: !isAvtStudentChange
+        })
+    }
+
+    const handlePopUp4 = () => {
+        setisBGStudentChange({
+            isBGStudentChange: true
+        })
+    }
+
+    const togglePopUp4 = () => {
+        setisBGStudentChange({
+            isBGStudentChange: !isBGStudentChange
+        })
+    }
+
+    const handlePopUp5 = () => {
+        setisEditStudent({
+            isEditStudent: true
+        })
+    }
+
+    const togglePopUp5 = () => {
+        setisEditStudent({
+            isEditStudent: !isEditStudent
+        })
+    }
+
+    const handlePopUp6 = (job) => {
+        setjob({
+            job: job
+        })
+        setisViewPost({
+            isViewPost: true
+        })
+    }
+
+    const togglePopUp6 = () => {
+        setjob({
+            job: {}
+        })
+        setisViewPost({
+            isViewPost: !isViewPost
+        })
+    }
+
+
+    return (
+        <>
+        
+            <Nav />
+
+            <div className="all">
+                <div className="profileNV">
+
+                    <div className="pro-left">
+                        <div className="avt-name">
+                            <div className="avt">
+                            </div>
+                            <div className="name">{sinhvien?.credential?.name ?? ""}</div>
+                        </div>
+                        <div className="gioithieu">
+                            <div className="titleGT">Giới Thiệu</div>
+                            <div className="contentGT text-break">
+                                {HTMLReactParser(`${sinhvien?.credential?.introduce ?? ""}`)}
+                            </div>
+                        </div>
+
+                        <div className="info">
+                            <div className="icon"><img src={iconbithday} /></div>
+                            <div className="content">{sinhvien?.credential?.dateOfBirth ?? ""}</div>
+                        </div>
+                        <div className="info">
+                            <div className="icon"><img src={phone} /></div>
+                            <div className="content">{sinhvien?.credential?.phone ?? ""}</div>
+                        </div>
+                        <div className="info">
+                            <div className="icon"><img src={gender} /></div>
+                            {sinhvien?.credential?.gender === true ? <div className="content">Nam</div> : <div className="content">Nữ</div>
+                            }
+
+                        </div>
+                        <div className="info">
+                            <div className="icon"><img src={address} /></div>
+                            <div className="content">{sinhvien?.credential?.address ?? ""}</div>
+                        </div>
+                        <div className="info">
+                            <div className="icon"><img src={email} /></div>
+                            <div className="content">{sinhvien?.credential?.email ?? ""}</div>
+                        </div>
+                        <div className="info">
+                            <div className="icon"><img src={facebook} /></div>
+                            <div className="content">{sinhvien?.credential?.externalLink?.[0]?.link ?? ""}</div>
+                        </div>
+
+
+
+                    </div>
+                    <div className="pro-right">
+                        <div className="banner">
+                            <img src={lachongImg} />
+                        </div>
+                        <div className="listbutton">
+                            <Link to={path.XemCV}><button className="xemcv btn"> xem cv</button></Link>
+
+                        </div>
+
+                        <div className="follow">
+                            <div className="titlefollow">Công việc đã ứng tuyển</div>
+                            <div className="listfollow overflow-auto">
+                                {response.map(item => {
+                                    return <div className="jobItem" onClick={() => this.handlePopUp6(item)}>
+                                        <div className="Top-Job">
+                                            <div className="icon">
+                                                <img className="avtCompany" src={profileIcon} alt="avata công ty" />
                                             </div>
-                                            <div className="name">Công ty TNHH PGcom Group</div>
-                                            <button className="btnUngTuyen">Ứng tuyển</button>
+                                            <div className="Top-Left">
+                                                <div className="nameJob">
+                                                    {item.title}
+                                                </div>
+                                                <div className="nameCompany">
+                                                    {item.company.name}
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="info">
-                                            <div className="jobname fl">
-                                                <div className="title">Tên công việc:</div>
-                                                <div className="content">NODEJS TEAM LEADER</div>
-                                            </div>
-                                            <div className="salary fl">
-                                                <div className="title">Mức lương:</div>
-                                                <div className="content">15tr - 16tr</div>
-                                            </div>
-                                            <div className="kinhnghiem fl">
-                                                <div className="title">Kinh nghiệm:</div>
-                                                <div className="content">2 năm</div>
-                                            </div>
-                                            <div className="hantuyen fl">
-                                                <div className="title">Hạn tuyển:</div>
-                                                <div className="content">15/02/2024</div>
-                                            </div>
-                                            <div className="email fl">
-                                                <div className="title">Email:</div>
-                                                <div className="content">huydoannguyen9@gmail.com</div>
-                                            </div>
-                                            <div className="address fl">
-                                                <div className="title">Địa chỉ:</div>
-                                                <div className="content">Tầng 9, Tháp C, Toà nhà Hồ Gươm Plaza, 102 Trần Phú, Phường Mộ Lao, Quận Hà Đông, Thành phố Hà Nội</div>
-                                            </div>
-                                            <div className="gioithieu">
-                                                <div className="title text-break">Mô tả công việc:</div>
-                                                <div className="content">- Ít nhất 03 năm kinh nghiệm phát triển các sản phẩm/dự án xây dựng bằng ngôn ngữ NodeJS và React (hoặc công nghệ Frontend tương đương như Vue, Angular, và có sẵn sàng sử dụng React), trong đó có ít nhất 01 đến 02 năm kinh nghiệm quản lý team;<br></br>
-                                                    - Có kinh nghiệm làm việc với mô hình Agile, làm việc với Database NoSQL, Mongo hoặc Firestore;<br></br>
-                                                    - Có kinh nghiệm với điện toán đám mây, một trong: Google Cloud, FireBase, AWS, Kiến trúc hệ thống Microservice là một lợi thế;<br></br>
-                                                    - Khả năng đọc hiểu Tiếng Anh tốt, ham tìm tòi kiến thức mới là một điểm cộng;<br></br>
-                                                    - Có khả năng làm việc đội nhóm, Khả năng quản lý đội nhóm;<br></br>
-                                                    - Ứng viên có đức tính tỉ mỉ trong công việc làm Product, đặt chất lượng sản phẩm và trải nghiệm người dùng là ưu tiên hàng đầu.</div>
-                                            </div>
-                                        </div>
-
-
-
                                     </div>
-                                </ModalBody>
+                                })}
 
+                                <ModalViewPost
+                                    isOpen={isViewPost}
+                                    toggleFromParent={togglePopUp6}
+                                    job={job}
+                                />
 
-                            </Modal>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <Footer />
+        </>
+    )
+}
+
+export default ViewProfileStudent;

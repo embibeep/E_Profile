@@ -5,7 +5,7 @@ import ModalViewCompany from "../../components/Modals/ModalPost/ModalViewCompany
 import Footer from "../../components/Footer/footer.js"
 import Nav from "../../components/Navigation/Nav.js";
 import HTMLReactParser from "html-react-parser";
-
+import ViewProfileCompany from "../../components/Modals/ModalCompany/ViewProfileCompany"
 import path from '../../utils/constant';
 class Company extends React.Component {
 
@@ -13,7 +13,8 @@ class Company extends React.Component {
         super(props);
         this.state = {
             isViewPost: false,
-            res: []
+            res: [],
+            infor: {}
         }
     }
 
@@ -50,15 +51,17 @@ class Company extends React.Component {
             .catch(error => console.log('error', error));
     }
 
-    handlePopUp = () => {
+    handlePopUp = (infor) => {
         this.setState({
+            infor: { ...infor },
             isViewPost: true
         })
     }
 
     togglePopUp = () => {
         this.setState({
-            isViewPost: !this.state.isViewPost
+            isViewPost: !this.state.isViewPost,
+            infor: {}
         })
     }
 
@@ -78,7 +81,7 @@ class Company extends React.Component {
 
                     <div className="list-company row justify-content-center">
                         {this.state.res.map(item => {
-                            return <div className="company-item col-6">
+                            return <div className="company-item col-6" onClick={() => this.handlePopUp(item)}>
 
                                 <div className="banner">
                                 </div>
@@ -98,6 +101,12 @@ class Company extends React.Component {
                                 </div> */}
                             </div>
                         })}
+                        <ViewProfileCompany
+                            isOpen={this.state.isViewPost}
+                            toggleFromParent={this.togglePopUp}
+                            infor={this.state.infor}
+                        />
+
 
                     </div>
 

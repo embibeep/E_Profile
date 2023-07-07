@@ -9,6 +9,7 @@ import gender from "../../../assets/images/gender.png"
 import profileIcon from "../../../assets/images/profileIcon.png"
 import lachongImg from "../../../assets/images/lachongImg.jpg"
 import { ModalAvtStudentChange, ModalBGStudentChange, ModalEditStudent, ModalUploadCV, ModalViewPost } from "../../../components/Modals";
+import ModalbannerStudentChange from "../../../components/Modals/ModalStudent/BannerChange"
 import ModalXemCV from "../../../components/Modals/ModalStudent/XacNhanDangNhap"
 import iconFollow from "../../../assets/images/iconFollow.png"
 import Footer from "../../../components/Footer/footer";
@@ -34,6 +35,7 @@ class StUser extends React.Component {
             isBGStudentChange: false,
             isEditStudent: false,
             isViewPost: false,
+            isbannerStudentChange: false,
             sinhvien: [],
             job: {},
             response: []
@@ -142,18 +144,28 @@ class StUser extends React.Component {
         })
     }
 
-    handlePopUp3 = () => {
+    handlePopUp = () => {
         this.setState({
             isAvtStudentChange: true
         })
     }
 
-    togglePopUp3 = () => {
+    togglePopUp = () => {
         this.setState({
             isAvtStudentChange: !this.state.isAvtStudentChange
         })
     }
+    handlePopUp33 = () => {
+        this.setState({
+            isbannerStudentChange: true
+        })
+    }
 
+    togglePopUp33 = () => {
+        this.setState({
+            isbannerStudentChange: !this.state.isbannerStudentChange
+        })
+    }
     handlePopUp4 = () => {
         this.setState({
             isBGStudentChange: true
@@ -223,7 +235,7 @@ class StUser extends React.Component {
                             </div>
                             <div className="info">
                                 <div className="icon"><img src={gender} /></div>
-                                {this.state.sinhvien?.credential?.gender === true ? <div className="content">Nam</div> : <div className="content">Nữ</div>
+                                {this.state.sinhvien?.credential?.gender == "true" ? <div className="content">Nam</div> : <div className="content">Nữ</div>
                                 }
 
                             </div>
@@ -235,10 +247,10 @@ class StUser extends React.Component {
                                 <div className="icon"><img src={email} /></div>
                                 <div className="content">{this.state.sinhvien?.credential?.email ?? ""}</div>
                             </div>
-                            <div className="info">
+                            {/* <div className="info">
                                 <div className="icon"><img src={facebook} /></div>
                                 <div className="content">{this.state.sinhvien?.credential?.externalLink?.[0]?.link ?? ""}</div>
-                            </div>
+                            </div> */}
 
 
 
@@ -253,17 +265,21 @@ class StUser extends React.Component {
 
 
 
-                                <button className="editavt btn" onClick={() => this.handlePopUp3()}> đổi avatar</button>
+                                <button className="editavt btn" onClick={() => this.handlePopUp()}> đổi avatar</button>
 
                                 <ModalAvtStudentChange
                                     isOpen={this.state.isAvtStudentChange}
-                                    toggleFromParent={this.togglePopUp3} />
+                                    toggleFromParent={this.togglePopUp} 
+                                    avtsinhvien = {this.state.sinhvien.credential}
+                                    />
 
-                                <button className="editavt btn" onClick={() => this.handlePopUp3()}> đổi banner</button>
+                                <button className="editavt btn" onClick={() => this.handlePopUp33()}> đổi banner</button>
 
-                                <ModalAvtStudentChange
-                                    isOpen={this.state.isAvtStudentChange}
-                                    toggleFromParent={this.togglePopUp3} />
+                                <ModalbannerStudentChange
+                                    isOpen={this.state.isbannerStudentChange}
+                                    toggleFromParent={this.togglePopUp33} 
+                                    bannersinhvien = {this.state.sinhvien.credential}
+                                    />
 
 
                                 <ModalBGStudentChange
