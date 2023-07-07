@@ -21,11 +21,15 @@
         box-shadow: 1px 1px #f0ecec;
 
         .banner{
-            background-image: url(../../assets/images/lachongImg.jpg);
-            height: 110px;
-            width: 100%;
-            background-repeat: no-repeat;
-            border-radius: 5px;
+            border-bottom: 1px solid rgb(199, 199, 199);
+            img{
+                flex-shrink: 0;
+                object-fit: cover;
+                height: 110px;
+                width: 100%;
+                background-repeat: no-repeat;
+                border-radius: 5px;
+            }
         }
 
         .title{
@@ -35,12 +39,17 @@
             margin-left: 10px;
             
             .avt{
-                background-image: url("../../assets/images/lachongImg.jpg");
+                img{
                 height: 100px;
                 width: 100px;
                 border: solid orange 2px;
                 border-radius: 100%;
                 background-repeat: no-repeat;
+                object-fit: cover;
+                
+                }
+
+
             }
 
             .name{

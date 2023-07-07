@@ -80,7 +80,14 @@
             background-color: rgb(49, 49, 49);
             padding-bottom: 40px;
             .avatar{
-
+                img{
+                    flex-shrink: 0;
+                    object-fit: cover;
+                    height: 100px;
+                    width: 100px;
+                    background-repeat: no-repeat;
+                    border-radius: 100%;
+                }
             }
             .name{
 

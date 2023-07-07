@@ -84,10 +84,12 @@ class Company extends React.Component {
                             return <div className="company-item col-6" onClick={() => this.handlePopUp(item)}>
 
                                 <div className="banner">
+                                    <img src={item.banner}></img>
                                 </div>
 
                                 <div className="title">
                                     <div className="avt">
+                                    <img src={item.avatar}></img>
                                     </div>
                                     <div className="name">
                                         {item.name}

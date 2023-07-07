@@ -109,7 +109,7 @@ export class SimpleSlider extends React.Component {
 
                             <div className="Top-Job">
                                 <div className="icon">
-                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                                    <img className="avtCompany" src={item.company.avatar} />
                                 </div>
                                 <div className="Top-Left">
                                     <div className="nameJob">

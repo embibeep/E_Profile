@@ -18,6 +18,7 @@ import Footer from "../../../components/Footer/footer";
 import { Link } from "react-router-dom";
 import path from "../../../utils/constant";
 import ModalViewFollow from "../../../components/Modals/ModalStudent/ViewFollow"
+import ModalbannerCompanyChange from "../../../components/Modals/ModalCompany/BannerChange"
 import HTMLReactParser from "html-react-parser";
 class ComUser extends React.Component {
 
@@ -36,7 +37,8 @@ class ComUser extends React.Component {
             response: {},
             isShowUserFollow: false,
             userFollow: {},
-            isUserFollow: false
+            isUserFollow: false,
+            isbannerCompanyChange: false
         }
     }
 
@@ -129,6 +131,17 @@ class ComUser extends React.Component {
             isAvtCompanyChange: !this.state.isAvtCompanyChange
         })
     }
+    handlePopUp11 = () => {
+        this.setState({
+            isbannerCompanyChange: true
+        })
+    }
+
+    togglePopUp11 = () => {
+        this.setState({
+            isbannerCompanyChange: !this.state.isbannerCompanyChange
+        })
+    }
 
     handlePopUp2 = () => {
 
@@ -215,6 +228,7 @@ class ComUser extends React.Component {
                         <div className="pro-left">
                             <div className="avt-name">
                                 <div className="avt">
+                                    <img style={{ flexShrink: "0", objectFit: "cover" }} src={this.state.response?.credential?.avatar ?? ""} />
                                 </div>
                                 <div className="name">{this.state.response?.credential?.name ?? ""}</div>
                             </div>
@@ -227,7 +241,9 @@ class ComUser extends React.Component {
 
                         </div>
                         <div className="pro-right">
-
+                            <div className="banner">
+                                <img style={{ flexShrink: "0", minWidth: "510px", minHeight: "210px", objectFit: "cover" }} src={this.state.response?.credential?.banner ?? ""} />
+                            </div>
                             <div className="listbutton">
                                 <button className="editavt btn" onClick={() => this.handlePopUp1()}> đổi avatar</button>
 
@@ -235,7 +251,16 @@ class ComUser extends React.Component {
                                     isOpen={this.state.isAvtCompanyChange}
                                     toggleFromParent={this.togglePopUp1}
                                     loadProfileCompany={this.loadProfileCompany}
-                                    profile={this.state.response.credential}
+                                    avtcompany={this.state.response.credential}
+                                    test={'abc'} />
+
+                                <button className="editavt btn" onClick={() => this.handlePopUp11()}> đổi banner</button>
+
+                                <ModalbannerCompanyChange
+                                    isOpen={this.state.isbannerCompanyChange}
+                                    toggleFromParent={this.togglePopUp11}
+                                    loadProfileCompany={this.loadProfileCompany}
+                                    bannercompany={this.state.response.credential}
                                     test={'abc'} />
 
                                 <Link to={path.POSTLISTS} className="editbanner btn" >
@@ -249,7 +274,6 @@ class ComUser extends React.Component {
                                     loadProfileCompany={this.loadProfileCompany}
                                     profile={this.state.response.credential}
                                     test={'abc'} />
-
 
                             </div>
                             <div className="infoall">
@@ -279,7 +303,8 @@ class ComUser extends React.Component {
                                         return <div className="jobItem" onClick={() => this.handlePopUp6(item.candidates)}>
                                             <div className="Top-Job">
                                                 <div className="icon">
-                                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                                                    <img style={{ flexShrink: "0", minWidth: "40px", minHeight: "40px", objectFit: "cover" }} src={item.company?.avatar ?? ""} />
+
                                                 </div>
                                                 <div className="Top-Left">
                                                     <div className="nameJob">
@@ -301,7 +326,7 @@ class ComUser extends React.Component {
                                     {this.state.candidates?.map(item => {
                                         // onClick={() => this.handlePopUp6(item.candidates)}
                                         return <div className="useritem" onClick={() => this.handlePopUp7(item)}>
-                                            <div className="icon object-fit: fill"><img src={profileIcon} /></div>
+                                            <div className="icon object-fit: fill"><img style={{ flexShrink: "0", minWidth: "40px", minHeight: "40px", objectFit: "cover" }} src={item.avatar ?? ""} /></div>
                                             <div className="content">{item.name}</div>
                                         </div>
                                     })}

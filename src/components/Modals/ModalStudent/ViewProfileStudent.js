@@ -56,6 +56,7 @@ function ViewProfileStudent(props) {
                             <div className="pro-left">
                                 <div className="avt-name">
                                     <div className="avt">
+                                    <img style={{ flexShrink: "0", minWidth: "510px", minHeight: "210px", objectFit: "cover" }} src={this.state.response?.credential?.banner ?? ""} />
                                     </div>
                                     <div className="name">name</div>
                                 </div>

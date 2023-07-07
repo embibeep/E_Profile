@@ -55,7 +55,8 @@ function ModalViewFollow(props) {
                             <div className='top'>
                                 <div className="avt-name">
                                     <div className="avt">
-                                        <img src={lachongImg} />
+                                        <img style={{ flexShrink: "0", minWidth: "90px", minHeight: "90px", objectFit: "cover" }} src={userFollow?.avatar} />
+
                                     </div>
                                     <div className="name">{userFollow?.name}</div>
                                     <div className='bot'>
@@ -99,7 +100,7 @@ function ModalViewFollow(props) {
                                 <div className="left">
                                     <div className="l-left">
                                         <div className="avatar">
-                                            <img src={profileIcon}></img>
+                                        <img style={{ flexShrink: "0", minWidth: "90px", minHeight: "90px", objectFit: "cover" }} src={userFollow?.avatar} />
                                         </div>
                                         <div className="name">
                                             {userFollow?.name}

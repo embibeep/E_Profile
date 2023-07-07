@@ -112,7 +112,7 @@ class ModalViewPost extends Component {
                         <div className="jobinfo">
                             <div className="avt-name">
                                 <div className="avt">
-                                    <img src={lachongImg} />
+                                <img style={{ flexShrink: "0", minWidth: "90px", minHeight: "90px", objectFit: "cover" }} src={this.props.job?.company?.avatar} />
                                 </div>
                                 <div className="name">{this.props.job?.company?.name ?? ""}</div>
                                 <div className="name"></div>

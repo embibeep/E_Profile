@@ -5,78 +5,48 @@ import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import './ModalAddPost.scss'
 import lachongImg from "../../../assets/images/lachongImg.jpg"
 
-function ModalAddPost(props) {
+function ModalAddPostt(props) {
 
-    const [job, setJob] = useState({})
+    const [res, setResponse] = useState(({}))
+    const [tencongviec, settencongviec] = useState("")
+    const [mucluong, setmucluong] = useState("")
+    const [kinhnghiem, setkinhnghiem] = useState("")
+    const [email, setemail] = useState("")
+    const [diachi, setdiachi] = useState("")
+    const [hantuyen, sethantuyen] = useState("")
+    const [yeucau, setyeucau] = useState("")
 
-    useEffect(() => {
-        setJob({ ...props.job })
-    }, [props.job])
+    const handlechangetencongviec = (event) => {
+        settencongviec(event.target.value)
+    }
+    const handlechangeml = (event) => {
+        setmucluong(event.target.value)
+    }
+    const handlechangekn = (event) => {
+        setkinhnghiem(event.target.value)
+    }
+    const handlechangee = (event) => {
+        setemail(event.target.value)
+    }
+    const handlechangedc = (event) => {
+        setdiachi(event.target.value)
+    }
+    const handlechangeht = (event) => {
+        sethantuyen(event.target.value)
+    }
+    const handlechangeyc = (event) => {
+        setyeucau(event.target.value)
+    }
+
+
+
 
     const editor = useRef(null);
-    const [content, setContent] = useState('');
 
-    // const handleChangeCompanyname = (event) => {
-    // }
-    const handleChangeJobname = (event) => {
-        setJob({
-            ...job,
-            title: event.currentTarget.value
-        })
-    }
-    const handleChangeSalary = (event) => {
-        setJob({
-            ...job,
-            salary: event.currentTarget.value
-        })
-    }
-    const handleChangeExp = (event) => {
-        setJob({
-            ...job,
-            exp: event.currentTarget.value
-        })
-    }
-    const handleChangeEmail = (event) => {
-        setJob({
-            ...job,
-            email: event.currentTarget.value
-        })
-    }
-    const handleChangeAddress = (event) => {
-        setJob({
-            ...job,
-            address: event.currentTarget.value
-        })
-    }
-    const handleChangeDate = (event) => {
-        setJob({
-            ...job,
-            expireDate: event.currentTarget.value
-        })
-    }
-    const handleChangeNote = (event) => {
-        setJob({
-            ...job,
-            description: event.currentTarget.onChange.newContent
-        })
-    }
-    const handleTaoMoi = (event) => {
-        setJob({
-            ...job,
-            title: "",
-            salary: "",
-            exp: "",
-            email: "",
-            address: "",
-            expireDate: "",
-            description: ""
+    useEffect(() => {
+        setResponse({ ...props.res })
+    }, [props.res])
 
-
-
-
-
-        })
-    }
     const handleThem = (event) => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -84,17 +54,16 @@ function ModalAddPost(props) {
         var raw = JSON.stringify({
             "collection": "Job",
             "document": {
-
-                "title": job.title,
-                "company": job.company._id,
+                "title": tencongviec,
+                "company": res.credential._id,
                 "quantity": 1,
-                "exp": job.exp,
-                "description": job.description,
-                "expireDate": job.expireDate,
-                "salary": job.salary,
+                "exp": kinhnghiem,
+                "description": yeucau,
+                "expireDate": hantuyen,
+                "salary": mucluong,
                 "candidates": [],
-                "address": job.address,
-                "email": job.email,
+                "address": diachi,
+                "email": email,
             }
         });
 
@@ -106,7 +75,7 @@ function ModalAddPost(props) {
         };
 
         fetch("http://localhost:8080/api/v1", requestOptions)
-            .then(response => response.text())
+            .then(res => res.text())
             .then(function (result) {
                 props.loadJob()
                 return console.log(result);
@@ -114,68 +83,6 @@ function ModalAddPost(props) {
             .catch(error => console.log('error', error));
         alert("Đăng bài thành công")
     }
-    const handleSua = (event) => {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var raw = JSON.stringify({
-            "collection": "Job",
-            "_id": job._id,
-            "modify": {
-                "title": job.title,
-                "salary": job.salary,
-                "exp": job.exp,
-                "email": job.email,
-                "address": job.address,
-                "expireDate": job.expireDate,
-                "description": job.description
-            }
-        });
-
-        var requestOptions = {
-            method: 'PATCH',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch("http://localhost:8080/api/v1", requestOptions)
-            .then(response => response.text())
-            .then(function (result) {
-                props.loadJob()
-                return console.log(result);
-            })
-            .catch(error => console.log('error', error));
-        alert("Cập nhật thành công ")
-
-    }
-    const handleXoa = (event) => {
-
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var raw = JSON.stringify({
-            "collection": "Job",
-            "_id": job._id
-        });
-
-        var requestOptions = {
-            method: 'DELETE',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch("http://localhost:8080/api/v1", requestOptions)
-            .then(response => response.text())
-            .then(function (result) {
-                props.loadJob()
-                return console.log(result);
-            })
-            .catch(error => console.log('error', error));
-        alert("Xóa thành công ");
-    }
-
 
 
     return (
@@ -203,21 +110,22 @@ function ModalAddPost(props) {
 
                             <div className="rec-title">
                                 <div className="rec-avt">
-                                    <img style={{ flexShrink: "0", minWidth: "90px", minHeight: "90px", objectFit: "cover" }} src={job?.company?.avatar} />
+                                    <img style={{ flexShrink: "0", minWidth: "90px", minHeight: "90px", objectFit: "cover" }} src={res?.credential?.avatar} />
 
                                 </div>
                                 <div className="rec-name">
                                     <input
-                                        value={job?.company?.name}
+                                        value={res?.credential?.name}
                                         type="text" className="rec-textbox tencongty"
                                         placeholder="Nhập tên công ty" />
                                     <br />
-
                                 </div>
                             </div>
-                            <div className="rec-jobname">
-                                <input onChange={handleChangeJobname}
-                                    value={job?.title}
+
+                            <div className="rec-resname">
+                                <input
+                                    onChange={handlechangetencongviec}
+                                    style={{ width: "98%", height: "50px", border: "none", marginLeft: "10px" }}
                                     type="text" className="rec-textbox"
                                     placeholder="Nhập tên công việc" />
                                 <br />
@@ -228,8 +136,7 @@ function ModalAddPost(props) {
                                     Mức lương
                                 </div>
                                 <div className="rec-decoration">
-                                    <input onChange={handleChangeSalary}
-                                        value={job?.salary}
+                                    <input onChange={handlechangeml}
                                         type="text" className="rec-textbox"
                                         placeholder="Nhập mức lương" />
                                     <br />
@@ -238,9 +145,8 @@ function ModalAddPost(props) {
                                     Kinh nghiệm
                                 </div>
                                 <div className="rec-decoration">
-                                    <input onChange={handleChangeExp}
+                                    <input onChange={handlechangekn}
                                         type="text" className="rec-textbox"
-                                        value={job?.exp}
                                         placeholder="Nhập yêu cầu số năm kinh nghiệm" />
                                     <label></label>
                                 </div>
@@ -248,9 +154,8 @@ function ModalAddPost(props) {
                                     Email
                                 </div>
                                 <div className="rec-decoration">
-                                    <input onChange={handleChangeEmail}
+                                    <input onChange={handlechangee}
                                         type="text" className="rec-textbox"
-                                        value={job?.email}
                                         placeholder="Nhập email" />
                                     <br />
                                 </div>
@@ -258,9 +163,8 @@ function ModalAddPost(props) {
                                     Địa chỉ
                                 </div>
                                 <div className="rec-decoration">
-                                    <input onChange={handleChangeAddress}
+                                    <input onChange={handlechangedc}
                                         type="text" className="rec-textbox diachi"
-                                        value={job?.address}
                                         placeholder="Nhập địa chỉ" />
                                     <br />
                                 </div>
@@ -269,9 +173,8 @@ function ModalAddPost(props) {
                                     Hạn tuyển
                                 </div>
                                 <div className="rec-decoration">
-                                    <input onChange={handleChangeDate}
+                                    <input onChange={handlechangeht}
                                         type="text" className="rec-textbox"
-                                        value={job?.expireDate}
                                         placeholder="Nhập hạn tuyển" />
                                     <br />
                                 </div>
@@ -285,22 +188,13 @@ function ModalAddPost(props) {
                                 <div className="rec-decoration">
 
                                     <JoditEditor className='mota' ref={editor}
-                                        onChange={function (newContent) {
-                                            Object.keys(job).length == 0 ? setJob({ ...props.job, description: newContent }) : setJob({ ...job, description: newContent });
-                                        }}
+                                        onChange={(yc) => setyeucau(yc)}
                                         placeholder="Nhập mô tả hoặc yêu cầu công việc"
-                                        value={job?.description ?? props.job.description}
                                     />
-
-
                                 </div>
                             </div>
                             <div className="footer-recinfo">
-
-                                {/* <Button type="submit" onClick={handleThem} className="btn-submit">Đăng bài tuyển</Button> */}
-                                <Button type="submit" onClick={handleSua} className="btn-submit">Cập nhật</Button>
-                                <Button type="submit" onClick={handleXoa} className="btn-submit">Xóa bài tuyển</Button>
-                                {/* <Button type="submit" onClick={handleTaoMoi} className="btn-submit">Tạo mới</Button> */}
+                                <Button type="submit" onClick={handleThem} className="btn-submit">Đăng bài tuyển</Button>
                             </div>
                         </div>
 
@@ -312,4 +206,4 @@ function ModalAddPost(props) {
     )
 
 }
-export default ModalAddPost;
+export default ModalAddPostt;

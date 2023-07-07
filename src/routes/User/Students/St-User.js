@@ -82,7 +82,7 @@ class StUser extends React.Component {
                 },
             ]
         });
-
+ 
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
@@ -101,7 +101,7 @@ class StUser extends React.Component {
     ////////////
     loadStudent = () => {
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MzkyNzEsInN1YiI6IjY0OTY2YmQ3ZjQ0YjViOTYwMTFjM2Q3OSJ9.s7fH2XgnM_gN8kV0X4VvSYb6O_MbAZQP_0nQo9rYYT0");
+        myHeaders.append("Authorization", "Bearer " + localStorage.getItem("accessToken"));
 
         var requestOptions = {
             method: 'GET',
@@ -215,6 +215,7 @@ class StUser extends React.Component {
                         <div className="pro-left">
                             <div className="avt-name">
                                 <div className="avt">
+                                    <img style={{ flexShrink: "0", minWidth: "90px", minHeight: "90px", objectFit: "cover" }} src={this.state.sinhvien?.credential?.avatar ?? ""} />
                                 </div>
                                 <div className="name">{this.state.sinhvien?.credential?.name ?? ""}</div>
                             </div>
@@ -257,7 +258,7 @@ class StUser extends React.Component {
                         </div>
                         <div className="pro-right">
                             <div className="banner">
-                                <img src={lachongImg} />
+                                <img style={{ flexShrink: "0", minWidth: "510px", minHeight: "210px", objectFit: "cover" }} src={this.state.sinhvien?.credential?.banner ?? ""} />
                             </div>
                             <div className="listbutton">
                                 <Link to={path.XemCV}><button className="xemcv btn"> xem cv</button></Link>
@@ -269,17 +270,19 @@ class StUser extends React.Component {
 
                                 <ModalAvtStudentChange
                                     isOpen={this.state.isAvtStudentChange}
-                                    toggleFromParent={this.togglePopUp} 
-                                    avtsinhvien = {this.state.sinhvien.credential}
-                                    />
+                                    toggleFromParent={this.togglePopUp}
+                                    avtsinhvien={this.state.sinhvien.credential}
+                                    loadStudent={this.loadStudent}
+                                />
 
                                 <button className="editavt btn" onClick={() => this.handlePopUp33()}> đổi banner</button>
 
                                 <ModalbannerStudentChange
                                     isOpen={this.state.isbannerStudentChange}
-                                    toggleFromParent={this.togglePopUp33} 
-                                    bannersinhvien = {this.state.sinhvien.credential}
-                                    />
+                                    toggleFromParent={this.togglePopUp33}
+                                    bannersinhvien={this.state.sinhvien.credential}
+                                    loadStudent={this.loadStudent}
+                                />
 
 
                                 <ModalBGStudentChange
@@ -295,7 +298,7 @@ class StUser extends React.Component {
                                     student={this.state.sinhvien.credential} />
 
                             </div>
-
+ 
                             <div className="follow">
                                 <div className="titlefollow">Công việc đã ứng tuyển</div>
                                 <div className="listfollow overflow-auto">
@@ -303,7 +306,8 @@ class StUser extends React.Component {
                                         return <div className="jobItem" onClick={() => this.handlePopUp6(item)}>
                                             <div className="Top-Job">
                                                 <div className="icon">
-                                                    <img className="avtCompany" src={profileIcon} alt="avata công ty" />
+                                                    <img style={{ flexShrink: "0", minWidth: "40px", minHeight: "40px", objectFit: "cover" }} src={item.company?.avatar ?? ""} />
+
                                                 </div>
                                                 <div className="Top-Left">
                                                     <div className="nameJob">

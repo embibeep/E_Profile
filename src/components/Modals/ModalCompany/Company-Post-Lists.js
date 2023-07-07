@@ -5,6 +5,7 @@ import Footer from "../../Footer/footer"
 import "./ListPosts.scss"
 import { ModalAvtCompanyChange, ModalBGCompanyChange, ModalEditCompany, ModalViewCV, ModalViewPost } from "../../../components/Modals";
 import ModalAddPost from "../../../components/Modals/ModalPost/ModalAddPost";
+import ModalAddPostt from "../../../components/Modals/ModalPost/ModalAddPostt";
 import ModalAddPostNew from "../../../components/Modals/ModalPost/ModalAddPostNew";
 
 import HTMLReactParser from "html-react-parser";
@@ -24,7 +25,8 @@ class PostLists extends Component {
             isViewCV: false,
             job: {},
             response: {},
-            listjob: []
+            listjob: [],
+            isPost: false
         }
     }
 
@@ -120,6 +122,19 @@ class PostLists extends Component {
             job: {}
         })
     }
+
+    handlePopUpp = () => {
+        this.setState({
+            isPost: true
+        })
+    }
+
+
+    togglePopUpp = () => {
+        this.setState({
+            isPost: !this.state.isPost,
+        })
+    }
     handlePopUp2 = (job) => {
         this.setState({
             job: { ...job },
@@ -135,7 +150,7 @@ class PostLists extends Component {
         })
     }
 
-    
+
     render() {
 
 
@@ -147,7 +162,16 @@ class PostLists extends Component {
                 <div className='btnExit'>
                     <Link to={path.COMUSER} >
                         <button className='btnn'>Quay Lại Hồ Sơ</button>
-                    </Link>
+                    </Link>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button className='btnn' onClick={() => this.handlePopUpp()}>Đăng bài tuyển</button>
+
+                    <ModalAddPostt
+                        isOpen={this.state.isPost}
+                        toggleFromParent={this.togglePopUpp}
+                        loadJob={this.loadListJobs}
+                        res={this.state.response}
+                    />
+
                 </div>
 
                 <div className='listPosts'>

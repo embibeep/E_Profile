@@ -76,9 +76,9 @@ class Nav extends React.Component {
                             Công Ty
                         </NavLink>
 
-                        <NavLink to={path.USER} activeclassname="active">
+                        {/* <NavLink to={path.USER} activeclassname="active">
                             Hồ Sơ
-                        </NavLink>
+                        </NavLink> */}
 
                         {this.state.isLogin ? <NavLink to={path.LOGIN} onClick={this.LogoutAccount} activeclassname="active">
                             Đăng xuất

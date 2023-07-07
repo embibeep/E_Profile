@@ -7,7 +7,7 @@ import path from "../../../utils/constant";
 import { Link, NavLink } from "react-router-dom";
 
 function XemCVhtml(props) {
- 
+
     const [responce, setResponce] = useState({});
 
     useEffect(() => {
@@ -17,7 +17,7 @@ function XemCVhtml(props) {
 
     const getCredential = () => {
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODc5MzkyNzEsInN1YiI6IjY0OTY2YmQ3ZjQ0YjViOTYwMTFjM2Q3OSJ9.s7fH2XgnM_gN8kV0X4VvSYb6O_MbAZQP_0nQo9rYYT0");
+        myHeaders.append("Authorization", "Bearer " + localStorage.getItem("accessToken"));
 
         var requestOptions = {
             method: 'GET',
@@ -45,7 +45,7 @@ function XemCVhtml(props) {
                 <div className="left">
                     <div className="l-left">
                         <div className="avatar">
-                            <img src={profileIcon}></img>
+                            <img src={responce?.credential?.avatar}></img>
                         </div>
                         <div className="name">
                             {responce?.credential?.name}

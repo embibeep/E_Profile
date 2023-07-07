@@ -53,7 +53,7 @@ function ViewProfileCompany(props) {
                     <div className='top'>
                         <div className="avt-name">
                             <div className="avt">
-                                <img src={lachongImg} />
+                            <img style={{ flexShrink: "0", minWidth: "90px", minHeight: "90px", objectFit: "cover" }} src={infor.banner ?? ""} />
                             </div>
                             <div className="name">{infor.name}</div>
                         </div>
